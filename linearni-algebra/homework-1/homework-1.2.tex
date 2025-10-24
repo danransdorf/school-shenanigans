@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol I}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+
+  \item \textbf{Řešení}:
+    
+    Princip: Osová souměrnost je zobrazení, které bodu $A$ přiřazuje obraz $A'$ takový,
+    že zadaná přímka $o$ prochází středem úsečky $AA'$ a úsečka $AA' \perp o$.
+    Z toho plyne, že zvolíme-li vektor $\mathbf{v}$ kolmý na $o$ takový, že $A+\mathbf{v} \in o$, pak $A' = A+2\mathbf{v}$.
+    Vektor $\mathbf{v}$ je kolmý na $o$, takže se musí dát vyjádřit jako $k$-násobek normálového vektoru $\mathbf{n}_o$ přímky $o$.
+    Z toho plyne:
+    \[
+      A' = A + 2k\mathbf{n}_o \quad , A + k\mathbf{n}_o \in o
+    \]
+    
+    Pro jednoduchost nejprve najděme obecnou rovnici přímky $p$ a z obecných rovnic najděme normálové vektory přímek.
+    \begin{align*}
+      p &= \{(1, 0) + t(0, 1) : t \in \mathbb{R}\} \\
+      (x, y) &= (1, 0) + t(0, 1) \\
+      x &= 1, \quad y = t \\
+      \Rightarrow\; x - 1 &= 0 \quad \text{(obecná rovnice přímky $p$)}
+    \end{align*}
+    \[
+      \mathbf{n}_p = (1, 0), \quad \mathbf{n}_q = (1, 1) \quad \text{(normálové vektory přímek)}
+    \]
+    \begin{enumerate}
+      \item
+      \begin{align*}
+        O_p: (x,y) &\mapsto (x,y) + 2k\mathbf{n}_p \quad , (x,y) + k\mathbf{n}_p \in p \\
+        O_p: (x,y) &\mapsto (x,y) + 2k\mathbf{n}_p \quad , (x,y) + (k, 0) \in p \\
+        O_p: (x,y) &\mapsto (x,y) + 2k(1,0) \quad , (x+k,y) \in p \\
+        O_p: (x,y) &\mapsto (x,y) + 2k(1,0) \quad , (x+k)-1=0 \quad \Leftrightarrow k=1-x \\
+        O_p: (x,y) &\mapsto (x,y) + 2(1-x)(1,0) \\
+        O_p: (x,y) &\mapsto (x+2-2x,y) \\
+        O_p: (x,y) &\mapsto \underline{\underline{(-x+2,y)}}
+      \end{align*}
+      \begin{align*}
+        O_q: (x,y) &\mapsto (x,y) + 2k\mathbf{n}_q \quad , (x,y) + k\mathbf{n}_q \in q \\
+        O_q: (x,y) &\mapsto (x,y) + 2k\mathbf{n}_q \quad , (x,y) + (k,k) \in q \\
+        O_q: (x,y) &\mapsto (x,y) + 2k(1,1) \quad , (x+k,y+k) \in q \\
+        O_q: (x,y) &\mapsto (x,y) + 2k(1,1) \quad , (x+k)+(y+k)=4 \quad \Leftrightarrow 2k=4-x-y \\
+        O_q: (x,y) &\mapsto (x,y) + (4-x-y)(1,1) \\
+        O_q: (x,y) &\mapsto (x+4-x-y, y+4-x-y) \\
+        O_q: (x,y) &\mapsto \underline{\underline{(4-y, 4-x)}}
+      \end{align*}
+
+      \item
+      \begin{align*}
+        O_p \circ O_q: (x,y) &\mapsto O_p(O_q(x,y)) \\
+        O_p \circ O_q: (x,y) &\mapsto O_p(a,b) \quad , (a,b) = O_q(x,y) \\
+        O_p \circ O_q: (x,y) &\mapsto (-a+2, b) \quad , (a,b) = (4-y, 4-x) \\
+        O_p \circ O_q: (x,y) &\mapsto (-(4-y)+2, 4-x) \quad \\
+        O_p \circ O_q: (x,y) &\mapsto \underline{\underline{(y-2, 4-x)}}
+      \end{align*}
+      \begin{align*}
+        O_q \circ O_p: (x,y) &\mapsto O_q(O_p(x,y)) \\
+        O_q \circ O_p: (x,y) &\mapsto O_q(a,b) \quad , (a,b) = O_p(x,y) \\
+        O_q \circ O_p: (x,y) &\mapsto (4-b, 4-a) \quad , (a,b) = (-x+2, y) \\
+        O_q \circ O_p: (x,y) &\mapsto (4-y, 4-(-x+2)) \\
+        O_q \circ O_p: (x,y) &\mapsto \underline{\underline{(4-y, x+2)}}
+      \end{align*}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol I}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item \textbf{Řešení}:
+    \[
+    p = \left\{ 
+      \begin{pmatrix} 1 \\ 2 \\ 4 \end{pmatrix} 
+      + t \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} 
+      \;:\; t \in \mathbb{R}
+    \right\}
+    \]
+    \begin{enumerate}
+      \item Pro která $a,b,c,d \in \mathbb{R}$ obsahuje rovina s obecnou rovnicí $ax+by+cz=d$ přímku $p$?
+
+        Taková rovina musí splňovat dvě kritéria: musí být rovnoběžná s přímkou, musí v rovině ležet alespoň jeden bod přímky.
+        
+        Rovnoběžnost vyšetříme porovnáním normálového vektoru roviny a směrového vektoru přímky.
+        Tyto vektory na sebe musí být kolmé. Zda v rovině leží alespoň jeden bod přímky
+        zjistíme dosazením pevného bodu $(1,2,4)$ do obecné rovnice roviny.
+
+        \begin{align*}
+          \begin{pmatrix}
+            a \\ b \\ c
+          \end{pmatrix} \cdot
+          \begin{pmatrix}
+            1 \\ 0 \\ 1
+          \end{pmatrix}
+          = 0 \\
+          a+c = 0 \\
+          c = -a
+      \end{align*}
+      \begin{align*}
+        a\cdot1 + b\cdot2 + c\cdot4 = d \\
+        a\cdot1 + b\cdot2 + (-a)\cdot4 = d \\
+        2b - 3a = d \\
+      \end{align*}
+      Pomocí proměnných $a,b$ dokážeme vyjádřit $c,d$. $a,b,c$ nesmí být 0, protože by pak útvar nebyl rovina.
+      Zvolme tedy parametry $t_1,t_2 \in \mathbb{R} \setminus \{0\}$ a dosaďme je za $a,b$:
+      \begin{align*}
+        a&=t_1 \\
+        b&=t_2 \\
+        c&=-a=-t_1 \\
+        d&=2b-3a=2t_2-3t_1 \\
+        \begin{pmatrix}
+          a \\ b \\ c \\ d
+        \end{pmatrix} &=
+        \begin{pmatrix}
+          t_1 \\ t_2 \\ -t_1 \\ 2t_2-3t_1
+        \end{pmatrix} =
+        \begin{pmatrix}
+          t_1 \\ 0 \\ -t_1 \\ -3t_1
+        \end{pmatrix} +
+        \begin{pmatrix}
+          0 \\ t_2 \\ 0 \\ 2t_2
+        \end{pmatrix} = t_1
+        \begin{pmatrix}
+          1 \\ 0 \\ -1 \\ -3
+        \end{pmatrix} +
+        t_2
+        \begin{pmatrix}
+          0 \\ 1 \\ 0 \\ 2
+        \end{pmatrix}
+      \end{align*}
+      \[
+        \underline{\underline{
+          \begin{pmatrix}
+            a \\ b \\ c \\ d
+          \end{pmatrix} \in \left\{
+            t_1
+            \begin{pmatrix}
+              1 \\ 0 \\ -1 \\ -3
+            \end{pmatrix} +
+            t_2
+            \begin{pmatrix}
+              0 \\ 1 \\ 0 \\ 2
+            \end{pmatrix} 
+            \quad \middle| \quad t_1,t_2 \in \mathbb{R} \setminus \{0\} 
+            \right\} 
+          }}
+      \]
+
+      \item Dosazením $t_1,t_2=1$ získáme první rovnici roviny, která obsahuje přímku. Dosazením $t_1=1,t_2=2$ dostaneme druhou.
+            \[
+            t_1,t_2=1 \;\Rightarrow\; \begin{pmatrix}
+              a\\b\\c\\d
+            \end{pmatrix} = \begin{pmatrix}
+              1 \\ 1 \\ -1 \\ -1
+            \end{pmatrix} \;\Rightarrow\; x+y-z=-1
+            \]
+            \[
+            t_1=1,t_2=2 \;\Rightarrow\; \begin{pmatrix}
+              a\\b\\c\\d
+            \end{pmatrix} = \begin{pmatrix}
+              1 \\ 2\\-1\\1
+            \end{pmatrix} \;\Rightarrow\; x+2y-z=1
+            \]
+
+            Našli jsme soustavu dvou lineárních rovnic o třech neznámých:
+
+            \begin{align*}
+              x+y-z &= -1\\
+              x+2y-z &= 1
+            \end{align*}
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

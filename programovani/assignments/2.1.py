@@ -1,0 +1,2 @@
+print("Prvni")
+print("program")
