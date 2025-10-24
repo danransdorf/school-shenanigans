@@ -1,4 +1,4 @@
-# School
+# Shenanigans - MFF UK
 
 ## Programování 1
 
