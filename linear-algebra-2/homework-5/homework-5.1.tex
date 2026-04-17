@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 5.1}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+
+\bigskip
+
+Před důkazem nejprve vyslovme a dokažme jednoduché lemma.
+
+\textbf{Lemma $(*)$}: Necht' $B$ je matice nad T taková, že součet prvků v každém řádku je 0.
+Matice $B$ má potom netriviální jádro.
+
+\begin{quotation}
+  \textbf{Důkaz}: Pro každý řádek matice $B$ platí, že sečtením všech prvků na daném řádků získáme 0.
+    Tedy součet všech sloupců je roven nulovému vektoru.
+    Z toho plyne, že homogenní soustava $B\vec{x} = \vec{0}$ má netriviální řešení $\vec{x}_1 = (1,1,1,...,1)^T$.
+    Tedy jádro matice $B$ je netriviální, protože obsahuje nenulový vektor $(1,1,1,...,1)^T$. \quad $\square$
+\end{quotation}
+
+\textbf{Důkaz zadaného tvrzení}:
+Mějme čtvercovou matici $A$ a skalár $a$ ze zadání. Dle tvrzení ze skript je skalár $a$ vlastním
+číslem matice $A$ právě tehdy, když $Ker\left(A-aI_n\right) \neq \left\{\vec{0}\right\}$.
+Dále využijme ekvivalencí z kapitoly o determinantech:
+
+\begin{align*}
+  &Ker\left(A-aI_n\right) \neq \left\{\vec{0}\right\} \\
+  \Longleftrightarrow \quad
+  &det\left(A-aI_n\right) = 0 \\
+  \Longleftrightarrow \quad
+  &det\left(A-aI_n\right) = det\left(A-aI_n\right)^T
+  = det\left(A^T-aI_n^T\right) = det\left(A^T-aI_n\right) = 0 \\
+  \Longleftrightarrow \quad
+  &Ker\left(A^T-aI_n\right) \neq \left\{\vec{0}\right\}
+\end{align*}
+
+Spojením dostáváme, že $a$ je vlastním číslem $A$ právě tehdy, když je jádro $(A^T-aI_n)$ netriviální. ← označme $(**)$
+
+Součet prvků v každém sloupci $A$ je roven $a$. Tedy součet prvků v každém řádků $A^T$ je také roven $a$.
+Nahlédněme, že odečtením $aI_n$ zmenšujeme součet na každém řádku o hodnotu $a$.
+Tedy součet prvků v každém řádku $(A^T-aI_n)$ je roven $a - a = 0$.
+Podle lemmatu $(*)$ máme, že jádro $(A^T-aI_n)$ je netriviální.
+
+Z $(**)$ finálně plyne, že $a$ je vlastním číslem matice $A$. \quad $\square$
+  
+\end{document}

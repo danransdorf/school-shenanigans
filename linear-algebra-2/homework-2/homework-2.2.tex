@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 2.2}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+
+\bigskip
+
+Označme prvky matice $A$:
+
+\[
+  \left(\begin{array}{cc}
+    a & b \\ b & d
+  \end{array}\right) := A
+\]
+
+Zvolme dva vektory závislé na proměnné (úhlu) $x\in\mathbb{R}$, které vzniknou rotací kanonické báze.
+
+
+\[
+  \left(\vec{v}_1, \vec{v}_2\right) := \left(
+    \left(\begin{array}{c}
+      \cos(x) \\ \sin(x)
+    \end{array}\right),
+    \left(\begin{array}{c}
+      -\sin(x) \\ \cos(x)
+    \end{array}\right)
+  \right)
+\]
+
+Tyto vektory tvoří ortogonální posloupnost vzhledem k std. sk. s. nezávisle na $x$, ověřme:
+
+\[
+  \vec{v}_1 \cdot \vec{v}_2 = -\sin(x)\cos(x) + \sin(x)\cos(x) = 0 \quad \checkmark
+\]
+
+Dokažme, že pro libovolný součin ze zadání $<,>$, existuje $x$ takové, že $(\vec{v}_1,\vec{v}_2)$ je
+ortogonální i vzhledem k $<,>$.
+
+Jest zvolme libovolnou pozitivně definitní matici $A \in \mathbb{R}^{2x2}$,
+rozepišme rovnici kolmosti $\vec{v1},\vec{v2}$:
+
+\begin{align*}
+  0 = \left<\vec{v}_1, \vec{v}_2\right>
+  &= \left(\begin{array}{cc}
+      \cos(x) & \sin(x)
+    \end{array}\right)
+    \left(\begin{array}{cc}
+      a & b \\ b & d
+    \end{array}\right)
+    \left(\begin{array}{c}
+      -\sin(x) \\ \cos(x)
+    \end{array}\right) \\
+  &= -a\cdot \sin(x)\cos(x) + b\cdot \cos^2(x) - b\cdot \sin^2(x) + d\cdot \sin(x)\cos(x) \\
+  &= (d-a)\cdot \sin(x)\cos(x) + b\cdot(\cos^2(x) - \sin^2(x)) \\
+  &= (d-a)\cdot \frac{\sin(2x)}{2} + b\cdot \cos(2x)
+\end{align*}
+
+Matice byla volena libovolně. Čili ukažme, že existuje úhel $x$, který splňuje požadovanou rovnost. Rozdělme dva případy:
+
+\begin{itemize}
+  \item $a-d \neq 0$:
+  Získáváme:
+  
+  \begin{align*}
+    0 &= (d-a)\cdot \frac{\sin(2x)}{2} + b\cdot \cos(2x) \\
+    (a-d)\cdot \frac{\sin(2x)}{2} &= b\cdot \cos(2x) \\
+    \frac{\sin(2x)}{\cos(2x)} &= \frac{2b}{a-d} \quad\quad\quad ,x\neq \frac{\pi}{4}(1+2k) \quad (*)\\
+    tan(2x) &= \frac{2b}{a-d} \\
+    2x &= arctan\left(\frac{2b}{a-d}\right) \\
+    x &= \frac{1}{2} arctan\left(\frac{2b}{a-d}\right) \quad \\
+    \text{Ověřme, že řešení }&\text{není zakázaná hodnota }x \text{ dle }(*)\\
+    H(arctan) = \left(\frac{-\pi}{2}, \frac{\pi}{2}\right) \quad \Rightarrow \quad x &\in \left(\frac{-\pi}{4}, \frac{\pi}{4}\right)
+    \quad \Rightarrow \quad x \neq \frac{\pi}{4}(1+2k) \quad \checkmark
+  \end{align*}
+
+  \item $a-d = 0$:
+  
+    \begin{align*}
+      0 &= (d-a)\cdot \frac{\sin(2x)}{2} + b\cdot \cos(2x) \\
+      0 &= b\cdot \cos(2x) \\
+      \text{Pozorování: pro }b=0\text{ je řešením jakékoli }&x\text{, předpokládejme BÚNO, že }b\neq0 \\
+      \Rightarrow \quad 0 &= \cos(2x) \\
+      2x &= \frac{\pi + 2k\pi}{2} \quad ,k\in\mathbb{Z} \\
+      x &= \frac{\pi + 2k\pi}{4} \quad ,k\in\mathbb{Z} \\
+      x_1 &= \frac{\pi}{4}
+    \end{align*}
+
+\end{itemize}
+
+Tedy pro libovolně volenou pozitivně definitní matici $A$ jsme našli úhel $x$, se kterým vychází skalární součin $<\vec{v_1},\vec{v_2}> = 0$.
+Posloupnost $(\vec{v_1},\vec{v_2})$ tvoří bázi $\mathbb{R}^2$ kolmou vzhledem k std. sk. s. a ted' víme, že i vzhledem k $<,>$.
+Tím je tvrzení dokázáno.
+
+\end{document}

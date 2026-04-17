@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=0.4in]{geometry}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{amssymb}
+
+
+\begin{document}
+
+\section*{Domácí úkol IV}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item \textbf{Kombinační zmrzlina}
+
+    Vypočítáme, kolik je celkových možností, jak vybrat kopečky. Počet bude velikost množiny možností,
+    jak vybrat 8 kopečků ze čtyř příchutí.
+    Velikost množiny našeho jevu bude počet možností, jak vybrat 8 kopečků z přesně tří příchutí.
+    Pravděpodobnost, že vybereme přesně tři různé příchutě, bude poměr velikosti množiny našeho jevu
+    ku velikosti množiny všech možností.
+
+    \begin{enumerate}
+      \item Celkové možnosti se dají vypočítat stejně jako příklad ze cvičení: Ze 4 různobarevných hromádek vyber 8 kuliček
+        \[
+        \binom{n+k-1}{k} = \binom{4+8-1}{8} = \binom{11}{8}
+        \]
+      \item Počet možností, jak vybrat 8 kopečků přesně ze tří příchutí, se dá interpretovat takto:
+        Ze čtyř příchutí si vyberme tři příchutě ($p_1, p_2, p_3$), které použijeme (zjevně 4 možnosti).
+        Dejme si 8 kopečků vedle sebe a oddělme je dvěma oddělovači do tří hromádek,
+        každá hromádka reprezentuje počet kopečků z dané příchuti.
+        \[
+          \underbrace{\circ\ \circ\ \circ\ \ \circ}_{p_1}\ |\ \underbrace{\circ\ \circ}_{p_2}\ |\ \underbrace{\circ\ \circ}_{p_3} \\
+        \]
+        Oddělovače mohu dát mezi kopečky na 7 pozic, nemůžu je dát na kraje,
+        protože z každé ze tří příchutí musíme udělat, alespoň jeden kopeček.
+        Ilustrace možných pozic oddělovačů:
+        \[
+        \circ \;|\; \circ \;|\; \circ \;|\; \circ \;|\; \circ \;|\; \circ \;|\; \circ \;|\; \circ
+        \]
+        Vybírám tedy 2 místa ze 7, kam oddělovače umístím, čili:
+        \[ \binom{7}{2} \]
+        Započtěme ještě ty čtyři možnosti, kteréma můžeme vybrat tři příchutě ze čtyř, získáme:
+        \[ 4 \cdot \binom{7}{2} \]
+
+      \end{enumerate}
+    
+      Pravděpodobnost získáme poměrem (vysvětlení na začátku):
+
+      \[
+        \frac{4 \cdot \binom{7}{2}}{\binom{11}{8}} = \underline{\underline{\ \ \frac{28}{55}\ \ }} \quad \left(\approx 0.509 = {{50.9\%}}\right)
+      \]
+
+  \item \textbf{Nezávislost}
+    \begin{enumerate}
+      \item Pravděpodobnost jevu $A$ je zjevně $\frac{1}{2}$ (26 z 52 karet jsou červené), pravděpodobnost jevu $B$ je $\frac{3}{13}$,
+        protože máme 52 karet, z toho 12 jich má obrázek (3 hodnoty $\cdot$ 4 barvy). Pokud by byly jevy nezávislé,
+        pravděpodobnost jejich průniku by měla vyjít $\frac{1}{2} \cdot \frac{3}{13} = \frac{3}{26}$.
+        Kdyby tomu mělo tak být, vynásobením 52 zjistíme, že by muselo existovat přesně 6 karet,
+        jejichž vytažení patří do obou jevů.
+
+        Jev A a zároveň jev B splňují pouze srdcové J, Q, K a kárové J, Q, K --- 6 karet, čimž se nám potvrdilo, že jsou jevy \textbf{nezávislé}.
+        Pro kontrolu:
+        \[
+          P(A \cap B) = \frac{|A \cap B|}{|\Omega|} = \frac{6}{52} = \frac{3}{26} = P(A) \cdot P(B)
+        \]
+      \item Pravděpodobnost jevu $A$ je $\frac{1}{2}$ (viz 2.a). Když vytáhneme první kartu obrázkovou (pravděpodobnost $\frac{3}{13}$),
+        zbývá v balíčku 11 obrázkových karet z 51 karet celkově, pravděpodobnost jevu B by byla tedy $\frac{11}{51}$.
+        Když první kartu nevytáhneme obrázkovou (pravděpodobnost $1 - \frac{3}{13} = \frac{10}{13}$),
+        v balíčku by zbývalo stále 12 obrázkových karet, pravděpodobnost jevu B by byla $\frac{12}{51}$.
+        Sečtením obou možností, když první kartu vytáhneme/nevytáhneme obrázkovou získáme:
+        \begin{align*}
+          P(B) &= \frac{3}{13} \cdot \frac{11}{51} + \frac{10}{13} \cdot \frac{12}{51} = \frac{3}{13} \\
+          P(A) \cdot P(B) &= \frac{1}{2} \cdot \frac{3}{13} = \frac{3}{26}
+        \end{align*}
+
+        Průnik obou jevů spočítáme podobně součtem pravděpodobnosti B na základě dvou možností vytažení první karty:
+        \begin{enumerate}
+          \item Označme $A_{bo}$ jev vytažení červené karty bez obrázku (20 karet z 52): Pravděpodobnost $A_{bo}$ je $\frac{20}{52} = \frac{5}{13}$,
+            zbývá 12 karet s obrázkem mezi 51 kartami.
+            \[
+              P(B \,|\, A_{bo}) = \frac{12}{51}
+            \]
+          \item Označme $A_{so}$ jev vytažení červené karty s obrázkem (6 karet z 52): Pravděpodobnost $A_{so}$ je $\frac{6}{52} = \frac{3}{26}$,
+            zbývá 11 karet s obrázkem mezi 51 kartami.
+            \[
+              P(B \,|\, A_{so}) = \frac{11}{51}
+            \]
+        \end{enumerate}
+        Započítáním obou možností získáme:
+        \begin{align*}
+          P(A \cap B) &= P(A_{bo}) \cdot P(B \,|\, A_{bo}) + P(A_{so}) \cdot P(B \,|\, A_{so}) \\
+          P(A \cap B) &= \frac{5}{13} \cdot \frac{12}{51} + \frac{3}{26} \cdot \frac {11}{51} \\
+          P(A \cap B) &= \frac{3}{26}
+        \end{align*}
+
+        Závěrem je, že jevy jsou \textbf{nezávislé}, protože:
+        \[
+          P(A) \cdot P(B) = \frac{3}{26} = P(A \cap B)
+        \]
+    \end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}

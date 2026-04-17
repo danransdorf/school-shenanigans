@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=0.4in]{geometry}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{amssymb}
+
+
+\begin{document}
+
+\section*{Domácí úkol IV}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item \textbf{Kuličky}
+
+    Když vytáhneme 7 kuliček ze 30, očekáváme, že vytáhneme $\frac{1}{3}\cdot7 \approx 2.33$ skleněnek.
+    Pravděpodobnosti vytažení skleněnek bez vracení budou vyšší kolem této očekávané hodnoty.
+    Pravděpodobnosti na extrémech (blízko 0 a blízko 7) budou zase vyšší s vracením,
+    protože při tahání bez vracení se postupně snižuje pravděpodobnost
+    na takovýto "extrémní" výsledek.
+
+    Případ vytažení tří skleněnek je bezpečně blízko očekávané hodnotě $\approx 2.33$,
+    takže bude určitě vyšší pravděpodobnost vytáhnout tři skleněnky při tahání \textbf{bez vracení}.
+
+  \item \textbf{Dvoustupňový screening}
+
+    Označme jev A, že člověk užíval opium. Označme jev B, že výsledek vyjde pozitivní.
+    Přepišme údaje ze zadání do pravděpodobností:
+    \begin{align*}
+      P(B \,|\, \neg A) &= 0.02 \quad \Rightarrow P(\neg B \,|\, \neg A) = 0.98 \\
+      P(\neg B \,|\, A) &= 0.05 \quad \Rightarrow P(B \,|\, A) = 0.95 \\
+      P(A) &= 0.01 \quad \Rightarrow P(\neg A) = 0.99
+    \end{align*}
+    Dopočtěme další hodnoty, které by mohly být užitečné
+    \begin{align*}
+      P(B \,|\, A) &= \frac{P(A \cap B)}{P(A)} = 0.95 \quad \Rightarrow P(A \cap B) = 0.95P(A) \\
+    \end{align*}
+
+    \begin{enumerate}
+      \item Chceme zjistit $P(A \,|\, B^2)$
+        \begin{align*}
+          P(B^2 \,|\, A) &= P(B \,|\, A)^2 = 0.95^2 = 0.9025 \\
+          P(B^2 \,|\, \neg A) &= P(B \,|\, \neg A)^2 = 0.02^2 = 0.0004 \\
+          P(B^2) &= P(A) \cdot P(B^2 \,|\, A) + P(\neg A) \cdot P(B^2 \,|\, \neg A) = 0.01\cdot0.9025 + 0.99\cdot0.0004 = 0.009421 \\
+          P(A \,|\, B^2) &= \frac{P(A)}{P(B^2)} \cdot P(B^2 \,|\, A) = \frac{0.01}{0.009421} \cdot 0.9025 \\
+          P(A \,|\, B^2) &= \underline{\underline{0.957662456}}
+        \end{align*}
+      
+      \item Vypočtěme $P(A \,|\, B)$ a poměry $\frac{P(A \,|\, B^2)}{P(A \,|\, B)}, \frac{P(B \,|\, \neg A)}{P(B^2 \,|\, \neg A)}, \frac{P(\neg B \,|\, A)}{P((\neg B)^2 \,|\, A)}$
+        \begin{align*}
+          P(B) &= P(A) \cdot P(B \,|\, A) + P(\neg A) \cdot P(B \,|\, \neg A) = 0.01\cdot0.95 + 0.99\cdot 0.02 \\
+          P(B) &= 0.0293 \\
+          P(A \,|\, B) &= \frac{P(A)}{P(B)} \cdot P(B \,|\, A) = \frac{0.01}{0.0293} \cdot 0.95 \\
+          P(A \,|\, B) &= 0.3242320819 \\
+          \frac{P(B \,|\, \neg A)}{P(B^2 \,|\, \neg A)} &= \frac{1}{P(B \,|\, \neg A)} = 0.02^{-1} = 50 \\
+          \frac{P(\neg B \,|\, A)}{P((\neg B)^2 \,|\, A)} &= \frac{1}{P(\neg B \,|\, A)} = 0.05^{-1} = 20 \\
+          \frac{P(A \,|\, B^2)}{P(A \,|\, B)} &= \frac{0.957662456}{0.3242320819} = 2.9536326276
+        \end{align*}
+      
+      Použítím dvou testů místo jednoho se 20krát sníží podíl falesně negativních
+      a 50krát sníží podíl falešně pozitivních. Když člověka pozitivně otestujeme
+      podruhé, šance, že je uživatelem opia téměř 3krát vzroste, circa z 32\% na 96\%.
+    \end{enumerate}
+
+  \end{enumerate}
+
+
+
+\end{document}

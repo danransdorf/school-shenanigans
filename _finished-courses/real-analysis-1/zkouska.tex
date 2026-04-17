@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[margin=2.5cm]{geometry}
+
+\begin{document}
+
+\noindent
+\textbf{Zadání písemné zkoušky z Matematické analýzy 1} \\
+MFF UK, ZS 2025-26 \\
+\textbf{Vzorová písemka č. 2}
+
+\vspace{1cm}
+
+\noindent
+\textbf{1. (15 bodů) Spočtěte limitu posloupnosti:}
+$$ \lim_{n\rightarrow\infty} \left( \sqrt[3]{n^3+3n^2} - \sqrt{n^2+2n} \right) \cdot \frac{n^3 + \sin(n!)}{(n+1)^2}. $$
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{2. (15 bodů) Spočtěte limitu funkce:}
+$$ \lim_{x\rightarrow 0} \frac{\ln(1 + x\sin x) - e^{x^2} + 1}{x^2(1 - \cos x)}. $$
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{3. (15 bodů) Uvažujte funkci:}
+$$ f(x) = \begin{cases} 
+(x-1)\exp\left(\frac{1}{1-x}\right) & \text{pro } x \neq 1; \\
+0 & \text{pro } x = 1.
+\end{cases} $$
+\begin{itemize}
+    \item[(a)] Rozhodněte, zda je funkce $f$ spojitá na $\mathbb{R}$ (zejména v bodě $x=1$).
+    \item[(b)] Rozhodněte, zda existuje jednostranná derivace $f'_{+}(1)$. Pokud ano, určete její hodnotu.
+    \item[(c)] Určete intervaly monotonie a lokální extrémy funkce $f$.
+    \item[(d)] Rozhodněte, zda je funkce na intervalu $(1, \infty)$ konvexní.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{4. (15 bodů) Teoretická úloha:}
+Nechť $\{a_n\}_{n=1}^{\infty}$ a $\{b_n\}_{n=1}^{\infty}$ jsou posloupnosti reálných čísel. Uvažujte následující tvrzení:
+\begin{enumerate}
+    \item[(1)] $\lim_{n\to\infty} a_n = 0$.
+    \item[(2)] Řada $\sum_{n=1}^{\infty} a_n$ je konvergentní.
+    \item[(3)] Posloupnost $\{a_n \cdot b_n\}_{n=1}^{\infty}$ je konvergentní.
+\end{enumerate}
+
+\noindent
+Rozhodněte, které z následujících implikací obecně platí a které neplatí. Uveďte vždy důkaz platnosti implikace nebo sestrojte konkrétní protipříklad.
+\begin{itemize}
+    \item[(a)] $(2) \Rightarrow (1)$
+    \item[(b)] $(1) \Rightarrow (2)$
+    \item[(c)] $\left( (1) \wedge \{b_n\} \text{ je omezená} \right) \Rightarrow (3)$
+\end{itemize}
+
+\end{document}

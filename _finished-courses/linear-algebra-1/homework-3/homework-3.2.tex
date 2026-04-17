@@ -1,0 +1,239 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 3.2}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item \textbf{Řešení}:
+    Označme $a,b,c,d \in \mathbb{Z}_5$ hodnoty v matici $X$ takto:
+    \[
+      X = \left(\begin{array}{cc}
+        a & b \\
+        c & d
+      \end{array}\right)
+    \]
+    Má platit vztah:
+    \[
+      \left(\begin{array}{cc}
+        a & b \\
+        c & d
+      \end{array}\right) \cdot
+      \left(\begin{array}{cc}
+        2 & 1 \\
+        3 & 0
+      \end{array}\right) = 
+      \left(\begin{array}{cc}
+        2 & 1 \\
+        3 & 0
+      \end{array}\right) \cdot
+      \left(\begin{array}{cc}
+        a & b \\
+        c & d
+      \end{array}\right)
+    \]
+    Vynásobme tedy matice na obou stranách:
+    \[
+      \left(\begin{array}{cc}
+        2a+3b & a \\
+        2c+3d & c
+      \end{array}\right) = 
+      \left(\begin{array}{cc}
+        2a+c & 2b+d \\
+        3a & 3b
+      \end{array}\right) 
+    \]
+    Z toho dostáváme čtyři rovnosti:
+    \[
+      \left\{
+      \begin{array}{rcl}
+      2a+3b&=&2a+c \\
+      a&=&2b+d \\
+      2c+3d&=&3a \\
+      c&=&3b
+      \end{array}
+      \right\}
+      \quad \Longrightarrow \quad
+      \left\{
+      \begin{array}{rcl}
+      0a + 3b + 4c +0d &=& 0 \\
+      1a + 3b + 0c + 4d &=& 0 \\
+      2a + 0b + 2c + 3d &=& 0 \\
+      0a + 2b + 1c + 0d &=& 0
+      \end{array}
+      \right\}
+    \]
+    Řešme tedy soustavu:
+    \[
+      \left(\begin{array}{cccc}
+        0 & 3 & 4 & 0 \\
+        1 & 3 & 0 & 4 \\
+        2 & 0 & 2 & 3 \\
+        0 & 2 & 1 & 0
+      \end{array}\right) \cdot
+      \left(\begin{array}{c}
+        a \\ b \\ c \\ d
+      \end{array}\right) = 
+      \left(\begin{array}{c}
+        0 \\ 0 \\ 0 \\ 0
+      \end{array}\right) 
+    \]
+    \[
+      \left(\begin{array}{cccc|c}
+        0 & 3 & 4 & 0 & 0 \\
+        1 & 3 & 0 & 4 & 0 \\
+        2 & 0 & 2 & 3 & 0 \\
+        0 & 2 & 1 & 0 & 0
+      \end{array}\right)
+      \overset{\text{3.ř } (\cdot 2)}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        0 & 3 & 4 & 0 & 0 \\
+        1 & 3 & 0 & 4 & 0 \\
+        4 & 0 & 4 & 1 & 0 \\
+        0 & 2 & 1 & 0 & 0
+      \end{array}\right)
+      \overset{\text{3.ř } (+ \text{2.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        0 & 3 & 4 & 0 & 0 \\
+        1 & 3 & 0 & 4 & 0 \\
+        0 & 3 & 4 & 0 & 0 \\
+        0 & 2 & 1 & 0 & 0
+      \end{array}\right)
+      \overset{\text{4.ř } (+ \text{1.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        0 & 3 & 4 & 0 & 0 \\
+        1 & 3 & 0 & 4 & 0 \\
+        0 & 3 & 4 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0
+      \end{array}\right)
+    \]
+    \[
+      \overset{\text{1.ř} \leftrightarrow \text{2.ř}}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 3 & 0 & 4 & 0 \\
+        0 & 3 & 4 & 0 & 0 \\
+        0 & 3 & 4 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0
+      \end{array}\right)
+      \overset{\text{2.ř } (\cdot 4)}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 3 & 0 & 4 & 0 \\
+        0 & 2 & 1 & 0 & 0 \\
+        0 & 3 & 4 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0
+      \end{array}\right)
+      \overset{\text{3.ř } (+ \text{2.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 3 & 0 & 4 & 0 \\
+        0 & 2 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0
+      \end{array}\right)
+    \]
+    \hspace{2cm} $c,d$ jsou volné proměnné, položme $c=t_1, d=t_2$ a vyjádřeme $a,b$:
+    \[
+      \;\sim\;
+      \left(\begin{array}{cccc|c}
+        1 & 3 & 0 & 4 & 0 \\
+        0 & 2 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 1 & 0 & t_1 \\
+        0 & 0 & 0 & 1 & t_2 \\
+      \end{array}\right)
+      \overset{\text{1.ř } (+ \text{6.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 3 & 0 & 0 & t_2 \\
+        0 & 2 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 1 & 0 & t_1 \\
+        0 & 0 & 0 & 1 & t_2 \\
+      \end{array}\right)
+      \overset{\text{5.ř } (\cdot 4)}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 3 & 0 & 0 & t_2 \\
+        0 & 2 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 4 & 0 & 4t_1 \\
+        0 & 0 & 0 & 1 & t_2 \\
+      \end{array}\right)
+      \overset{\text{2.ř } (+ \text{5.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 3 & 0 & 0 & t_2 \\
+        0 & 2 & 0 & 0 & 4t_1 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 4 & 0 & 4t_1 \\
+        0 & 0 & 0 & 1 & t_2 \\
+      \end{array}\right)
+    \]
+    \[
+      \overset{\text{1.ř } (+ \text{2.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 0 & 0 & 0 & 4t_1 + t_2 \\
+        0 & 2 & 0 & 0 & 4t_1 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 4 & 0 & 4t_1 \\
+        0 & 0 & 0 & 1 & t_2 \\
+      \end{array}\right)
+      \overset{\text{2.ř } (\cdot 3)}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 0 & 0 & 0 & 4t_1 + t_2 \\
+        0 & 1 & 0 & 0 & 2t_1 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 4 & 0 & 4t_1 \\
+        0 & 0 & 0 & 1 & t_2 \\
+      \end{array}\right)
+      \overset{\text{5.ř } (\cdot 4)}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+        1 & 0 & 0 & 0 & 4t_1 + t_2 \\
+        0 & 1 & 0 & 0 & 2t_1 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 1 & 0 & t_1 \\
+        0 & 0 & 0 & 1 & t_2 \\
+      \end{array}\right)
+    \]
+    \[
+      \left(\begin{array}{c}
+        a \\ b \\ c \\d
+      \end{array}\right) =
+      \left(\begin{array}{c}
+        4t_1 + t_2 \\ 2t_1 \\ t_1 \\ t_2
+      \end{array}\right) \quad , t_1,t_2 \in \mathbb{Z}_5
+    \]
+
+    Z řešení soustavy rovnic můžeme tedy dosazením $a,b,c,d$ vyjádřit všechny matice X:
+
+    \[
+      X = \left(\begin{array}{cc}
+        4t_1 + t_2 & 2t_1 \\
+        t_1 & t_2
+      \end{array}\right) \quad , t_1,t_2 \in \mathbb{Z}_5
+    \]
+    
+    Popřípadě můžeme matici X zapsat jako součet matic násobených parametry:
+
+    \[
+      X =  \underline{\underline{t_1\left(\begin{array}{cc}
+        4 & 2 \\
+        1 & 0
+      \end{array}\right) +
+      t_2\left(\begin{array}{cc}
+        1 & 0 \\
+        0 & 1
+      \end{array}\right)}}
+      \quad , t_1,t_2 \in \mathbb{Z}_5
+    \]
+
+\end{enumerate}
+
+\end{document}

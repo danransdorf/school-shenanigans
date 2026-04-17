@@ -1,0 +1,102 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí série 5}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item Tabulku 2025$\times$2025 nelze pokrýt zadanými dílky.
+
+    \textbf{Důkaz:}
+    Obarvíme tabulku šachovnicově na tmavá a světlá pole, označme
+    $T:=$ počet tmavých, $S:=$ počet světlých. Obarvení provedeme tak, že rohové pole obarvíme tmavě.
+    Lze dopočítat, že v tabulce právě o jedno tmavé pole více než světlých.
+
+    \[
+      T = S+1 \quad \Longleftrightarrow \quad T-S = 1
+    \]
+
+    Předpokládejme $T=0,S=0$ a snažme se pomocí dílků doplnit obě proměnné tak, aby platilo $T-S=1$.
+    Rozeberme všechny možnosti, jak můžeme umístit jednotlivé dílky:
+
+    \begin{itemize}
+      \item \textbf{Domino}: Jakkoli domino položíme, bude zabírat jedno světlé, jedno tmavé pole.
+        Přidáním domina se tedy $T-S$ nezmění.
+      \item \textbf{Kříž se světlým středem}: Položíme-li kříž, jehož střed bude na světlém poli,
+        pak bude zabírat 1 světlé, 4 tmavá pole. Tím se zvýší rozdíl $T-S$ o 3.
+      \item \textbf{Kříž se tmavým středem}: Položíme-li kříž, jehož střed bude na tmavém poli,
+        pak bude zabírat 1 tmavé, 4 světlá pole. Tím se sníží rozdíl $T-S$ o 3.
+    \end{itemize}
+
+    Domina do počtů nezařazujme, protože jejich přidání nemění $T-S$. Máme tedy položit $K_s$ křížů se světlým středem a $K_t$ křížů
+    s tmavým středem tak, abychom dospěli k $T-S=1$. Zdůrazněme, že oba počty $K_s,K_t$ křížů musí být celočíselné. Musí tedy platit:
+
+    \[
+      T-S = 3K_s - 3K_t = 1
+    \]
+    \[
+      3(K_s - K_t) = 1
+    \]
+    \[
+      K_s - K_t = \frac{1}{3}
+    \]
+
+    Zde máme spor, protože počty křížů $K_t,K_s$ musí být celočíselné, tím jejich rozdíl musí být také celočíselný.
+    Tímto jsme zjistili, že neexistuje položení dílku, kterým zajistíme $T-S=1$. Tím tedy tabulka nemůže jít pokrýt.
+
+  \setcounter{enumi}{2}
+  
+  \item Suma arctan
+
+    \[
+      \sum_{n=1}^{\infty} arctg \left( \frac{1}{1+n+n^2}\right)
+    \]
+
+    Použijme vztah:
+
+    \[
+      \forall a,b\in\mathbb{R},a\geq b\geq 0: \quad arctg \left( \frac{a-b}{1+ab} \right) = arctg(a) - arctg(b)
+    \]
+
+    Vyřešením soustavy rovnic $a-b=1,\ 1+ab=1+n+n^2$ zjistíme, že můžeme zvolit $a=n+1,\ b=n$, pro které platí:
+    
+    \[
+      arctg  \left( \frac{1}{1+n+n^2}\right)  = arctg(n+1) - arctg(n)
+    \]
+    Pak platí:
+
+    \[
+      \sum_{n=1}^{\infty} arctg \left( \frac{1}{1+n+n^2}\right) = \sum_{n=1}^{\infty} \left( arctg(n+1) - arctg(n) \right)
+      = \sum_{n=1}^{\infty} \left(  - arctg(n) + arctg(n+1) \right)
+    \]
+
+    Rozepišme sumu do limity, kde $n\to\infty$:
+
+    \[
+      = \lim_{n\to\infty} \left( - arctg(1) + arctg(2) - arctg(2) + arctg(3) - arctg(3) + ... + arctg(n) \right)
+    \]
+
+    Lze vidět, že se prvky sumy navzájem vyrušují, a tedy limita je rovna tomuto výrazu:
+
+    \[
+      = \lim_{n\to\infty} \left( -arctg(1) + arctg(n) \right)
+    \]
+
+    Limita $arctg(n)$ při $n\to\infty$ je rovna $\frac{\pi}{2}$, pak z aritmetiky limit máme:
+
+    \[
+      \lim_{n\to\infty} \left( -arctg(1) + arctg(n) \right) = -arctg(1) + \frac{\pi}{2} = -\frac{\pi}{4}+\frac{\pi}{2} = \frac{\pi}{4}
+    \]
+
+    Suma je tedy rovna $\dfrac{\pi}{4}$.
+
+\end{enumerate}
+
+
+\end{document}
+
+

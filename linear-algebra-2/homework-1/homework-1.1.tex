@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 1.1}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  \item $Re\left(\left< \vec{u},\vec{v} \right>\right) = \dfrac{1}{4}\left( \norm{\vec{u}+\vec{v}}^2 - \norm{\vec{u}-\vec{v}}^2 \right)$
+    \medskip
+    \begin{align*}
+      &\dfrac{1}{4}\left( \norm{\vec{u}+\vec{v}}^2 - \norm{\vec{u}-\vec{v}}^2 \right) \overset{(*)}{=} \\
+      (*) \text{: } &\text{Skalární součin sama sebe je nezáporné realné číslo, čili platí } (\sqrt{<>})^2 =\ <> \\
+      &\overset{(*)}{=} \dfrac{1}{4}\left( \left<\vec{u}+\vec{v},\vec{u}+\vec{v}\right> - \left<\vec{u}-\vec{v},\vec{u}-\vec{v}\right> \right) \\
+      &= \dfrac{1}{4}\big( 
+        \left(
+          \left<\vec{u},\vec{u}\right>+
+          \left<\vec{u},\vec{v}\right>+
+          \left<\vec{v},\vec{u}\right>+
+          \left<\vec{v},\vec{v}\right>
+        \right)
+        - \left(
+          \left<\vec{u},\vec{u}\right>
+          -\left<\vec{u},\vec{v}\right>
+          -\left<\vec{v},\vec{u}\right>+
+          \left<\vec{v},\vec{v}\right>
+        \right)
+      \big) \\
+      & = \dfrac{1}{4}\left( 2\left<\vec{u},\vec{v}\right> + 2\left<\vec{v},\vec{u}\right> \right) = 
+      \dfrac{1}{2}\left( \left<\vec{u},\vec{v}\right> + \left<\vec{v},\vec{u}\right> \right)
+      = \dfrac{1}{2}\left( \left<\vec{u},\vec{v}\right> + \overline{\left<\vec{u},\vec{v}\right>} \right) \\
+      &= \dfrac{1}{2}\left( Re\left<\vec{u},\vec{v}\right> + i \cdot Im\left<\vec{u},\vec{v}\right>+ Re\left<\vec{u},\vec{v}\right> - i \cdot Im\left<\vec{u},\vec{v}\right> \right) \\
+      &= \dfrac{1}{2}\left( 2Re\left<\vec{u},\vec{v}\right> \right) = \underline{\underline{Re\left<\vec{u},\vec{v}\right>}} \quad \quad \square
+    \end{align*}
+  
+  \item $Im\left(\left< \vec{u},\vec{v} \right>\right) = \dfrac{1}{4}\left( \norm{\vec{u}-i\vec{v}}^2 - \norm{\vec{u}+i\vec{v}}^2 \right)$
+    \medskip
+    \begin{align*}
+      &\dfrac{1}{4}\left( \norm{\vec{u}-i\vec{v}}^2 - \norm{\vec{u}+i\vec{v}}^2 \right) \overset{(*)}{=} 
+        \dfrac{1}{4}\left( \left<\vec{u}-i\vec{v},\vec{u}-i\vec{v}\right> - \left<\vec{u}+i\vec{v},\vec{u}+i\vec{v}\right> \right) \\
+      & = \dfrac{1}{4}\big( 
+        \left(
+          \left<\vec{u},\vec{u}\right>-
+          \left<\vec{u},i\vec{v}\right>-
+          \left<i\vec{v},\vec{u}\right>+
+          \left<i\vec{v},i\vec{v}\right>
+        \right)
+        - \left(
+          \left<\vec{u},\vec{u}\right>+
+          \left<\vec{u},i\vec{v}\right>+
+          \left<i\vec{v},\vec{u}\right>+
+          \left<i\vec{v},i\vec{v}\right>
+        \right)
+      \big) \\
+      & = \dfrac{1}{4}\left( -2\left<\vec{u},i\vec{v}\right> -2\left<i\vec{v},\vec{u}\right> \right)
+        = \dfrac{-1}{2}\left( \left<\vec{u},i\vec{v}\right> + \left<i\vec{v},\vec{u}\right> \right)
+        = \dfrac{-1}{2}\left( \left<\vec{u},i\vec{v}\right> + \overline{\left<\vec{u},i\vec{v}\right>} \right) \\
+      & = \dfrac{-1}{2}\left( i\left<\vec{u},\vec{v}\right> + \overline{i}\overline{\left<\vec{u},\vec{v}\right>} \right)
+        = \dfrac{-i}{2}\left( \left<\vec{u},\vec{v}\right> - \overline{\left<\vec{u},\vec{v}\right>} \right) \\
+      & = \dfrac{-i}{2}\left( Re\left<\vec{u},\vec{v}\right> + i\cdot Im\left<\vec{u},\vec{v}\right> - (Re\left<\vec{u},\vec{v}\right> - i\cdot Im\left<\vec{u},\vec{v}\right>) \right) \\
+      & = \dfrac{-i}{2}\left( 2i\cdot Im \left<\vec{u},\vec{v}\right>\right) = \underline{\underline{Im \left<\vec{u},\vec{v}\right>}} \quad \quad \square
+    \end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+\end{document}

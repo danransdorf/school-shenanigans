@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 6.2}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item Když je obraz B roven jádru A. Znamená to, že sloupcový prostor B je roven
+    řešení homogenní soustavy $A\vec{x} = \vec{0}$. Nejprve vezměme matici $B^T$,
+    která má řádky rovny sloupcům $B$ a 
+    proveďme Gaussovu eliminaci, čímž řádkový prostor nezměníme, jen zjednodušíme:
+
+    \[
+    \left(\begin{array}{ccccc}
+      0&2&0&2&2 \\ 0&1&2&2&0 \\ 0&1&1&0&2
+    \end{array}\right)
+    \overset{\text{2.ř }+\text{1.ř}}{\sim}
+    \left(\begin{array}{ccccc}
+      0&2&0&2&2 \\ 0&0&2&1&2 \\ 0&1&1&0&2
+    \end{array}\right)
+    \overset{\text{3.ř }+\text{1.ř}}{\sim}
+    \left(\begin{array}{ccccc}
+      0&2&0&2&2 \\ 0&0&2&1&2 \\ 0&0&1&2&1
+    \end{array}\right)
+    \overset{\text{3.ř }+\text{2.ř}}{\sim}
+    \left(\begin{array}{ccccc}
+      0&2&0&2&2 \\ 0&0&2&1&2 \\ 0&0&0&0&0
+    \end{array}\right)
+    \]
+
+    Plyne, že obraz $B$ je roven řádkovému prostoru této zeliminované matice, tedy:
+
+    \[
+      Im(B) = Span\left(\left\{
+        \left(
+          \begin{array}{c}
+            0\\2\\0\\2\\2
+          \end{array}
+        \right),
+        \left(
+          \begin{array}{c}
+            0\\0\\2\\1\\2
+          \end{array}
+        \right)
+      \right\}\right)
+    \]
+
+    Podle původní úvahy plyne, že řešení homogenní soustavy s maticí $A$ je:
+
+    \[
+      \left\{
+        t_1\left(\begin{array}{c}
+          0\\2\\0\\2\\2
+        \end{array}\right) +
+        t_2 \left(\begin{array}{c}
+          0\\0\\2\\1\\2
+        \end{array}\right)
+        \quad
+        \mid
+        t_1,t_2 \in \mathbb{Z}_3
+      \right\}
+    \]
+
+    Řešením jsou pěti-složkové aritmetické vektory, tedy matice $A$ musí mít 5 sloupců.
+    Řešením je dvojrozměrný prostor, tedy matice $A$ má 3 bázové sloupce a 2 volné.
+    Hodnost $A$ tedy musí být 3, a musí tedy mít alespoň tři řádky.
+
+    Víme jak vypadá řešení homogenní soustavy.
+    Zapišme tedy Gauss-Jordan zeliminovaný tvar homogenní soustavy k $A$,
+    ze které můžeme zpětně homogenní soustavu získat "vynulováním" pravé strany:
+
+    \[
+      \left(\begin{array}{ccccc|cc}
+        1 & 0 & 0 & 0 & 0 & 0 & +0 \\
+        0 & 1 & 0 & 0 & 0 & 2t_1 & +0 \\
+        0 & 0 & 1 & 0 & 0 & 0 & +2t_2 \\ \hline
+        0 & 0 & 0 & 1 & 0 & 2t_1 & +t_2 \\
+        0 & 0 & 0 & 0 & 1 & 2t_1 & +2t_2 \\
+      \end{array}\right)
+      \overset{\text{2.ř }+\text{4.ř}}{\;\sim\;}
+      \left(\begin{array}{ccccc|c}
+        1 & 0 & 0 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 1 & 0 & t_1+t_2 \\
+        0 & 0 & 1 & 0 & 0 & 2t_2 \\ \hline
+        0 & 0 & 0 & 1 & 0 & 2t_1+t_2 \\
+        0 & 0 & 0 & 0 & 1 & 2t_1+2t_2 \\
+      \end{array}\right)
+      \overset{\text{2.ř }+\text{5.ř}}{\;\sim\;}
+      \left(\begin{array}{ccccc|c}
+        1 & 0 & 0 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 1 & 1 & 0 \\
+        0 & 0 & 1 & 0 & 0 & 2t_2 \\ \hline
+        0 & 0 & 0 & 1 & 0 & 2t_1+t_2 \\
+        0 & 0 & 0 & 0 & 1 & 2t_1+2t_2 \\
+      \end{array}\right)
+    \]
+    \[
+      \overset{\text{3.ř }+\text{5.ř}}{\;\sim\;}
+      \left(\begin{array}{ccccc|c}
+        1 & 0 & 0 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 1 & 1 & 0 \\
+        0 & 0 & 1 & 0 & 1 & 2t_1 + t_2 \\ \hline
+        0 & 0 & 0 & 1 & 0 & 2t_1+t_2 \\
+        0 & 0 & 0 & 0 & 1 & 2t_1+2t_2 \\
+      \end{array}\right)
+      \overset{\text{3.ř }+2\cdot\text{4.ř}}{\;\sim\;}
+      \left(\begin{array}{ccccc|c}
+        1 & 0 & 0 & 0 & 0 & 0  \\
+        0 & 1 & 0 & 1 & 1 & 0 \\
+        0 & 0 & 1 & 2 & 1 & 0 \\ \hline
+        0 & 0 & 0 & 1 & 0 & 2t_1+t_2 \\
+        0 & 0 & 0 & 0 & 1 & 2t_1+2t_2 \\
+      \end{array}\right)
+    \]
+
+    Zapišme nalezenou matici $A$:
+
+    \[
+      A = \underline{\underline{\left(\begin{array}{ccccc}
+        1 & 0 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 1 & 1 \\
+        0 & 0 & 1 & 2 & 1 \\
+      \end{array}\right)}}
+    \]
+
+    Ukažme pro jistotu, že matice jádro $A$ skutečně obsahuje všechny prvky obrazu $B$.
+    Tedy že zobrazení $f_A\circ f_B$ zobrazuje všechno do nulového vektoru.
+    Protože zobrazení $f_B$ všechno zobrazuje do svého obrazu, ale onoho obraz je jádro $A$,
+    tedy $f_A\circ f_B$ musí vše zobrazit do nulového vektoru.
+    Tedy součin $A\cdot B$ musí být nulová matice, jinak bychom triviálně nalezli
+    vektor $\vec{x}$, který nesplňuje $A\cdot B \cdot \vec{x} = \vec{0}$.
+
+    \[
+      AB = \left(\begin{array}{ccccc}
+        1 & 0 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 1 & 1 \\
+        0 & 0 & 1 & 2 & 1 \\
+      \end{array}\right) \cdot \left(\begin{array}{ccccc}
+        0 & 0 & 0 \\ 2 & 1 & 1 \\ 0 & 2 & 1 \\ 2 & 2 & 0 \\ 2 & 0 & 2
+      \end{array}\right) = \left(\begin{array}{ccc}
+        0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+      \end{array}\right)
+    \]
+
+    Kontrola splněna.
+
+\end{enumerate}
+
+\end{document}

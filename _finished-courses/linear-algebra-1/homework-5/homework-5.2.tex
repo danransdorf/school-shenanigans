@@ -1,0 +1,316 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 5.2}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+      \item \textbf{Řešení}:
+
+      Označme matici ze zadání jako $A$ typu $3 \times 4$.
+      
+      \begin{enumerate}
+        \item Víme, že aby existovala zprava inverzní matice k A, musí být zobrazení $f_A$ "na".
+          Zobrazení $f_A$ bude "na" právě tehdy když po Gaussově eliminaci matice $A$ zbyde
+          tolik nenulových řádků, kolik má matice $A$ řádků (3).
+          Zeliminujme matici $A$:
+
+          \[
+            \left(\begin{array}{cccc}
+              1&a&1&2a \\ 0&1&a&a \\ 1&0&0&a
+            \end{array}\right)
+            \overset{\text{3.ř } -\text{1.ř}}{\;\sim\;}
+            \left(\begin{array}{cccc}
+              1&a&1&2a \\ 0&1&a&a \\ 0&-a&-1&-a
+            \end{array}\right)
+            \overset{\text{3.ř } + a\cdot\text{2.ř}}{\;\sim\;}
+            \left(\begin{array}{cccc}
+              1&a&1&2a \\ 0&1&a&a \\ 0&0&-1+a^2&-a+a^2
+            \end{array}\right)
+          \]
+
+          První dva řádky budou vždy nenulové a nezávislé na sobě,
+          protože mají pevně dané pivoty s hodnotou 1.
+          Stačí nám tedy zjistit, za jakých podmínek bude poslední řádek nulový a tyto podmínky vyloučit.
+          
+          \begin{align*}
+            \left(\begin{array}{cccc}
+              0&0&-1+a^2&-a+a^2
+            \end{array}\right) &\neq \left(\begin{array}{cccc}
+              0&0&0&0
+            \end{array}\right) \\
+            &\Updownarrow \\
+            -1+a^2 \neq 0 \quad &\lor \quad -a + a^2 \neq 0 \\
+            &\Updownarrow \\
+            a \neq \pm1 \quad &\lor \quad \left(a \neq 0 \land a \neq 1\right) \\
+            &\Updownarrow \\
+            \left(a \neq -1 \land a \neq 1\right) \quad &\lor \quad \left(a \neq 0 \land a \neq 1\right) \\
+            &\Updownarrow \\
+            a \neq 1 \quad &\land \quad \underbrace{\left( a \neq -1 \lor a \neq 0 \right) }_{\text{Vždy pravda}} \\
+            &\Updownarrow \\
+            a &\neq 1
+          \end{align*}
+
+          Plyne, že zprava inverzní matice k $A$ bude existovat právě tehdy když $a \in \mathbb{R} \setminus \{1\}$.
+          Nalezněme pro každé $a$ nějakou inverzní matici X:
+
+          \begin{enumerate}
+            \item $a\in\mathbb{R}\setminus\{-1,0,1\}$:
+
+            \begin{align*}
+              A &= \left(\begin{array}{cccc}
+                1&0&1&0 \\ 0&1&0&0 \\ 1&0&0&0
+              \end{array}\right)
+            \\
+              AX &= \left(\begin{array}{cccc}
+                1&0&0 \\ 0&1&0 \\ 0&0&1
+              \end{array}\right)
+            \\
+              &\left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 2a & 1 & 0 & 0 \\
+                0 & 1 & a & a & 0 & 1 & 0 \\
+                1 & 0 & 0 & a & 0 & 0 & 1
+              \end{array}\right)
+              \overset{\text{3.ř } -\text{1.ř}}{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 2a & 1 & 0 & 0 \\
+                0 & 1 & a & a & 0 & 1 & 0 \\
+                0 & -a & -1 & -a & -1 & 0 & 1
+              \end{array}\right)
+              \overset{\text{3.ř } +a\cdot\text{2.ř}}{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 2a & 1 & 0 & 0 \\
+                0 & 1 & a & a & 0 & 1 & 0 \\
+                0 & 0 & -1+a^2 & -a+a^2 & -1 & a & 1
+              \end{array}\right)
+            \\
+              &\overset{\text{volné proměnné}}{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 2a & 1 & 0 & 0 \\
+                0 & 1 & a & a & 0 & 1 & 0 \\
+                0 & 0 & -1+a^2 & -a+a^2 & -1 & a & 1 \\ \hline
+                0 & 0 & 0 & 1 & x & y & z
+              \end{array}\right)
+              \overset{x,y,z=0}{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 2a & 1 & 0 & 0 \\
+                0 & 1 & a & a & 0 & 1 & 0 \\
+                0 & 0 & -1+a^2 & -a+a^2 & -1 & a & 1 \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+            \\
+              &\overset{\text{3.ř } +(a-a^2)\cdot\text{4.ř}}{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 2a & 1 & 0 & 0 \\
+                0 & 1 & a & a & 0 & 1 & 0 \\
+                0 & 0 & -1+a^2 & 0 & -1  & a & 1 \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+              \overset{\text{2.ř } -(a)\cdot\text{4.ř}}{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 2a & 1 & 0 & 0 \\
+                0 & 1 & a & 0 & 0 & 1 & 0 \\
+                0 & 0 & -1+a^2 & 0 & -1  & a & 1 \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+            \\
+              &\overset{\text{1.ř } -(2a)\cdot\text{4.ř}}{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 0 & 1 & 0 & 0 \\
+                0 & 1 & a & 0 & 0 & 1 & 0 \\
+                0 & 0 & -1+a^2 & 0 & -1  & a & 1 \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+              \overset{\text{3.ř } \cdot \frac{1}{-1+a^2} }{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 0 & 1 & 0 & 0 \\
+                0 & 1 & a & 0 & 0 & 1 & 0 \\
+                0 & 0 & 1 & 0 & \frac{-1}{-1+a^2} & \frac{a}{-1+a^2} & \frac{1}{-1+a^2} \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+            \\
+              &\overset{\text{2.ř } -(a)\cdot\text{3.ř} }{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 1 & 0 & 1 & 0 & 0 \\
+                0 & 1 & 0 & 0 & \frac{a}{-1+a^2} & 1+\frac{-a}{-1+a^2} & \frac{-a}{-1+a^2} \\
+                0 & 0 & 1 & 0 & \frac{-1}{-1+a^2} & \frac{a}{-1+a^2} & \frac{1}{-1+a^2} \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+              \overset{\text{1.ř } -\text{3.ř} }{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & a & 0 & 0 & 1 + \frac{1}{-1+a^2} & \frac{-a}{-1+a^2} & \frac{-1}{-1+a^2} \\
+                0 & 1 & 0 & 0 & \frac{a}{-1+a^2} & 1+\frac{-a}{-1+a^2} & \frac{-a}{-1+a^2} \\
+                0 & 0 & 1 & 0 & \frac{-1}{-1+a^2} & \frac{a}{-1+a^2} & \frac{1}{-1+a^2} \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+            \\
+              &\overset{\text{1.ř } -(a)\text{2.ř} }{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & 0 & 0 & 0 & 1 + \frac{1-a^2}{-1+a^2} & \frac{-a+a^2}{-1+a^2}-a & \frac{-1+a^2}{-1+a^2} \\
+                0 & 1 & 0 & 0 & \frac{a}{-1+a^2} & 1+\frac{-a}{-1+a^2} & \frac{-a}{-1+a^2} \\
+                0 & 0 & 1 & 0 & \frac{-1}{-1+a^2} & \frac{a}{-1+a^2} & \frac{1}{-1+a^2} \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+              \overset{\text{zjednodušení}}{\;\sim\;}
+              \left(\begin{array}{cccc|ccc}
+                1 & 0 & 0 & 0 & 0 & \frac{-a^2}{a+1} & 1 \\
+                0 & 1 & 0 & 0 & \frac{a}{a^2-1} & \frac{-1+a^2-a}{a^2-1} & \frac{-a}{a^2-1} \\
+                0 & 0 & 1 & 0 & \frac{-1}{a^2-1} & \frac{a}{a^2-1} & \frac{1}{a^2-1} \\ \hline
+                0 & 0 & 0 & 1 & 0 & 0 & 0
+              \end{array}\right)
+            \\
+              X &= \left(\begin{array}{ccc}
+                0 & \frac{-a^2}{a+1} & 1 \\
+                \frac{a}{a^2-1} & \frac{-1+a^2-a}{a^2-1} & \frac{-a}{a^2-1} \\
+                \frac{-1}{a^2-1} & \frac{a}{a^2-1} & \frac{1}{a^2-1} \\
+                0 & 0 & 0
+              \end{array}\right)
+            \end{align*}
+            
+
+            \renewcommand{\arraystretch}{1.3}
+
+            \item $a=-1$:
+              \begin{align*}
+                &\left(\begin{array}{cccc|ccc}
+                  1 & -1 & 1 & -2 & 1 & 0 & 0 \\
+                  0 & 1 & -1 & -1 & 0 & 1 & 0 \\
+                  1 & 0 & 0 & -1 & 0 & 0 & 1
+                \end{array}\right)
+                \overset{\text{3.ř } -\text{1.ř}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & -1 & 1 & -2 & 1 & 0 & 0 \\
+                  0 & 1 & -1 & -1 & 0 & 1 & 0 \\
+                  0 & 1 & -1 & 1 & -1 & 0 & 1
+                \end{array}\right)
+                \overset{\text{3.ř } -\text{2.ř}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & -1 & 1 & -2 & 1 & 0 & 0 \\
+                  0 & 1 & -1 & -1 & 0 & 1 & 0 \\
+                  0 & 0 & 0 & 2 & -1 & -1 & 1
+                \end{array}\right)
+              \\
+                &\overset{\text{3.ř } \cdot\frac{1}{2}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & -1 & 1 & -2 & 1 & 0 & 0 \\
+                  0 & 1 & -1 & -1 & 0 & 1 & 0 \\
+                  0 & 0 & 0 & 1 & \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2}
+                \end{array}\right)
+                \overset{\text{2.ř } +\text{3.ř}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & -1 & 1 & -2 & 1 & 0 & 0 \\
+                  0 & 1 & -1 & 0 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0 & 0 & 1 & \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2}
+                \end{array}\right)
+                \overset{\text{1.ř } +2\cdot\text{3.ř}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & -1 & 1 & 0 & 0 & -1 & 1 \\
+                  0 & 1 & -1 & 0 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0 & 0 & 1 & \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2}
+                \end{array}\right)
+              \\
+                &\overset{\text{1.ř } -\text{2.ř}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & 0 & 0 & 0 & \frac{1}{2} & \frac{-3}{2} & \frac{1}{2} \\
+                  0 & 1 & -1 & 0 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0 & 0 & 1 & \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2}
+                \end{array}\right)
+                \overset{\text{volné proměnné}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & 0 & 0 & 0 & \frac{1}{2} & \frac{-3}{2} & \frac{1}{2} \\
+                  0 & 1 & -1 & 0 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0 & 0 & 1 & \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2} \\ \hline
+                  0 & 0 & 1 & 0 & x & y & z
+                \end{array}\right)
+                \overset{x,y,z=0}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & 0 & 0 & 0 & \frac{1}{2} & \frac{-3}{2} & \frac{1}{2} \\
+                  0 & 1 & -1 & 0 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0 & 0 & 1 & \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2} \\ \hline
+                  0 & 0 & 1 & 0 & 0 & 0 & 0
+                \end{array}\right)
+              \\
+                &\overset{\text{2.ř } +\text{4.ř}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & 0 & 0 & 0 & \frac{1}{2} & \frac{-3}{2} & \frac{1}{2} \\
+                  0 & 1 & 0 & 0 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0 & 0 & 1 & \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2} \\ \hline
+                  0 & 0 & 1 & 0 & 0 & 0 & 0
+                \end{array}\right)
+                \overset{\text{3.ř} \leftrightarrow \text{4.ř}}{\;\sim\;}
+                \left(\begin{array}{cccc|ccc}
+                  1 & 0 & 0 & 0 & \frac{1}{2} & \frac{-3}{2} & \frac{1}{2} \\
+                  0 & 1 & 0 & 0 & \frac{-1}{2} & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+                  0 & 0 & 0 & 1 & \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2}
+                \end{array}\right)
+              \\
+                X &= \left(\begin{array}{ccc}
+                  \frac{1}{2} & \frac{-3}{2} & \frac{1}{2} \\
+                  \frac{-1}{2} & \frac{1}{2} & \frac{1}{2} \\
+                  0 & 0 & 0 \\
+                  \frac{-1}{2} & \frac{-1}{2} & \frac{1}{2}
+                \end{array}\right)
+              \end{align*}
+
+              \item $a=0$:
+                \begin{align*}
+                  &\left(\begin{array}{cccc|ccc}
+                    1 & 0 & 1 & 0 & 1 & 0 & 0 \\
+                    0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+                    1 & 0 & 0 & 0 & 0 & 0 & 1
+                  \end{array}\right)
+                  \overset{\text{1.ř } -\text{3.ř}}{\;\sim\;}
+                  \left(\begin{array}{cccc|ccc}
+                    0 & 0 & 1 & 0 & 1 & 0 & -1 \\
+                    0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+                    1 & 0 & 0 & 0 & 0 & 0 & 1
+                  \end{array}\right)
+                  \overset{\text{1.ř} \leftrightarrow \text{3.ř}}{\;\sim\;}
+                  \left(\begin{array}{cccc|ccc}
+                    1 & 0 & 0 & 0 & 0 & 0 & 1 \\
+                    0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+                    0 & 0 & 1 & 0 & 1 & 0 & -1
+                  \end{array}\right)
+                \\
+                  &\overset{\text{volné proměnné}}{\;\sim\;}
+                  \left(\begin{array}{cccc|ccc}
+                    1 & 0 & 0 & 0 & 0 & 0 & 1 \\
+                    0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+                    0 & 0 & 1 & 0 & 1 & 0 & -1 \\ \hline
+                    0 & 0 & 0 & 1 & x & y & z
+                  \end{array}\right)
+                  \overset{(x,y,z)=(\pi, 3.14, \frac{22}{7})}{\;\sim\;}
+                  \left(\begin{array}{cccc|ccc}
+                    1 & 0 & 0 & 0 & 0 & 0 & 1 \\
+                    0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+                    0 & 0 & 1 & 0 & 1 & 0 & -1 \\ \hline
+                    0 & 0 & 0 & 1 & \pi & 3.14 & \frac{22}{7}
+                  \end{array}\right)
+                \\
+                  X &= \left(\begin{array}{ccc}
+                    0 & 0 & 1 \\
+                    0 & 1 & 0 \\
+                    1 & 0 & -1 \\
+                    \pi & 3.14 & \frac{22}{7}
+                  \end{array}\right)
+                \end{align*}
+          \end{enumerate}
+
+        \item Zleva inverzní matice k $A$ existuje právě tehdy když je $f_A$ prosté.
+          $f_A$ je prosté právě tehdy když je hodnost $A$ rovna počtu sloupců.
+          Hodnost $A$ může být maximálně rovna třem, jelikož má $A$ pouze tři řádky.
+          Hodnost matice $A$ tedy nikdy nebude rovna čtyřem, což je počet sloupců. A tedy zleva inverzní matice
+          k $A$ neexistuje za jakýchkoli hodnot $a$.
+
+      \end{enumerate}
+
+
+          
+\end{enumerate}
+
+\end{document}

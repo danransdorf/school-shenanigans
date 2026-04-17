@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 3.1}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item \textbf{Řešení}:
+    $\gamma$ označme jako $0$, protože $\forall x \in T : x \cdot \gamma = \gamma$.
+    Poté označme $\beta$ jako $1$, protože je to jediný prvek, který
+    splňuje $\forall x \in T \setminus \{\gamma\} : x \cdot \beta = x$.
+    Dále z tabulky vyvoďme opačné a inverzní prvky:
+    \begin{align*}
+      -\alpha &= \alpha \\
+      -\beta &= \beta \\
+      -\gamma &= \gamma \\
+      -\delta &= \delta \\
+      \alpha^{-1} &= \delta \\
+      \beta^{-1} &= \beta \\
+      \delta^{-1} &= \alpha
+    \end{align*}
+
+    \[
+      \left(\begin{array}{cccc|c}
+      \alpha & \alpha & \delta & \alpha & \delta \\
+      \beta & \delta & \beta & \delta & \delta \\
+      \gamma & \beta & \alpha & \beta & \delta \\
+      \end{array}\right)
+      \overset{\text{dosazení 0,1}}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      \alpha & \alpha & \delta & \alpha & \delta \\
+      1 & \delta & 1 & \delta & \delta \\
+      0 & 1 & \alpha & 1 & \delta \\
+      \end{array}\right)
+    \]
+    \[
+      \overset{\text{1.ř } (\cdot \delta)}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 1 & \alpha & 1 & \alpha \\
+      1 & \delta & 1 & \delta & \delta \\
+      0 & 1 & \alpha & 1 & \delta \\
+      \end{array}\right)
+      \overset{\text{2.ř }(+\text{1.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 1 & \alpha & 1 & \alpha \\
+      0 & \alpha & \delta & \alpha & 1 \\
+      0 & 1 & \alpha & 1 & \delta \\
+      \end{array}\right)
+      \overset{\text{2.ř } \cdot \delta}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 1 & \alpha & 1 & \alpha \\
+      0 & 1 & \alpha & 1 & \delta \\
+      0 & 1 & \alpha & 1 & \delta \\
+      \end{array}\right)
+    \]
+    \[
+      \overset{\text{3.ř } (+\text{2.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 1 & \alpha & 1 & \alpha \\
+      0 & 1 & \alpha & 1 & \delta \\
+      0 & 0 & 0 & 0 & 0 \\
+      \end{array}\right)
+      \overset{\text{1.ř } (+ \text{2.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 0 & 0 & 0 & 1 \\
+      0 & 1 & \alpha & 1 & \delta \\
+      0 & 0 & 0 & 0 & 0
+      \end{array}\right)
+      \;\sim\;
+      \left(\begin{array}{cccc|c}
+      1 & 0 & 0 & 0 & 1 \\
+      0 & 1 & \alpha & 1 & \delta \\
+      0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & 1 & 0 & t_1 \\
+      0 & 0 & 0 & 1 & t_2
+      \end{array}\right)
+      \overset{\text{4.ř } \cdot \alpha}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 0 & 0 & 0 & 1 \\
+      0 & 1 & \alpha & 1 & \delta \\
+      0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & \alpha & 0 & \alpha t_1 \\
+      0 & 0 & 0 & 1 & t_2
+      \end{array}\right)
+    \]
+    \[
+      \overset{\text{2.ř } (+\text{4.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 0 & 0 & 0 & 1 \\
+      0 & 1 & 0 & 1 & \delta + \alpha t_1 \\
+      0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & \alpha & 0 & \alpha t_1 \\
+      0 & 0 & 0 & 1 & t_2
+      \end{array}\right)
+      \overset{\text{2.ř } (+\text{5.ř})}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 0 & 0 & 0 & 1 \\
+      0 & 1 & 0 & 0 & \delta + \alpha t_1 + t_2 \\
+      0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & \alpha & 0 & \alpha t_1 \\
+      0 & 0 & 0 & 1 & t_2
+      \end{array}\right)
+      \overset{\text{4.ř } (\cdot \delta)}{\;\sim\;}
+      \left(\begin{array}{cccc|c}
+      1 & 0 & 0 & 0 & 1 \\
+      0 & 1 & 0 & 0 & \delta + \alpha t_1 + t_2 \\
+      0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & 1 & 0 & t_1 \\
+      0 & 0 & 0 & 1 & t_2
+      \end{array}\right)
+    \]
+
+    \[
+    K = \left\{ 
+        \left(\begin{array}{c} 1 \\ \delta + \alpha t_1 + t_2 \\ t_1 \\ t_2 \end{array}\right) 
+        \quad \middle| \quad t_1,t_2 \in T
+      \right\} = 
+      \left\{ 
+        \left(\begin{array}{c} 1 \\ \delta \\ 0 \\ 0 \end{array}\right) +
+        t_1\left(\begin{array}{c} 0 \\ \alpha \\ 1 \\ 0 \end{array}\right) +
+        t_2\left(\begin{array}{c} 0 \\ 1 \\ 0 \\ 1 \end{array}\right)
+        \quad \middle| \quad t_1,t_2 \in T
+      \right\}
+    \]
+    Zpětným nahrazením $0,1$ řeckými symboly dostaneme řešení:
+    \[
+    K = \underline{\underline{\left\{ 
+        \left(\begin{array}{c} \beta \\ \delta \\ \gamma \\ \gamma \end{array}\right) +
+        t_1\left(\begin{array}{c} \gamma \\ \alpha \\ \beta \\ \gamma \end{array}\right) +
+        t_2\left(\begin{array}{c} \gamma \\ \beta \\ \gamma \\ \beta \end{array}\right)
+        \quad \middle| \quad t_1,t_2 \in T
+      \right\}}}
+    \]
+
+    Protože prostor řešení závisí na dvou volných parametrech, počet všech řešení bude velikost množiny kartézského součinu $T \times T$ (určuje počet dvojic $t_1,t_2$),
+    čili $|T \times T| = |T|^2 = 4^2 = \underline{\underline{16}}$.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,199 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 1.2}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+\bigskip
+
+Matice A je symetrická, označme tedy:
+
+\[
+  \left( \begin{array}{cc} a&b\\b&d \end{array} \right) := A
+\]
+
+Pro aritmetický vektor $\vec{g} \in \mathbb{R}^2$, označme jeho souřadnice: $\left(\begin{array}{c} g_1 \\ g_2 \end{array}\right) := \vec{g}$
+
+\begin{enumerate}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  \item $\Leftarrow$: Když $a>0,\ detA>0$, pak je $<,>$ skalární součin.
+    \medskip
+
+    Předpokládejeme $a>0,\ detA>0$, pak platí $ad-b^2 > 0 \ (*)$.
+    \[
+      ad-b^2 > 0 \quad \Rightarrow \quad ad>b^2\geq0 \quad \Rightarrow \quad d>0 \quad (**)
+    \]
+
+    Když dokážeme, že je matice $A$ pozitivně definitní, pak je $<\vec{x},\vec{y}> = \vec{x}^T A \vec{y}$
+    nutně skalární součin podle tvrzení ze skript.
+
+    Reálná je pozitivně definitní, pokud:
+    \begin{enumerate}
+      \item je hermitovská
+      \item $\vec{x}^T A \vec{x} \geq 0$
+      \item $\vec{x}^T A \vec{x} = 0 \quad \Longleftrightarrow \quad \vec{x} = \vec{0}$
+    \end{enumerate}
+
+    Dokažme podmínky:
+
+    \begin{enumerate}
+      \item Pracujeme na realnými čísly, čili tento bod plyne ze symetrie matice.
+      \item Zvolme libovolný vektor $\vec{x} \in \mathbb{R}^2$, počítejme dle zadaného vzorce:
+      
+        \[
+          \vec{x}^T A \vec{x} = \vec{x}^T \left( \begin{array}{cc}
+            ax_1 & +bx_2 \\ bx_1 & +dx_2
+          \end{array} \right) = ax_1^2 + bx_1x_2 + bx_2x_1 + dx_2^2 = ax_1^2 + 2bx_2x_1 + dx_2^2
+        \]
+        Zvolme libovolně $x_2\in\mathbb{R}^2$, zkoumejme parabolu podle $x_1$. Rozdělme případy:
+        \begin{enumerate}
+          \item $x_2 \neq 0$:
+            \begin{align*}
+              (a)x_1^2 + (2bx_2)x_1 + (dx_2^2) \\
+              D = 4b^2x_2^2 - 4adx_2^2 = \underbrace{4x_2^2}_+\underbrace{(b^2-ad)}_{- \text{ dle }(*)} < 0
+            \end{align*}
+            Z diskriminantu plyne, že neexistuje $x_1$ takové, že součin bude roven nule. 
+            A protože platí $a>0$, parabola se nachází celá nad 0. Tedy $\vec{x}^T A \vec{x} > 0$
+          \item $x_2 = 0$:
+            \[
+              (a)x_1^2 + (2bx_2)x_1 + (dx_2^2) = (a)x_1^2 +0+0 = (a)x_1^2
+            \]
+            Jelikož $a>0$, tato parabola je nezáporná a je rovna nule právě tehdy, když $x_1=0$.
+            Čili $\vec{x}^T A \vec{x} \geq 0$, přičemž $\vec{x}^T A \vec{x} = \vec{0} \ \Leftrightarrow \ x_1=0$.
+        \end{enumerate}
+
+        Každopádně dostáváme $\vec{x}^T A \vec{x} \geq 0$.
+      
+      \item Z úvah b.i, b.ii plyne:
+        \[\vec{x}^T A \vec{x} = 0 \quad \Longleftrightarrow \quad \vec{x} = \vec{0}\]
+    \end{enumerate}
+
+    Tedy matice A je pozitivně definitní, a tedy $<,>$ je skalární součin. $\quad \quad \square$
+
+  \pagebreak
+  
+  \item $\Rightarrow$: Když je $<,>$ skalární součin, pak platí $a>0,\ detA>0$.
+    \medskip
+    
+    Předpokládejme, že $<,>$ je skalární součin. Dle tvrzení ze skript víme, že $A$ je pozitivně definitní.
+    Víme tedy:
+
+    \begin{itemize}
+      \item $\vec{x}^T A \vec{x} \geq 0 \quad (*)$
+      \item $\vec{x}^T A \vec{x} = 0 \ \Leftrightarrow \ \vec{x}=\vec{0} \quad (**)$
+      \item $\vec{x}^T A \vec{x} > 0 \ \Leftrightarrow \ \vec{x} \neq \vec{0} \quad (***)$
+    \end{itemize}
+
+    Rozepišme součin jako v bodě 1:
+
+    \[
+      \vec{x}^T A \vec{x} = ax_1^2 + 2bx_2x_1 + dx_2^2 \overset{(***)}{\geq} 0
+    \]
+
+    Zvolme libovolně $x_2\in\mathbb{R}$, zkoumejme parabolu podle $x_1$. Rozdělme případy, čemu může být rovno $x_2$:
+
+    \begin{enumerate}
+      \item $x_2 = 0$:
+        \[ax_1^2 + 2bx_2x_1 + dx_2^2 = ax_1^2\]
+        Kdyby $a=0$, pak bychom zvolením $x_1=1$ získali spor s $(***)$: $\quad a\cdot1 = 0 \overset{(***)}{>} 0$
+        
+        Kdyby $a<0$, pak bychom zvolením $x_1=1$ získali spor s $(*)$: $\quad 0> a = a\cdot(1) \overset{(*)}{\geq} 0$.
+
+        Tedy nutně platí \underline{\underline{$a>0$}}.
+      \item $x_2 \neq 0$:
+        Určeme diskriminant kvadratické rovnice. $\vec{x} \neq \vec{0}$, čili podle $(***)$ nemůže existovat $x_1$ takové, že
+        bude výraz rovný nule.
+        A tedy diskriminant musí být záporný.
+        \begin{align*}
+          &(a)x_1^2 + (2bx_2)x_1 + (dx_2^2) \\
+          D &= 4b^2x_2^2 - 4adx_2^2 = \underbrace{4x_2^2}_+(b^2-ad) < 0 \\
+          \Longrightarrow \quad &b^2-ad < 0 \quad \Longrightarrow \quad ad-b^2 > 0 \quad \Longrightarrow \quad detA>0
+        \end{align*}
+
+        Tedy nutně platí \underline{\underline{$detA>0$}}.
+    \end{enumerate}
+
+    Z předchozích bodů víme, že platí $a>0, detA>0$. $\quad\quad \square$
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+\end{document}

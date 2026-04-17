@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, xcolor}
+
+\begin{document}
+
+\section*{Domácí úkol VIII}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \item \textbf{Grarfy a jejich doplňky:}
+  
+    Grafy $G = (V,E)$ a $G' = (V',E')$ jsou izomorfní právě tehdy, když existuje bijekce
+    $f : V \to V'$ taková, že pro všechny $v_1,v_2 \in V$ platí
+    \[
+    \{v_1,v_2\} \in E \;\Leftrightarrow\; \{f(v_1),f(v_2)\} \in E'.
+    \]
+
+    Z logické ekvivalence dostáváme
+    \[
+    \{v_1,v_2\} \in E \;\Leftrightarrow\; \{f(v_1),f(v_2)\} \in E'
+    \quad\Longleftrightarrow\quad
+    \{v_1,v_2\} \notin E \;\Leftrightarrow\; \{f(v_1),f(v_2)\} \notin E',
+    \]
+    což je právě
+    \[
+    \{v_1,v_2\} \in \overline{E}
+    \;\Leftrightarrow\;
+    \{f(v_1),f(v_2)\} \in \overline{E'}.
+    \]
+
+    Tedy stejné zobrazení $f$ je izomorfismus mezi $G$ a $G'$ právě tehdy, když je izomorfismem 
+    mezi jejich doplňky $\overline{G}$ a $\overline{G'}$. 
+
+  \item \textbf{Různé stupně:}
+  
+    Pro $n=1$ takový graf existuje, bude mít jen jeden vrchol se stupněm $0$, tedy platí, že všechny
+    vrcholy mají jiný stupeň. Dokažme, že to pro $n\ge2$ nejde.
+
+    \definecolor{suddenblue}{gray}{0.95}
+    \colorlet{suddenblue}{cyan!15}
+    Předpokládejme graf $G = (V,E)$ na \colorbox{suddenblue}{$n \geq 2$} vrcholech, jehož všechny vrcholy mají různé stupně.
+    Platí 
+    \[max \left\{deg(v) \;\middle|\; v \in V \right\} \leq n-1,\]
+    protože vrchol může být maximálně spojen $n-1$ hranami se všemi ostatními $n-1$ vrcholy.
+    Zobrazení
+    \[
+    \deg : V \to \{0,1,\dots,n-1\}
+    \]
+    je prosté kvůli různosti stupňů. Jelikož obě množiny zobrazení mají stejnou velikost $n$, $\deg$ je dokonce bijektivní.
+    
+    To znamená, že v grafu musí existovat vrchol $v_0$ se stupněm $n-1 \colorbox{suddenblue}{$\geq $}1$, který je spojený se všemi
+    ostatními vrcholy. Potom každý vrchol má alespoň jednu hranu.
+    Zároveň ale v grafu musí existovat vrchol $v_1$ se stupněm $0$, který
+    tedy nemá žádnou napojenou hranu. To je spor.
+    
+    Proto pro $n \geq 2$ takový graf neexistuje, tudíž existuje jen pro $n=1$.
+
+\end{enumerate}
+
+\end{document}

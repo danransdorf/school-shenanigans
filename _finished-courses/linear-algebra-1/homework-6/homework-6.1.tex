@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 6.1}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item
+  Polynom ze zadání lze napsat jako výraz, který označme $P(x)$:
+
+  \begin{align*}
+    P(x) &= ax^4+bx^3+cx^2+dx+e \\
+    &\text{s podmínkami:} \\
+    &x,a,b,c,d,e \in \mathbb{R}, \quad(*1)\\
+    &a+b+c+d+e = 0, \quad(*2)\\
+    &P(2) = P(-1) \;\Leftrightarrow\; a-b+c-d+e = 16a+8b+4c+2d+e \;\Leftrightarrow\; 5a+3b+c+d=0 \quad(*3)
+  \end{align*}
+
+  \begin{enumerate}
+    \item \textbf{Důkaz podprostoru:}
+    
+      \begin{enumerate}
+        \item \underline{Uzavřenost sčítání}: Ukažme, že je sčítáním takových polynomů může vzniknout jen další takový polynom.
+          Uvažme dva libovolné polynomy, které splňují podmínky $(*1),(*2),(*3)$, označme je $P_1(x)$ a $P_2(x)$:
+          \begin{align*}
+            P_1(x) &= a_1x^4+b_1x^3+c_1x^2+d_1x+e_1 \\
+            P_2(x) &= a_2x^4+b_2x^3+c_2x^2+d_2x+e_2 \\
+            \text{Proved'me součet:} \\
+            P_1(x) + P_2(x) &= (a_1x^4+b_1x^3+c_1x^2+d_1x+e_1) + (a_2x^4+b_2x^3+c_2x^2+d_2x+e_2) \\
+              &= a_1x^4+a_2x^4+b_1x^3+b_2x^3+c_1x^2+c_2x^2+d_1x+d_2x+e_1+e_2 \\
+              &= (a_1+a_2)x^4 + (b_1+b_2)x^3 + (c_1+c_2)x^2 + (d_1+d_2)x + (e_1+e_2) \\
+              &\text{Položme }a'=a_1+a_2, b'=b_1+b_2, c'=c_1+c_2, d'=d_1+d_2, e'=e_1+e_2 \\
+              &= a'x^4 + b'x^3 + c'x^2 + d'x + e' \\
+              &\text{Vznikl polynom ve chtěném předpisu.} \\
+            \text{Ověření podmínek:} \\
+              &\bullet a,b,c,d,e\in\mathbb{R}\text{: Součtem realných čísel vznikne realné číslo,
+                tím je podmínka pro $a',b',c',d',e'$ ověřena} \\
+              &\bullet a+b+c+d+e=0: \\
+                &\quad\quad a'+b'+c'+d'+e' = a_1+a_2 + b_1+b_2 + c_1+c_2 + d_1+d_2 + e_1+e_2 \\
+                &\quad\quad = (a_1+b_1+c_1+d_1+e_1) + (a_2+b_2+c_2+d_2+e_2) \overset{(*2)}{=} 0+0 = 0 \\
+              &\bullet 5a+3b+c+d = 0 \\
+                &\quad\quad 5a'+3b'+c'+d' = 5(a_1+a_2)+3(b_1+b_2)+(c_1+c_2)+(d_1+d_2) \\
+                &\quad\quad = 5a_1+5a_2+3b_1+3b_2+c_1+c_2+d_1+d_2 = (5a_1+3b_1+c_1+d_1)+(5a_2+3b_2+c_2+d_2) \\
+                &\quad\quad \overset{(*3)}{=} 0+0 = 0 \\
+          \end{align*}
+        \item \underline{Uzavřenost na násobení skalárem}: Uvažme skalár $t\in\mathbb{R}$ a polynom $P_1(x) = a_1x^4+b_1x^3+c_1x^2+d_1x+e_1$,
+          který splňuje podmínky $(*1),(*2),(*3)$.
+          \begin{align*}
+            t\cdot P_1(x) &= t(a_1x^4+b_1x^3+c_1x^2+d_1x+e_1) = ta_1x^4+tb_1x^3+tc_1x^2+td_1x+te_1 \\
+              &\text{Položme }a'=ta_1, b'=tb_1, c'=tc_1, d'=td_1, e'=te_1 \\
+              &= a'x^4 + b'x^3 + c'x^2 + d'x + e' \\
+              &\text{Vznikl polynom ve chtěném předpisu.} \\
+            \text{Ověření podmínek:} \\
+              &\bullet a,b,c,d,e\in\mathbb{R}\text{: Součinem realných čísel vznikne realné číslo,
+                tím je podmínka pro $a',b',c',d',e'$ ověřena} \\
+              &\bullet a+b+c+d+e=0: \\
+                &\quad\quad a'+b'+c'+d'+e' = ta_1 + tb_1 + tc_1 + td_1 + te_1 = t(a_1+b_1+c_1+d_1+e_1) \overset{(*2)}{=} t\cdot0 = 0 \\
+              &\bullet 5a+3b+c+d = 0 \\
+                &\quad\quad 5a'+3b'+c'+d' = 5ta_1+3tb_1+tc_1+td_1 = t(5a_1+3b_1+c_1+d_1) \overset{(*3)}{=} t\cdot0 = 0 \\
+          \end{align*}
+          QED
+      \end{enumerate}
+
+    \item \textbf{Nález generátorů:}
+    
+      Hledáme koeficienty $a,b,c,d,e\in\mathbb{R}$, ze kterých můžeme sestavit polynom, který splňuje podmínky $(*1),(*2),(*3)$.
+      Zapišme podmínky $(*2),(*3)$ do soustavy rovnic v podobě matice. Podmínku $(*1)$ automaticky splníme tím, že budeme počítat nad tělesem
+      $\mathbb{R}$.
+
+      \[
+        \left(\begin{array}{ccccc}
+          1&1&1&1&1 \\
+          5&3&1&1&0
+        \end{array}\right) \left(\begin{array}{c}
+          a\\b\\c\\d\\e
+        \end{array}\right) = \left(\begin{array}{c}
+          0\\0
+        \end{array}\right)
+      \]
+      \[
+        \left(\begin{array}{ccccc|c}
+          1&1&1&1&1&0 \\
+          5&3&1&1&0&0
+        \end{array}\right)
+        \;\sim\;
+        \left(\begin{array}{ccccc|c}
+          1&1&1&1&1&0 \\
+          0&-2&-4&-4&-5&0
+        \end{array}\right)
+        \;\sim\;
+        \left(\begin{array}{ccccc|c}
+          1&1&1&1&1&0 \\
+          0&1&2&2&\frac{5}{2}&0 \\
+        \end{array}\right)
+        \;\sim\;
+        \left(\begin{array}{ccccc|c}
+          1&0&-1&-1&-\frac{3}{2}&0 \\
+          0&1&2&2&\frac{5}{2}&0 \\
+        \end{array}\right)
+      \]
+      \[
+        \;\sim\;
+        \left(\begin{array}{ccccc|c}
+          1&0&-1&-1&-\frac{3}{2}&0 \\
+          0&1&2&2&\frac{5}{2}&0 \\ \hline
+          0 & 0 & 1 & 0 & 0 & t_1 \\
+          0 & 0 & 0 & 1 & 0 & t_2 \\
+          0 & 0 & 0 & 0 & 1 & 2t_3 \\
+        \end{array}\right)
+        \;\sim\;
+        \left(\begin{array}{ccccc|ccc}
+          1&0&0&0&0&t_1&+t_2&+3t_3 \\
+          0&1&0&0&0& -2t_1 &-2t_2& - 5t_3 \\ \hline
+          0 & 0 & 1 & 0 & 0 & t_1&& \\
+          0 & 0 & 0 & 1 & 0 & &t_2& \\
+          0 & 0 & 0 & 0 & 1 & &&2t_3 \\
+        \end{array}\right)
+      \]
+
+      \[
+        \Longrightarrow
+        \left(\begin{array}{c}
+          a\\b\\c\\d\\e
+        \end{array}\right) \in Span \left\{
+          \left(\begin{array}{c}
+            1\\-2\\1\\0\\0
+          \end{array}\right),
+          \left(\begin{array}{c}
+            1\\-2\\0\\1\\0
+          \end{array}\right),
+          \left(\begin{array}{c}
+            3\\-5\\0\\0\\2
+          \end{array}\right)
+        \right\}
+      \]
+      \[
+        \Longrightarrow
+        P(x) = ax^4+bx^3+cx^2+dx+e \in Span \left\{
+          \underline{\underline{x^4-2x^3+x^2,\;\; x^4-2x^3+x,\;\; 3x^4-5x^3+ 2}}
+        \right\}
+      \]
+
+      
+  \end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}

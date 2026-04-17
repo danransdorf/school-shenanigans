@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=0.4in]{geometry}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{amssymb}
+
+
+\begin{document}
+
+\section*{Domácí úkol III}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item {Cukrárna}
+    Je k dispozici 11 různých příchutí zmrzliny.
+
+    \begin{enumerate}
+      \item Naskládej 3 různé příchutě na sebe $\Longleftrightarrow$ Sestav 3-znakový řetězec z 11-znakové abecedy bez opakování znaků.
+          \[
+            11^{\underline{3}} = 11 \cdot 10 \cdot 9 = \underline{\underline{990}}
+          \]
+      \item Zvol 4 kopečky, mohou mít stejnou příchuť $\Longleftrightarrow$ Z 11 různobarevných hromádek vyber 4 kuličky
+          \[
+            \binom{n+k-1}{k} = \binom{11+4-1}{4} = \binom{14}{4} = \underline{\underline{1001}}
+          \]
+      \item Sestav dezert z 5 vrstev, příchutě se mohou opakovat $\Longleftrightarrow$ Sestav 5-znakový řetězec z 11-znakové abecedy, můžeš opakovat znaky.
+          \[
+            11^5 = \underline{\underline{161051}}
+          \]
+      \item Dezert, kde buď:
+        \begin{enumerate}
+            \item 5 vrstev tvoří zmrlinové kopečky (mohou se opakovat příchutě) (zdůvodnění viz 1c)
+              \[11^5 = 161051\]
+            \item nebo 3 vrstvy zmrzlinové a 2 crumble z 5 typů (mohou se opakovat) $\Longleftrightarrow$ Udělej 5-znakový řetězec, kde 3 znaky budou z abecedy A o 11 znakách a 2 znaky budou z abecedy B o 5 znakách. Znaky se mohou opakovat
+              \[
+                11^3 \cdot 5^2 \cdot \binom{5}{3} = 332750
+                \]
+                *5 nad 3 přidáme, abychom započetli počet možností, které 3 z 5-ti vrstev mohou být zmrzlinové
+        \end{enumerate}
+        Případy se navzájem vylučují a pokrývají všechny možnosti, takže celkový výsledek bude součet $161051+332750=\underline{\underline{493801}}$
+    \end{enumerate}
+
+  \item \textbf{Rovnost}
+    \begin{enumerate}
+      \item Tvrzení:
+        \[
+          \sum_{k=0}^{n} \binom{n}{k}\binom{m}{r-k} = \binom{n+m}{r}
+        \]
+      \item \textbf{Důkaz 1} - kombinatorická úvaha:
+
+        Mějme množiny $N$ o $n$ prvcích a $M$ o $m$ prvcích, které mají prázdný průnik.
+        Chceme vybrat $r$ prvků množin.
+        \begin{enumerate}
+        
+          \item Můžeme to vyjádřit, že vybíráme $r$ prvků ze sjednocení množin $N$ a $M$.
+          Počet možností bude:
+          \[\binom{n+m}{r}\]
+          
+          \item Můžeme to také vyjádřit tak, že sečteme všechny možnosti, kolik vybereme prvků z které množiny.
+          Takže z množiny $N$ vybereme 0 prvků a z množiny $M$ r prvků,
+          pak z množiny $N$ vybereme 1 prvek a z množiny $M$ $r-1$ prvků. A tak dále, až vybereme
+          z množiny $N$ všech n prvků a z množiny $M$ 0 prvků.
+          Toto se dá zapsat jako suma pro všechny $k \le n$, kde vybíráme k prvků z $N$ a $r-k$ prvků z $M$,
+          neboli:
+          \[
+            \sum_{k=0}^{n} \binom{n}{k}\binom{m}{r-k}
+          \]
+          Nevadí, když bude $r-k$ záporné, protože se dané prvky vynulují.
+        \end{enumerate}
+        
+        Když se dá výsledek tohoto příkladu vyjádřit dvěma způsoby, pak oba výrazy jsou si rovny:
+        \[
+          \sum_{k=0}^{n} \binom{n}{k}\binom{m}{r-k} = \binom{n+m}{r}
+        \]
+        Q.E.D.
+
+      \item \textbf{Důkaz 2} - indukce podle $n$:
+        \begin{enumerate}
+          \item $n=0$:
+            \begin{align*}
+              \binom{0}{0}\binom{m}{r} &= \binom{0+m}{r} \\
+              \binom{m}{r} &= \binom{m}{r} \\
+            \end{align*}
+          \item $n+1$:
+
+            Indukční předpoklad (IP):
+            \[
+              \sum_{k=0}^{n} \binom{n}{k}\binom{m}{r-k} = \binom{n+m}{r}
+            \]
+
+            Chceme:
+            \[
+              \sum_{k=0}^{n+1} \binom{n+1}{k}\binom{m}{r-k} = \binom{n+1+m}{r}
+            \]
+
+            Ekvivalentními úpravami dokažme vzorec pro $n+1$:
+            \begin{align*}
+              \sum_{k=0}^{n+1} \left(\binom{n}{k-1}+\binom{n}{k}\right)\binom{m}{r-k} = \binom{n+1+m}{r} \\
+              \overset{\text{Pascal}}{\Longleftrightarrow}
+              \sum_{k=0}^{n+1} \binom{n}{k-1}\binom{m}{r-k} + \sum_{k=0}^{n+1} \binom{n}{k}\binom{m}{r-k} = \binom{n+1+m}{r}
+            \end{align*}
+            {\scriptsize \begin{align*}
+              \text{Upravme oba členy levé strany} \\
+              \sum_{k=0}^{n+1} \binom{n}{k-1}\binom{m}{r-k} 
+              &= \underbrace{\binom{n}{-1}\binom{m}{r}}_{0} + \sum_{k=1}^{n+1} \binom{n}{k-1}\binom{m}{r-k}
+              \overset{\text{j+1:=k}}{=} \sum_{j=0}^{n} \binom{n}{(j+1)-1}\binom{m}{r-(j+1)} 
+              = \sum_{j=0}^{n} \binom{n}{j}\binom{m}{(r-1)-j}
+              \\
+              \sum_{k=0}^{n+1} \binom{n}{k}\binom{m}{r-k}
+              &= \sum_{k=0}^{n} \binom{n}{k}\binom{m}{r-k} + \underbrace{\binom{n}{n+1}\binom{m}{r-k}}_{0}
+              = \sum_{k=0}^{n} \binom{n}{k}\binom{m}{r-k}
+            \end{align*}}
+            \begin{align*}
+              &\sum_{k=0}^{n} \binom{n}{k}\binom{m}{(r-1)-k} + \sum_{k=0}^{n} \binom{n}{k}\binom{m}{r-k} = \binom{n+1+m}{r} \\
+              \overset{IP}{\Longleftrightarrow}
+              &\sum_{k=0}^{n} \binom{n}{k}\binom{m}{(r-1)-k} + \binom{n+m}{r} = \binom{n+1+m}{r} \\
+              &\text{Když IP platí pro libovolné $r$, pak platí i pro $r-1$} \\
+              \overset{\text{IP pro r-1}}{\Longleftrightarrow}
+              &\binom{n+m}{r-1} + \binom{n+m}{r} = \binom{n+1+m}{r} \\
+              \overset{\text{Pascal}}{\Longleftrightarrow}
+              &\binom{n+m+1}{r} = \binom{n+1+m}{r}
+            \end{align*}
+            Q.E.D
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}

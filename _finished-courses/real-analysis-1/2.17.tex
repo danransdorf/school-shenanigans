@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Věta 2.17}
+
+Necht' $\{a_n\}$ je posloupnost. Potom $\limsup a_n, \liminf a_n \in H\left(\left\{a_n\right\}\right)$
+a platí $\forall y \in H\left(\left\{a_n\right\}\right) :\ \liminf a_n \leq y \leq \limsup a_n$.
+
+\textbf{Důkaz:}
+
+\begin{itemize}
+  \item $\limsup a_n \in H\left(\left\{a_n\right\}\right)$:
+    \begin{itemize}
+      \item $\limsup a_n = \infty$:
+        \begin{quote}
+          Dokažme konstrukcí vybrané posloupnosti $\{a_{n_k}\}$ s limitou $\infty$. Z definice víme, že $\{a_n\}$ není shora omezená.
+          Sestavme indukcí $\{a_{n_k}\}$ t.ž. $a_{n_k} > k$.
+          
+          Protože posloupnost není omezená, nalezněme $n_1 \in \mathbb{N}$ takové, že $a_{n_1} > 1$.
+
+          Uvažujme již vybraný index $n_{k-1}$, platí, že množina $\{a_n | n>n_{k-1}\}$ je stále shora neomezená.
+          Pak zvolme $n_k > n_{k-1}$ splňující $a_{n_k} > k$.
+
+          Máme posloupnost $a_{n_k} > k$ a triviálně z věty o dvou strážnících plyne $\lim_{k\to\infty} a_{n_k} = \infty$.
+        \end{quote}
+      \item $\limsup a_n = A \in \mathbb{R}$:
+        \begin{quote}
+          Dokažme konstrukcí vybrané posloupnosti $\{a_{n_k}\}$ s limitou $A$.
+          Z definice platí $\limsup a_n = \lim_{n\to\infty} sup\{a_k | k\geq n\}= A$.
+          Zaved'me posloupnost $S_n = sup\{a_k | k \geq n\}$.
+
+          Označme lemma (*): $\forall \epsilon \in \mathbb{R}^+ \ \forall n \in \mathbb{N} \ \exists m \in \mathbb{N}, m>n:\ A-\epsilon < a_m < A+\epsilon$
+          \begin{quote}
+            \textbf{Důkaz:} Zvolme libovolný $\epsilon \in \mathbb{R}^+$. $S_n$ je nerostoucí, pak nalezněme $n_0 \in \mathbb{N}$ t.ž.
+              \[ \forall n \in \mathbb{N}, n\geq n_0:\ A-\epsilon < A \leq S_n < A+\epsilon \]
+              Zvolme libovolné $n\in\mathbb{N}, n\geq n_0$ a položme $n_* = n+1$.
+              Z definice suprema a $S_n$ víme, že zároveň musí existovat $m\in\mathbb{N}, m\geq n_*$ takové, že
+              \[ A-\epsilon \leq S_{n_*} - \epsilon < a_m \leq S_{n_*}\]
+              \[ \Rightarrow A-\epsilon < a_m < A+\epsilon\ \land \ m\geq n_* > n\]
+              Pro $n\in\mathbb{N}, n < n_0$ triviálně položme $n_* = n_0$ a podle předchozí úvahy opět existuje takové $m\in\mathbb{N}$.
+              Epsilon i $n$ bylo libovolně volené, z čehož dostáváme
+              $\forall\epsilon\in\mathbb{R}^+\ \forall n\in\mathbb{N}\ \exists m\in\mathbb{N}, m>n:\ A-\epsilon < a_m < A+\epsilon$.
+          \end{quote}
+
+          Konstruujme indukčně posloupnost $\{a_{n_k}\}$:
+          \begin{itemize}
+            \item Položme $\epsilon = 1, n=1$ a podle (*) nalezněme $n_1\in\mathbb{N}, n_1>1$ takové, že $A-1 < a_{n_1} < A+1$.
+            \item Pro $n_k$ předpokládejme, že máme již zvolené $n_{k-1}$. Položme $\epsilon = \frac{1}{k}, n = n_{k-1}$.
+              Podle (*) nalezněme $n_k\in\mathbb{N}, n_k>n_{k-1}$ splňující $A-\frac{1}{k} < a_{n_k} < A+\frac{1}{k}$.
+          \end{itemize}
+
+          Pak pro libovolně zvolený $\epsilon \in \mathbb{R}^+$ nalezněme $k_0 > \frac{1}{\epsilon}$,
+          pak platí:
+          \[ \forall k\in\mathbb{N}, k\geq k_0:\ |a_{n_k} - A| < \frac{1}{k} \leq \frac{1}{k_0} < \epsilon \]
+
+          A tedy z definice platí, že limita posloupnosti $\{a_{n_k}\}$ je rovna $A$.
+        \end{quote}
+    \end{itemize}
+  \item $\liminf a_n \in H\left(\left\{a_n\right\}\right)$: obdobně
+  \item $\forall y \in H\left(\left\{a_n\right\}\right) :\ \limsup a_n \geq y$:
+    \begin{itemize}
+      \item $\limsup a_n = \infty$: Plyne triviálně z vlastnosti nekonečna.
+      \item $\limsup a_n = A \in \mathbb{R}$:
+        \begin{quote}
+          Pro spor uvažujme $y > \limsup a_n$. Pak existuje vybraná posloupnost $\{a_{n_k}\}_{k=1}^\infty$
+          s limitou $y$. Položme $\epsilon = \frac{y-A}{2}$ a nalezněme $n_1,n_2 \in\mathbb{N}$ takové, že:
+          \[ \forall k\in\mathbb{N}, k\geq n_1:\ y- \frac{y-A}{2} < a_{n_k} < y+ \frac{y-A}{2} \ \Rightarrow \ \frac{y+A}{2} < a_{n_k} < \frac{3y-A}{2} \]
+          \[ \forall n\in\mathbb{N}, n\geq n_2:\ A- \frac{y-A}{2} < S_n < A+ \frac{y-A}{2} \ \Rightarrow \ \frac{3A-y}{2} < S_n < \frac{y+A}{2} \]
+          Položme $n_0 = max\{n_1,n_2\}$, pak platí:
+
+          \[ \forall k\in\mathbb{N}, k\geq n_0:\ a_{n_k} > \frac{y+A}{2} > S_{n_k}\]
+          Ale $S_{n_k}$ je supremum, čili toto je spor, jelikož musí platit $a_{n_k} \leq S_{n_k}$.
+        \end{quote} 
+    \end{itemize}
+  \item $\forall y \in H\left(\left\{a_n\right\}\right) :\ \liminf a_n \leq y$: obdobně $\quad \square$
+\end{itemize}
+
+\end{document}

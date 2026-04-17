@@ -1,0 +1,89 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{amssymb}
+
+
+\begin{document}
+
+\section*{Domácí úkol I}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item \textbf{Vlastnosti součtu:}
+    \[
+      S_n = \sum_{k=1}^n k = \frac{n(n+1)}{2}.
+    \]
+
+    \begin{enumerate}
+      \item \textbf{Teze:} 
+        Když je $S_n$ \colorbox{yellow}{liché}, pak $n \equiv 1 \lor n \equiv 2 \pmod{4}$.
+
+      \item \textbf{Důkaz:}
+        \[
+        S_n = \sum_{k=1}^{n} k
+        \]
+        \[
+          S_n = 1+2+3+4+5+...+n
+        \]
+        \[
+          S_n \equiv \underbrace{1+0+1+0+1+...+n}_{\text{počet jedniček }=\lceil \frac{n}{2}\rceil} \pmod{2}
+        \]
+        \[
+          S_n \equiv \lceil \frac{n}{2} \rceil \pmod{2}
+        \]
+
+        Nyní rozdělíme podle zbytku \(n \pmod{4}\):
+
+        \[
+        \begin{aligned}
+        n &= 4m:   &\quad \left\lceil \tfrac{n}{2} \right\rceil = 2m \equiv 0 \pmod{2} &\;\;\Rightarrow S_n \equiv 0 \pmod{2}, \\
+        n &= 4m+ \colorbox{green}{1}: &\quad \left\lceil \tfrac{n}{2} \right\rceil = 2m+1 \equiv 1 \pmod{2} &\;\;\Rightarrow S_n \equiv \colorbox{yellow}{$1$} \pmod{2}, \\
+        n &= 4m+ \colorbox{green}{2}: &\quad \left\lceil \tfrac{n}{2} \right\rceil = 2m+1 \equiv 1 \pmod{2} &\;\;\Rightarrow S_n \equiv \colorbox{yellow}{$1$} \pmod{2}, \\
+        n &= 4m+3: &\quad \left\lceil \tfrac{n}{2} \right\rceil = 2m+2 \equiv 0 \pmod{2} &\;\;\Rightarrow S_n \equiv 0 \pmod{2}.
+        \end{aligned}
+        \]
+
+        Když je $n \equiv 0  \text{ nebo }  3 \pmod{4}$, pak je \(S_n\) sudé.
+        Z toho plyne, že když je \(S_n\) liché, pak $n \equiv \colorbox{green}{1} \ \text{nebo} \ \colorbox{green}{2} \pmod{4}$. $\Box$
+    \end{enumerate}
+  
+  \pagebreak
+
+  \item \textbf{Trojúhelníková nerovnost:} 
+    
+    \begin{enumerate}
+      \item \textbf{Teze:} 
+        Pro všechna reálná $a,b$ platí:
+        \[
+          |a+b| \le |a| + |b|
+        \]
+      
+      \item \textbf{Důkaz:} \\
+        Vycházejíce z vlastnosti ...
+          \[\forall x,y \ge 0:\quad \bigl(x \le y \;\Longleftrightarrow\; x^{2} \le y^{2}\bigr)\]
+        ... umocněme nerovnici na druhou:
+          \begin{align*}
+          (|a+b|)^2 &\le (|a| + |b|)^2 \quad &\text{(roznásobení)} \\[1ex]
+          a^2 + 2ab + b^2 &\le a^2 + 2|a||b| + b^2 \quad &\text{($-a^2 - b^2$)} \\[1ex]
+          2ab &\le 2|a||b| \quad &\text{($\frac{...}{2}$)} \\[1ex]
+          ab &\le |a||b| \\[1ex]
+          ab &\le |ab|
+          \end{align*}
+
+          A to platí vždy, neboť $x \le |x|$ pro všechna $x\in\mathbb{R}$. Tím je nerovnost dokázána. $\Box$
+      
+          \item \textbf{Pozorování rovnosti:} \\
+            V každém kroku výše šlo o ekvivalence, proto ...
+            \[
+            |a+b| = |a|+|b| \;\Longleftrightarrow\; ab = |ab| \;\Longleftrightarrow\; ab\ge 0.
+            \]
+
+            ... z toho plyne, že $|a+b| = |a|+|b|$ platí pouze, když $ab \geq 0$
+    \end{enumerate}
+\end{enumerate}
+
+
+
+\end{document}

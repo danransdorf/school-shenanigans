@@ -1,0 +1,187 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 11.1}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  \item Matici ze zadání označme A. Z definice determinantu máme:
+    \[
+      det(A) = \sum_{\pi \in S_n} sgn(\pi) \cdot a_{\pi(1),1} \cdot a_{\pi(2),2} \cdot a_{\pi(3),3} \cdot a_{\pi(4),4}
+    \]
+
+    Postupně projděme všechny permutace, rozdělme je podle řádu jejich hodnoty.
+    \begin{itemize}
+      \item \textbf{Stupeň 4}: Musíme vybrat z každého sloupce člen závislý na $x$,
+        jediná taková permutace je $(1)(24)(3)$, kde $sgn=-1$
+        \[
+          \left(\begin{array}{cccc}
+            \boxed{2x} & e & 2 & 1 \\ 1 & -2 & x & \boxed{3x} \\ \pi & -4 & \boxed{x} & 5 \\ 3 & \boxed{x} & x & -2
+          \end{array}\right)
+        \]
+
+        Pak \underline{\underline{koeficient $x^4$ bude $-2\cdot3\cdot1\cdot1 = -6$}}.
+      
+      \item \textbf{Stupeň 3}: Nalezněme všechny vhodné permutace podle
+        vybraného řádku pro 3. řádek. 
+        Je-li ve 3. sloupci vybraný 1. řádek, pak neexistuje vhodná permutace,
+        která by dala součin $kx^3$, jelikož "máme dostupné jen 2 $x$". 
+        \[
+          \left(\begin{array}{cccc}
+            &  & \boxed{2} &  \\ 1 & -2 &  & 3x \\ \pi & -4 &  & 5 \\ 3 & x &  & -2
+          \end{array}\right)
+        \]
+        Je-li ve 3. sloupci vybraný 2. řádek, pak existuje právě jedna permutace
+        dávající součin $kx^3$, protože v prvních dvou sloupcích musíme vybrat prvek s $x$.
+        $(1)(243)$, $sgn=1$
+        \[
+          \left(\begin{array}{cccc}
+            2x & e &  & 1 \\ & & \boxed{x} &  \\ \pi & -4 &  & 5 \\ 3 & x &  & -2
+          \end{array}\right)
+          \quad \Rightarrow \quad
+          \left(\begin{array}{cccc}
+            \boxed{2x} & e &  & 1 \\ & & \boxed{x} &  \\ \pi & -4 &  & \boxed{5} \\ 3 & \boxed{x} &  & -2
+          \end{array}\right)
+          \quad \Rightarrow \quad
+          1\cdot2x\cdot x \cdot x \cdot 5 = 10x^3
+        \]
+        Je-li ve 3. sloupci vybraný 3. řádek, pak neexistuje permutace dávající součin $kx^3$.
+        Můžeme totiž buď vybrat permutaci dávající $-6x^4$ (viz nahoře), jakýmkoli "úhybem" od členu s $x$
+        nám zbyde k výběru jen jedno další $x$, čímž bychom získali jen $kx^2$.
+        \[
+          \left(\begin{array}{cccc}
+            2x & e &  & 1 \\ 1 & -2 &  & 3x \\ & & \boxed{x} &  \\ 3 & x &  & -2
+          \end{array}\right)
+        \]
+        \[
+          \quad \Rightarrow \quad
+          \left(\begin{array}{cccc}
+            \xout{2x} & \boxed{e} &  & 1 \\ 1 & -2 &  & 3x \\ & & \boxed{x} &  \\ 3 & \xout{x} &  & -2
+          \end{array}\right)
+          \left(\begin{array}{cccc}
+            \xout{2x} & e &  & \boxed{1} \\ 1 & -2 &  & \xout{3x} \\ & & \boxed{x} &  \\ 3 & x &  & -2
+          \end{array}\right)
+          \left(\begin{array}{cccc}
+            \xout{2x} & e &  & 1 \\ \boxed{1} & -2 &  & \xout{3x} \\ & & \boxed{x} &  \\ 3 & x &  & -2
+          \end{array}\right)
+          \left(\begin{array}{cccc}
+            2x & e &  & 1 \\ 1 & \boxed{-2} &  & \xout{3x} \\ & & \boxed{x} &  \\ 3 & \xout{x} &  & -2
+          \end{array}\right)
+        \]
+        \[
+          \left(\begin{array}{cccc}
+            \xout{2x} & e &  & 1 \\ 1 & -2 &  & 3x \\ & & \boxed{x} &  \\ \boxed{3} & \xout{x} &  & -2
+          \end{array}\right)
+          \left(\begin{array}{cccc}
+            2x & e &  & 1 \\ 1 & -2 &  & \xout{3x} \\ & & \boxed{x} &  \\ 3 & \xout{x} &  & \boxed{-2}
+          \end{array}\right)
+        \]
+        Je-li ve 3. sloupci vybraný 4. řádek, musí být v prvním, resp. ve čtvrtém sloupci zvolen prvek 
+        $2x$, resp. $3x$. Pro druhý sloupec zbývá prvek $-4$. Toto je permutace $(1)(234)$ s kladným znaménkem.
+        \[
+          \left(\begin{array}{cccc}
+            2z & e &  & 1 \\ 1 & -2 &  & 3x \\ \pi & -4 &  & 5 \\ & & \boxed{x} & 
+          \end{array}\right)
+          \quad \Rightarrow \quad
+          \left(\begin{array}{cccc}
+            \boxed{2x} & e &  & 1 \\ 1 & -2 &  & \boxed{3x} \\ \pi & \boxed{-4} &  & 5 \\ & & \boxed{x} & 
+          \end{array}\right)
+          \quad \Rightarrow \quad
+          1\cdot 2x\cdot(-4)\cdot x \cdot 3x = -24x^3
+        \]
+
+        Součtem jediných dvou permutací dostáváme, že \underline{\underline{koeficient $x^3$ bude roven $10-24=-14$}}.
+
+    \end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+\end{document}

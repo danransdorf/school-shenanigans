@@ -1,0 +1,225 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 9.2}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \item Množina X je množinou všech řešení rovnice $2x_1-3x_2+4x_3+x_4=0$, rovnici zapišme do matice a vyřešme:
+    \[
+      \left(\begin{array}{cccc|c}
+        2 & -3 & 4 & 1 & 0
+      \end{array}\right)
+      \overset{parametry}{\sim}
+      \left(\begin{array}{cccc|c}
+        2 & -3 & 4 & 1 & 0 \\ \hline
+        0 & 1 & 0 & 0 & 2t_1 \\
+        0 & 0 & 1 & 0 & t_2 \\
+        0 & 0 & 0 & 1 & 2t_3
+      \end{array}\right)
+      \sim
+      \left(\begin{array}{cccc|ccc}
+        2 & 0 & 0 & 0 & 6t_1&-4t_2&-2t_3 \\ \hline
+        0 & 1 & 0 & 0 & 2t_1 \\
+        0 & 0 & 1 & 0 & &t_2 \\
+        0 & 0 & 0 & 1 & &&2t_3
+      \end{array}\right)
+      \sim
+      \left(\begin{array}{cccc|ccc}
+        1 & 0 & 0 & 0 & 3t_1&-2t_2&-t_3 \\ \hline
+        0 & 1 & 0 & 0 & 2t_1 \\
+        0 & 0 & 1 & 0 & &t_2 \\
+        0 & 0 & 0 & 1 & &&2t_3
+      \end{array}\right)
+    \]
+
+    Z tohoto lze vidět:
+    \[
+    X = Span\left\{
+        \left(\begin{array}{c} 3\\2\\0\\0 \end{array}\right),
+        \left(\begin{array}{c} -2\\0\\1\\0 \end{array}\right),
+        \left(\begin{array}{c} -1\\0\\0\\2 \end{array}\right)
+      \right\}
+    \]
+
+    Zadefinujme si matice $A_X,A_Y$, které mají vektory ze $Span$ jako sloupce, tím je jejich obraz roven množinám X,Y:
+
+    \begin{align*}
+      A_X &= \left(\begin{array}{ccc}
+        3 & -2 & -1 \\
+        2 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 2
+      \end{array}\right) \\
+      A_Y &= \left(\begin{array}{ccc}
+        1 & 3 \\
+        2 & -1 \\
+        1 & 1 \\
+        1 & 0
+      \end{array}\right)
+    \end{align*}
+
+    Hledáme tedy množinu všech vektorů $\vec{p}$, které jsou vyjádřitelné jako lineární kombinace sloupců matice $A_X$, ale také $A_Y$.
+    Nalezněme tedy všechny pětice $a,b,c,d,e$ splňující:
+
+    \begin{align*}
+      \vec{p} = \left(\begin{array}{ccc}
+        3 & -2 & -1 \\
+        2 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 2
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        a\\b\\c
+      \end{array}\right)
+      &= \left(\begin{array}{ccc}
+        1 & 3 \\
+        2 & -1 \\
+        1 & 1 \\
+        1 & 0
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        d\\e
+      \end{array}\right) \\
+      \left(\begin{array}{ccc}
+        3 & -2 & -1 \\
+        2 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 2
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        a\\b\\c
+      \end{array}\right) -
+      \left(\begin{array}{ccc}
+        1 & 3 \\
+        2 & -1 \\
+        1 & 1 \\
+        1 & 0
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        d\\e
+      \end{array}\right) 
+      &= 0 \\
+      \left(\begin{array}{ccc}
+        3 & -2 & -1 \\
+        2 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 2
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        a\\b\\c
+      \end{array}\right) +
+      \left(\begin{array}{ccc}
+        -1 & -3 \\
+        -2 & 1 \\
+        -1 & -1 \\
+        -1 & 0
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        d\\e
+      \end{array}\right) 
+      &= 0 \\
+      \left(\begin{array}{ccccc}
+        3 & -2 & -1 & -1 & -3\\
+        2 & 0 & 0 & -2 & 1\\
+        0 & 1 & 0 & -1 & -1\\
+        0 & 0 & 2 & -1 & 0
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        a\\b\\c\\d\\e
+      \end{array}\right)
+      &= 0
+    \end{align*}
+  
+  Vyřešme tuto soustavu lineárních rovnic:
+
+  \[
+    \left(\begin{array}{ccccc|c}
+      3 & -2 & -1 & -1 & -3 & 0 \\
+      2 & 0 & 0 & -2 & 1 & 0 \\
+      0 & 1 & 0 & -1 & -1 & 0 \\
+      0 & 0 & 2 & -1 & 0 & 0
+    \end{array}\right)
+    \overset{\text{Gauss--Jordan}}{\sim}
+    \left(\begin{array}{ccccc|c}
+      1 & 0 & 0 & 0 & \frac{27}{2} & 0 \\
+      0 & 1 & 0 & 0 & 12 & 0 \\
+      0 & 0 & 1 & 0 & \frac{13}{2} & 0 \\
+      0 & 0 & 0 & 1 & 13 & 0
+    \end{array}\right)
+    \sim
+    \left(\begin{array}{ccccc|c}
+      2 & 0 & 0 & 0 & 27 & 0 \\
+      0 & 1 & 0 & 0 & 12 & 0 \\
+      0 & 0 & 2 & 0 & 13 & 0 \\
+      0 & 0 & 0 & 1 & 13 & 0
+    \end{array}\right)
+  \]
+  \[
+    \overset{\text{Parametr } t\in\mathbb{R}}{\sim}
+    \left(\begin{array}{ccccc|c}
+      2 & 0 & 0 & 0 & 27 & 0 \\
+      0 & 1 & 0 & 0 & 12 & 0 \\
+      0 & 0 & 2 & 0 & 13 & 0 \\
+      0 & 0 & 0 & 1 & 13 & 0 \\ \hline
+      0 & 0 & 0 & 0 & 1 & -2t
+    \end{array}\right)
+    \sim
+    \left(\begin{array}{ccccc|c}
+      2 & 0 & 0 & 0 & 0 & 54t \\
+      0 & 1 & 0 & 0 & 0 & 24t \\
+      0 & 0 & 2 & 0 & 0 & 26t \\
+      0 & 0 & 0 & 1 & 0 & 26t \\ \hline
+      0 & 0 & 0 & 0 & 1 & -2t
+    \end{array}\right)
+    \sim
+    \left(\begin{array}{ccccc|c}
+      1 & 0 & 0 & 0 & 0 & 27t \\
+      0 & 1 & 0 & 0 & 0 & 24t \\
+      0 & 0 & 1 & 0 & 0 & 13t \\
+      0 & 0 & 0 & 1 & 0 & 26t \\ \hline
+      0 & 0 & 0 & 0 & 1 & -2t
+    \end{array}\right)
+  \]
+
+  Dosad'me řešení do rovnice a zísejme všechny vektory $\vec{p}$:
+
+  \begin{align*}
+    \vec{p} &= \left(\begin{array}{ccc}
+      3 & -2 & -1 \\
+      2 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 2
+    \end{array}\right) \cdot \left(\begin{array}{c}
+      27t\\24t\\13t
+    \end{array}\right)
+    = \left(\begin{array}{ccc}
+      1 & 3 \\
+      2 & -1 \\
+      1 & 1 \\
+      1 & 0
+    \end{array}\right) \cdot \left(\begin{array}{c}
+      26t\\-2t
+    \end{array}\right) \quad , t\in\mathbb{R} \\
+    \vec{p} &= \left(\begin{array}{c}
+      81t-48t-13t \\ 54t \\ 24t \\ 26t
+    \end{array}\right)
+    =  \left(\begin{array}{c}
+      26t-6t \\ 52t + 2t \\ 26t-2t \\ 26t
+    \end{array}\right) \quad , t\in\mathbb{R} \\
+    \vec{p} &= \left(\begin{array}{c}
+      20t \\ 54t \\ 24t \\ 26t
+    \end{array}\right) \quad , t\in\mathbb{R}
+  \end{align*}
+
+  Pak tedy platí:
+
+  \[
+    X \cap Y = Span \left\{ \left(\begin{array}{c}
+      20\\54\\24\\26
+    \end{array}\right) \right\}
+  \]
+
+  Jednou z bází $X \cap Y$ je jednoprvková posloupnost vektorů $\left( (20,54,24,26)^T \right)$.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Ekvivalence v limitách}
+
+\begin{enumerate}
+  \item \textbf{Definice relace $\sim$}: Realné funkce $f,g$ patří do relace $\sim_c$ právě tehdy, když platí:
+
+  \[
+    \lim_{x\to c} \frac{f(x)}{g(x)} = 1
+  \]
+
+  \item \textbf{Lemma}: Bud' funkce $f: \mathbb{R} \to \mathbb{R}, g: \mathbb{R} \to \mathbb{R}$, čísla $c,A \in \mathbb{R}$
+a platí následující podmínky:
+
+\begin{itemize}
+  \item $\lim_{x\to c}f(x) = A \quad (*)$
+  \item $\lim_{x\to c} \frac{f(x)}{g(x)} = 1 \quad (**)$
+\end{itemize}
+
+Pak platí: $\quad \lim_{x\to c}g(x) = A$.
+
+\medskip
+\begin{quote}
+\textbf{Důkaz:}
+Předpokládejme funkce $f: \mathbb{R} \to \mathbb{R}, g: \mathbb{R} \to \mathbb{R}$ a čísla $c,A \in \mathbb{R}$
+spjňující $(*),(**)$.
+
+Volbou $\epsilon = 1$ z předpokladu $(**)$ pak plyne, že existuje nějaké prstencové okolí $P(c,\delta)$ takové, že
+$\frac{f(x)}{g(x)}$ je definované a platí:
+
+\[
+\forall x \in P(c,\delta) : 1-1=0 < \frac{f(x)}{g(x)} < 2=1+1
+\]
+\[
+\Longrightarrow \ \frac{f(x)}{g(x)} \neq 0 \quad (i)
+\]
+\[
+\Longrightarrow \ f(x) \neq 0, g(x) \neq 0 \quad (ii)
+\]
+
+Pak podle věty o podílové aritmetice limit platí:
+
+\[
+\lim_{x\to c} \frac{g(x)}{f(x)} \overset{(i)}{=} \lim_{x\to c} \frac{1}{\frac{f(x)}{g(x)}} \overset{(**)}{=} \frac{1}{1} = 1
+\quad (iii)
+\]
+
+Počítejme limitu funkce $g$ použitím věty o součinové aritmetice limit:
+
+\[
+\lim_{x\to c}g(x) \overset{(ii)}{=} \lim_{x\to c}\frac{g(x)f(x)}{f(x)} = \lim_{x\to c}\frac{g(x)}{f(x)} \cdot \lim_{x\to c}f(x)
+\overset{(*),(iii)}{=} 1 \cdot A = A \quad\quad \square
+\]
+\end{quote}
+
+\item \textbf{Důsledek lemmatu}: Bud' realné funkce $f,g$ a relace $\sim_c$, pak platí:
+
+\[
+  f \sim_c g \land \lim_{x\to c}f(x) = A \ \Longrightarrow \lim_{x\to c}g(x) = A
+\]
+
+\end{enumerate}
+
+\end{document}

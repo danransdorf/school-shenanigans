@@ -1,0 +1,273 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, xcolor}
+
+\begin{document}
+
+\section*{Domácí úkol 8.2}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \setcounter{enumi}{1}
+
+  \item \textbf{Řešení}:
+  
+  \begin{enumerate}
+    \item Posloupnost používá 3 předchozí členy pro výpočet n-tého členu,
+      tedy první tři členy musí být předem určené. Předepišme si vzorec pro
+      čtvrtý, pátý, šestý, sedmý člen ($a_3, a_4, a_5$):
+
+      \begin{align*}
+        a_3 &= a_2 + a_1 - a_0 \\
+        a_4 &= a_3 + a_2 - a_1 = (a_2 + a_1 - a_0) + a_2 - a_1 = 2a_2 - a_0 \\
+        a_5 &= a_4 + a_3 - a_2 = (2a_2 - a_0) + (a_2 + a_1 - a_0) - a_2 = 2a_2 + a_1 - 2a_0 \\
+      \end{align*}
+
+      Všechny členy počínaje $a_6$ budou založeny na $a_3, a_4, a_5$.
+      Tedy stačí zjistit, jakou má dimenzi posloupnost $a_3, a_4, a_5$,
+      když budeme libovolně nastavovat parametry $a_0, a_1, a_2$.
+
+      \[
+        \left(\begin{array}{c}
+          a_3 \\ a_4 \\ a_5
+        \end{array}\right) = \left(\begin{array}{ccc}
+          a_2 & +a_1 & -a_0 \\
+          2a_2 && -a_0 \\
+          2a_2 & +a_1 & -2a_0
+        \end{array}\right) = \left(\begin{array}{ccc}
+          1&1&-1\\2&0&-1\\2&1&-2
+        \end{array}\right) \cdot \left(\begin{array}{c}
+          a_2 \\ a_1 \\ a_0
+        \end{array}\right)
+      \]
+
+      Jelikož $a_2,a_1,a_0$ jsou libovolná realná čísla, zkoumáme de facto dimenzi
+      obrazu zobrazení $\mathbb{R}^3 \to \mathbb{R}^3$ určené maticí. Zkoumejme tedy sloupcový prostor matice
+      pomocí elementárních sloupcových úprav, které sloupcový prostor nemění:
+
+      \[
+      \left(\begin{array}{ccc}
+        1&1&-1 \\
+        2&0&-1 \\
+        2&1&-2
+      \end{array}\right)
+      \overset{\text{2.s } -\text{1.s}}{\;\sim\;}
+      \left(\begin{array}{ccc}
+        1&0&-1 \\
+        2&-2&-1 \\
+        2&-1&-2
+      \end{array}\right)
+      \overset{\text{3.s } +\text{1.s}}{\;\sim\;}
+      \left(\begin{array}{ccc}
+        1&0&0 \\
+        2&-2&1 \\
+        2&-1&0
+      \end{array}\right)
+      \overset{\text{2.s } +(2\cdot)\text{3.s}}{\;\sim\;}
+      \left(\begin{array}{ccc}
+        1&0&0 \\
+        2&0&1 \\
+        2&-1&0
+      \end{array}\right)
+      \;\sim\; ... \;\sim\;
+      \left(\begin{array}{ccc}
+        1&0&0 \\
+        0&1&0 \\
+        0&0&1
+      \end{array}\right)
+      \]
+
+      Sloupcový prostor matice má dimenzi 3, tedy prostor všech posloupností určené
+      vztahem ze zadání má \textbf{dimenzi 3}.
+    
+    \item Hledání báze zjednodušme na hledání uspořádaných trojic, které lineární kombinací
+      generují všechny uspořádané trojice $a_0,a_1,a_2$ určující posloupnost.
+    
+      Nejprve si dokažme lemma \textbf{(*)}: 
+      Když jsou první tři členy aritmetickou posloupností, pak celá posloupnost $\left\{a_n\right\}$
+      je aritmetickou posloupností.
+
+      Dokažme indukcí:
+      \begin{enumerate}
+        \item Nalezneme tedy první členy $a_0, a_1, a_2$ splňující $a_2-a_1=a_1-a_0$.
+        \item Indukčním předpokladem je rovnost $a_n - a_{n-1} = a_{n-1} - a_{n-2}$.
+          Ukažme indukční krok $n \Rightarrow n+1$:
+          \begin{align*}
+            a_n - a_{n-1} &= a_{n-1} - a_{n-2} \\
+            a_n - a_{n-1} &= -a_n + \underbrace{a_n + a_{n-1} - a_{n-2}}_{a_{n+1}} \\
+            a_n - a_{n-1} &= - a_n + a_{n+1}  \\
+            a_{n+1} - a_n &= a_n - a_{n-1} \\
+            a_{n+1} - a_{(n+1)-1} &= a_{(n+1)-1} - a_{(n+1)-2} \quad \square\\
+          \end{align*}
+      \end{enumerate}
+
+      Najděme nějakou geometrickou posloupnost splňující vztah ze zadání.
+      Předpokládejme, že najdeme $a_0,a_1,a_2$, které jsou geometrická posloupnost.
+      Předpokládejme $\frac{a_n}{a_{n-1}}=\frac{a_{n-1}}{a_{n-2}}$, odhalme podmínky,
+      které musí být splňeny, aby také platilo $\frac{a_{n+1}}{a_n} = \frac{a_n}{a_{n-1}}$.
+
+      \begin{align*}
+        \frac{a_{n+1}}{a_n} &= \frac{a_n}{a_{n-1}} \\
+        \frac{a_n+a_{n-1}-a_{n-2}}{a_n} &= \frac{a_n}{a_{n-1}} \quad\left(= \frac{a_{n-1}}{a_{n-2}}\right) \\
+        \frac{a_n+a_{n-1}-a_{n-2}}{a_n} &= \frac{a_{n-1}}{a_{n-2}} \\
+        1 + \frac{a_{n-1}-a_{n-2}}{a_n} &= \frac{a_{n-1}}{a_{n-2}} \\
+        \frac{a_{n-1}-a_{n-2}}{a_n} &= \frac{a_{n-1}}{a_{n-2}} - 1 \\
+        \frac{a_{n-1}-a_{n-2}}{a_n} &= \frac{a_{n-1} - a_{n-2}}{a_{n-2}} \\
+      \end{align*}
+      Volba $a_{n-1}=a_{n-2}$ splní rovnici, ale vede k vztahu $a_0=a_1=a_2=a_3=...$, což
+      je zároveň aritmetická posloupnost, což te{d'} hledat nechceme, uvažme tedy $a_{n-1} \neq a_{n-2}$:
+      \begin{align*}
+        a_n &= a_{n-2} \quad\quad |\; a_n,a_{n-1},a_{n-2} \neq 0 \;\land\; a_{n-1} \neq a_{n-2}  \\
+        \frac{a_n}{a_{n-1}}=\frac{a_{n-1}}{a_{n-2}} &\Rightarrow \frac{a_{n-2}}{a_{n-1}}=\frac{a_{n-1}}{a_{n-2}} \\
+        a_{n-1}^2 &= a_{n-2}^2 \\
+        a_{n-1} &= \pm a_{n-2} \quad\quad \left(... \land a_{n-1}\neq a_{n-2}\right) \\
+        a_{n-1} &= - a_{n-2} = - a_n \\
+      \end{align*}
+
+      Námi nalezena posloupnost tedy musí mít kvocient -1, zvolme tedy geometrickou posloupnost
+      $g_n$ začínající s $(1,-1,1)$.
+
+      Podle (*) triviálně nalezněme dvě nezávislé aritmetické posloupnosti: $x_n$ začínající s $(0,1,2)$,
+      $y_n$ začínající s $(1,2,3)$.
+
+      Zhodnoťme, zda je posloupnost těchto posloupností bází $V$.
+      Dejme začátky posloupností do matice a ověřme, že má matice hodnost 3.
+
+      \[
+        \left(\begin{array}{ccc}
+          1&-1&1 \\
+          0&1&2 \\
+          1&2&3 \\
+        \end{array}\right)
+        \overset{\text{3.ř } -\text{1.ř}}{\;\sim\;}
+        \left(\begin{array}{ccc}
+          1&-1&1 \\
+          0&1&2 \\
+          0&3&2 \\
+        \end{array}\right)
+        \overset{\text{3.ř } -(3\cdot)\text{2.ř}}{\;\sim\;}
+        \left(\begin{array}{ccc}
+          1&-1&1 \\
+          0&1&2 \\
+          0&0&-4 \\
+        \end{array}\right)
+      \]
+
+      Matice má skutečně hodnost 3, potom dimenze jejího řádkového je také 3.
+      Takže námi nalezené tři posloupnosti jsou nezávislé a generují všechny posloupnosti prostoru $V$.
+      Pak jsme nalezli bázi $B$:
+
+      \[
+        B = Span\left(
+          (1,-1,1,...),
+          (0,1,2,...),
+          (1,2,3,...)
+        \right)
+      \]
+
+      Pro nalezení matice převodu z kanonické báze do B opět počítejme jen
+      s prvními třemi členy posloupnosti.
+
+      Posloupnosti napišme do sloupců matice:
+
+      \[
+        \left(\begin{array}{ccc}
+          1 & 0 & 1 \\
+          -1 & 1 & 2 \\
+          1 & 2 & 3
+        \end{array}\right) \cdot \left(\begin{array}{c}
+          a \\ b \\ c
+        \end{array}\right) = \left(\begin{array}{c}
+          d \\ e \\ f
+        \end{array}\right)
+      \]
+
+      Všimněme si, že matice určuje zobrazení, které bere jako vstup $\left(\begin{array}{c}
+          a \\ b \\ c
+        \end{array}\right)$, pomocí zadaných koeficientů $a,b,c$ lineárně kombinuje posloupnosti v matici,
+      vrací první tři prvky výsledné posloupnosti. Když tedy máme první tři prvky posloupnosti
+      a chceme získat koeficienty pro lineární kombinaci z báze, pak můžeme rovnici přenásobit
+      inverzem matice:
+      
+      \begin{align*}
+        \left(\begin{array}{ccc}
+          1 & 0 & 1 \\
+          -1 & 1 & 2 \\
+          1 & 2 & 3
+        \end{array}\right)^{-1} \cdot \left(\begin{array}{ccc}
+          1 & 0 & 1 \\
+          -1 & 1 & 2 \\
+          1 & 2 & 3
+        \end{array}\right) \cdot \left(\begin{array}{c}
+          a \\ b \\ c
+        \end{array}\right) = \left(\begin{array}{ccc}
+          1 & 0 & 1 \\
+          -1 & 1 & 2 \\
+          1 & 2 & 3
+        \end{array}\right)^{-1} \cdot \left(\begin{array}{c}
+          d \\ e \\ f
+        \end{array}\right) \\
+        \left(\begin{array}{c}
+          a \\ b \\ c
+        \end{array}\right) = \left(\begin{array}{ccc}
+          1 & 0 & 1 \\
+          -1 & 1 & 2 \\
+          1 & 2 & 3
+        \end{array}\right)^{-1} \cdot \left(\begin{array}{c}
+          d \\ e \\ f
+        \end{array}\right) \\
+        \left(\begin{array}{c}
+          a \\ b \\ c
+        \end{array}\right) = \boxed{\left(\begin{array}{ccc}
+          \frac{1}{4} & -\frac{1}{2} & \frac{1}{4} \\[6pt]
+          -\frac{5}{4} & -\frac{1}{2} & \frac{3}{4} \\[6pt]
+          \frac{3}{4} & \frac{1}{2} & -\frac{1}{4}
+        \end{array}\right)} \cdot \left(\begin{array}{c}
+          d \\ e \\ f
+        \end{array}\right)
+      \end{align*}
+
+      Teď jsme získali inverzní zobrazení, které bere jako vstup posloupnost $(d,e,f,...)$ a vrací
+      koeficienty $(a,b,c)$, kterými lineárně zkombinujeme posloupnosti z báze a tím
+      získáme posloupnost na vstupu. Tedy $\boxed{\text{zarámovaná}}$ matice
+      je maticí přechodu od kanonické báze k B.
+
+    \item Domnívám se, že posloupnost bude vypadat takto: $(1,1,2,2,3,3,4,4,5,5,6,6,...)$
+      --- po každém druhém členu roste o 1.
+      
+      Dokažme:
+        \definecolor{suddenblue}{gray}{0.95}
+        \colorlet{suddenblue}{cyan!15}
+        \definecolor{suddenpeach}{gray}{0.95}
+        \colorlet{suddenpeach}{orange!20}
+
+        \begin{enumerate}
+          \item \colorbox{suddenblue}{$a_{n-3} = a_{n-2} = a_{n-1}-1$} $\Longrightarrow$ \colorbox{suddenpeach}{$a_{n-2} + 1 = a_{n-1} = a_n$}:
+            \begin{align*}
+              a_n &= a_{n-1} + a_{n-2} - a_{n-3} \\
+              a_n &= a_{n-1} + (a_{n-1}-1) - (a_{n-1}-1) \\
+              a_n &= a_{n-1}
+            \end{align*}
+          \item \colorbox{suddenpeach}{$a_{n-3}+1 = a_{n-2} = a_{n-1}$} $\Longrightarrow$ \colorbox{suddenblue}{$a_{n-2} = a_{n-1} = a_n - 1$}:
+            \begin{align*}
+              a_n &= a_{n-1} + a_{n-2} - a_{n-3} \\
+              a_n &= a_{n-1} + a_{n-1} - (a_{n-1}-1) \\
+              a_n &= a_{n-1} + 1 \\
+              a_n - 1 &= a_{n-1} \\
+            \end{align*}
+          \item \colorbox{suddenblue}{$a_0 = a_1 = a_2 - 1$}: $\quad 1=1=2-1$ \checkmark $\quad\quad\square$
+        \end{enumerate}
+      
+      Předpis pro zadanou posloupnost tedy bude:
+
+      \[
+        a_n = \left\lceil \frac{n+1}{2} \right\rceil
+      \]
+  \end{enumerate}
+    
+
+\end{enumerate}
+
+\end{document}

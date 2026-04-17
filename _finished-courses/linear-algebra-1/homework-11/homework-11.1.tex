@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 11.1}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \item \textbf{První část:} Lineární zobrazení jsou vyjádřena právě jednou unikátní maticí (bijekce mezi zobrazeními a maticemi), sčítáním zobrazení $f_A,f_B$
+    získáváme zobrazení $f_{A+B}$, skalárním násobkem zobrazení $t\cdot f_A$ získáváme zobrazení $f_{tA}$.
+    Z toho plyne, že prostor $Hom(\mathbb{R}^2,\mathbb{R}^2)$ je izomorfní s prostorem všech příslušných matic $\mathbb{R}^{2\times2}$.
+    
+    \textbf{Lemma} (*): Necht' libovolná báze B prostoru $\mathbb{R}^{2\times2}$. Prostor všech matic (A) $\mathbb{R}^{2\times2}$ je izomorfní
+      s prostorem všech matic ($[A]^B_B$) $\mathbb{R}^{2\times2}$ vzhledem k bázi B.
+
+    \begin{quote}
+      \textbf{Důkaz} (*): Definujme zobrazení $f: \mathbb{R}^{2\times2} \to \mathbb{R}^{2\times2}$, které
+        sobě přiřazuje příslušné matice $f(A) = [A]^B_B$.
+        Ukažme, že je to izomorfismus (linearita+bijekce). Dle tvrzení 6.18 (vyjádření matice vzhledem k bázi) máme:
+          \begin{align*}
+            R &:= [id]^K_B \\
+            [A]^B_B &= R^{-1} \cdot A \cdot R
+          \end{align*}
+        \begin{itemize}
+          \item \textbf{Linearita}: Nechť $A_1,A_2 \in \mathbb{R}^{2\times2}$ a skalár $t\in\mathbb{R}$.
+            Pak platí:
+              \[
+                f(A_1+A_2) = R^{-1} (A_1+A_2) R = R^{-1} (A_1R + A_2R) = R^{-1} A_1R + R^{-1} A_2R = f(A_1) + f(A_2)
+              \]
+              \[
+                f(tA_1) = R^{-1} (tA_1) R = t(R^{-1} A_1 R) = t\cdot f(A_1)
+              \]
+            Tím je linearita splněna.
+          \item \textbf{Bijekce}: Jelikož je matice přechodu $R$ regulární, lze rovnost výše takto upravit:
+              \[
+                [A]^B_B = R^{-1} \cdot A \cdot R \quad \Longrightarrow \quad R \cdot [A]^B_B  R^{-1} = A
+              \]
+            Z tohoto plyne, že každé matici $[A]^B_B$ lze najít vzor $A$. Tedy existuje inverz $f^{-1}(A)=R \cdot A \cdot R^{-1}$.
+            $f$ je invertibilní, pak je bijektivní.
+        \end{itemize}
+        Jelikož je $f$ bijektivní a zachovává linearitu, jde o izomorfismus. $\quad \square$
+    \end{quote}
+
+    Protože platí lemma (*), pak z tranzitivity izomorfismu platí, že prostor $Hom(\mathbb{R}^2,\mathbb{R}^2)$ 
+    je izomorfní s prostorem všech příslušných matic $\mathbb{R}^{2\times2}$ vzhledem k libovolné bázi B.
+
+    Pak posloupnost $(f_1,f_2,f_3,f_4)$ je bází $Hom(\mathbb{R}^2,\mathbb{R}^2)$ právě tehdy, když
+    je posloupnost $([f_1]^B_B,[f_2]^B_B,[f_3]^B_B,[f_4]^B_B)$ bází $\mathbb{R}^{2\times2}$.
+    Ověřme, že posloupnost $([f_1]^B_B,[f_2]^B_B,[f_3]^B_B,[f_4]^B_B)$ je bází $\mathbb{R}^{2\times2}$:
+    
+    \begin{quote}
+      Víme, že existuje izomorfismus $g: \mathbb{R}^{2\times2} \to \mathbb{R}^4$, $g\left(\left(\begin{array}{cc}
+        a & b \\ c & d
+      \end{array}\right)\right) = (a,b,c,d)^T$. Pak vyšetřeme, zda posloupnost
+        \[
+          \left(
+            (1,1,0,1)^T, (1,1,1,0)^T, (1,0,1,1)^T, (0,1,1,1)^T
+          \right)
+        \]
+      je bází $\mathbb{R}^4$. Posloupnost má 4 vektory, což je přesně dimenze $\mathbb{R}^4$,
+      pak budou bází právě, když budou lineárně nezávislé.
+      Položme vektory jako řádky do matice, matici zeliminujme, čímž vyšetříme nezávislost.
+
+      \[
+        \left(\begin{array}{cccc}
+            1&1&0&1 \\
+            1&1&1&0 \\
+            1&0&1&1 \\
+            0&1&1&1 \\
+        \end{array}\right)
+        \sim
+        \left(\begin{array}{cccc}
+            1&1&0&1 \\
+            0&0&1&-1 \\
+            0&-1&1&0 \\
+            0&1&1&1 \\
+        \end{array}\right)
+         \sim
+        \left(\begin{array}{cccc}
+            1&1&0&1 \\
+            0&1&1&1 \\
+            0&0&1&-1 \\
+            0&0&2&1 \\
+        \end{array}\right)
+         \sim
+        \left(\begin{array}{cccc}
+            1&1&0&1 \\
+            0&1&1&1 \\
+            0&0&1&-1 \\
+            0&0&0&3 \\
+        \end{array}\right)
+      \]
+
+      Vektory jsou nezávislé, takže jsou bází $\mathbb{R}^4$.
+
+    \end{quote}
+
+    Pak posloupnost zadaných matic je bází $\mathbb{R}^{2\times2}$, a tedy \underline{$(f_1,f_2,f_3,f_4)$ je bází $Hom(\mathbb{R}^2,\mathbb{R}^2)$}.
+
+    \textbf{Druhá část:} Vyjádřeme matici $g$ vzhledem k bázi B.
+
+    \begin{align*}
+      R &:= [id]^B_C = \left(\begin{array}{cc}
+        1.5 & 0.5 \\ -0.5 & 1.5
+      \end{array}\right) = \left(\begin{array}{cc}
+        0.6 & -0.2 \\ 0.2 & 0.6
+      \end{array}\right)^{-1} \\
+      [g]^B_B &\overset{6.18}{=} R^{-1} \cdot [g]^C_C \cdot R = \left(\begin{array}{cc}
+        0.6 & -0.2 \\ 0.2 & 0.6
+      \end{array}\right) \cdot \left(\begin{array}{cc}
+        1&1 \\ 1&1       
+      \end{array}\right) \cdot \left(\begin{array}{cc}
+        1.5 & 0.5 \\ -0.5 & 1.5
+      \end{array}\right) \\
+      [g]^B_B &= \left(\begin{array}{cc}
+        0.4 & 0.8 \\ 0.8 & 1.6
+      \end{array}\right)
+    \end{align*}
+
+    Pro nalezení souřadnic opět využijme izomorfismus mezi $\mathbb{R}^{2\times2}$ a $\mathbb{R}^2$.
+
+    \begin{align*}
+      \left(\begin{array}{cccc|c}
+          1&1&1&0 & 0.4\\
+          1&1&0&1 & 0.8\\
+          0&1&1&1 & 0.8\\
+          1&0&1&1 & 1.6\\
+      \end{array}\right)
+      \sim
+      \left(\begin{array}{cccc|c}
+          1&0&0&0&0.4 \\
+          0&1&0&0&-0.4 \\
+          0&0&1&0&0.4 \\
+          0&0&0&1&0.8 \\
+      \end{array}\right)
+    \end{align*}
+
+    Souřadnice zobrazení $g$ v zadané bázi jsou aritmetický vektor \underline{\underline{$(0.4, -0.4, 0.4, 0.8)^T$}}.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 6.1}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+
+\bigskip
+
+Poznámka: při přáci s polynomy a hledání kořenů předpokládáme zvěstované věty o polynomech z druhácké algebry
+
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{enumerate}
+  \item \textbf{Platí, důkaz:} Předpokládejme, že pracujeme nad $\mathbb{R}^2$ nebo $\mathbb{C}^2$, aby
+    dávaly vlastní čísla smysl. $\lambda$ je vlastní čísla matice $A$, a tedy nalezněme nenulový vektor $\vec{x}$
+    takový, že $A\vec{x} = \lambda\vec{x}$.
+    Dále počítejme $A^2\vec{x}$:
+    \begin{align*}
+      \text{ standardní cestou: } \quad &A^2\vec{x} = AA\vec{x} = A(\lambda\vec{x}) = \lambda A\vec{x} = \lambda\lambda\vec{x} = \lambda^2\vec{x}\\
+      \text{ využitím }A=A^2\text{: } \quad &A^2\vec{x} = A\vec{x} = \lambda\vec{x}
+    \end{align*}
+
+    Dostáváme $\lambda\vec{x} = \lambda^2\vec{x}$. Jelikož je vektor $\vec{x}$ nenulový (a pracujeme nad $\mathbb{R}^2$ / $\mathbb{C}^2$),
+    musí nutně platit $\lambda = \lambda^2$. Výpočtem rovnice dostáváme, že $\lambda$ může být rovna pouze $0$ nebo $1$.
+    \quad $\square$
+  \item \textbf{Neplatí.} Vezměme jednotkovou matici. Z přednášky víme, že $I$ má pouze vlastní číslo $1$, zároveň platí $I^2 = I$. $\quad\square$
+  \item \textbf{Platí, důkaz:} Postupujme sporem, označme $\pi$ nenulové vlastní číslo matice $A$, k němu
+    nalezněme nenulový vektor $\vec{x}$ takový, že $A\vec{x} = \pi\vec{x}$.
+    Pak počítejme $A^n\vec{x}$:
+    \begin{align*}
+      \text{ standardní cestou: } \quad &A^n\vec{x} = AA...A\vec{x} = AA...(\pi\vec{x}) = ... = \pi^n\vec{x}   \\
+      \text{ využitím }A^n=0_{k\times k}\text{: } \quad &A^n\vec{x} = 0_{k\times k}\vec{x} = \vec{0}
+    \end{align*}
+    Přičemž $\pi$ je nenulové číslo, $\vec{x}$ nenulový vektor. Pak $\pi^n\vec{x}$ je také nenulový vektor.
+    Z výpočtu dostáváme spor, že nenulový vektor je roven nulovému vektoru. $\quad \square$
+  \item \textbf{Platí, důkaz:} Zvolme libovolný nenulový vektor $\vec{x}$, definujme posloupnost vektorů:
+    \begin{align*}
+      \vec{a}_0 &:= \vec{x} \\
+      \vec{a}_m &:= A^m\vec{x} \quad, m=1,2,...,n
+    \end{align*}
+    Náhledněme, že platí $\vec{a}_m = A\vec{a}_{m-1} \quad, m=1,2,...,n \quad (*)$.
+
+    Zároveň ze zadání víme $\vec{a}_n = A^n\vec{x} = 0_{x\times k}\vec{x} = 0$.
+
+    Posloupnost $\left\{\vec{a}_m\right\}$ má první prvek (index $0$) nenulový a poslední prvek (index $n$) nulový.
+    A tedy nalezněme $i\in\left\{0,1,...,n-1\right\}$ index posledního nenulového vektoru posloupnosti $\left\{\vec{a}_m\right\}$.
+    $\vec{a}_i$ není poslední prvek posloupnosti, čili $\vec{a}_{i+1}$ existuje a je nulový.
+
+    Pak platí: $\quad A\vec{a}_{i} \overset{(*)}{=} \vec{a}_{i+1} = \vec{0} = 0\vec{a}_{i}$
+
+    $\vec{a}_i$ je nenulový, tedy $0$ je vlastním číslem matice $A$. $\quad\square$
+
+\end{enumerate}
+  
+\end{document}

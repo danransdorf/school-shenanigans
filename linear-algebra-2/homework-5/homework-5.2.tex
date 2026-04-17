@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 5.2}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+
+\bigskip
+
+Zapišme si podmínky ze zadání a učiňme jednoduché implikace:
+
+\begin{align*}
+  &\lambda_1 = 2 \\
+  &M_2 = \left\{(x,y,z)^T \in \mathbb{R}^3 : x-y+z=0\right\} = Ker\left(\begin{array}{ccc}
+    1&-1&1
+  \end{array}\right) \overset{\text{Wolfram}}{=} Span\left(\left(\begin{array}{c}
+    1\\1\\0
+  \end{array}\right),\left(\begin{array}{c}
+    -1\\0\\1
+  \end{array}\right)\right) \\
+  &\lambda_2 = 3 \\
+  &M_3 \supseteq \left\{\left(\begin{array}{c}
+    1\\1\\1
+  \end{array}\right)\right\}
+  \quad \Longrightarrow \quad
+  M_3 \supseteq Span\left(\left(\begin{array}{c}
+    1\\1\\1
+  \end{array}\right)\right) \\
+  \text{\small Pozn.:}\ &\text{\small Poslední implikace plyne z toho, že pokud pro nějaký vektor platí
+    $A\vec{v} = 3\vec{v}$,}\\
+    &\text{pak to z linearity platí i pro všechny jeho násobky (jeho lineární obal).}
+\end{align*}
+
+Chceme najít matici $A$ vyhovující těmto podmínkám, zkusme první vyjádřit zobrazení $f_A$
+a pak z toho vyvodit samotnou matici $A$.
+
+Podle definice vlastních vektorů musí platit:
+
+\begin{align*}
+  f_A\left(\left(\begin{array}{c}
+    1 \\ 1 \\ 0
+  \end{array}\right)\right) &= 2 \left(\begin{array}{c}
+    1 \\ 1 \\ 0
+  \end{array}\right) \\
+  f_A\left(\left(\begin{array}{c}
+    -1 \\ 0 \\ 1
+  \end{array}\right)\right) &= 2 \left(\begin{array}{c}
+    -1 \\ 0 \\ 1
+  \end{array}\right) \\
+  f_A\left(\left(\begin{array}{c}
+    1 \\ 1 \\ 1
+  \end{array}\right)\right) &= 3 \left(\begin{array}{c}
+    1 \\ 1 \\ 1
+  \end{array}\right) \\
+\end{align*}
+
+Všimněme si, že posloupnost $B=\left(\left(\begin{array}{c}
+    1 \\ 1 \\ 0
+  \end{array}\right), \left(\begin{array}{c}
+    -1 \\ 0 \\ 1
+  \end{array}\right), \left(\begin{array}{c}
+    1 \\ 1 \\ 1
+  \end{array}\right)\right)$ je lineárně nezávislá, a tedy $B$ je bází $\mathbb{R}^3$.
+Vektory báze $B$ se zobrazují na své násobky (viz. rovnosti výše), vyjádřeme matici zobrazení $f_A$ vzhledem k této bázi B:
+
+\[
+  \left[f_A\right]^B_B = \left(\begin{array}{ccc}
+    2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3
+  \end{array}\right)
+\]
+
+Určeme ještě matice přechodu mezi kanonickou bází a bází $B$:
+
+\begin{align*}
+  \left[id\right]^B_K &= \left(\begin{array}{ccc}
+    1 & -1 & 1 \\
+    1 & 0 & 1 \\
+    0 & 1 & 1
+  \end{array}\right) \\
+  \left[id\right]^K_B &=\left(\left[id\right]^B_K\right)^{-1} = \left(\begin{array}{ccc}
+    -1&2&-1\\
+    -1&1&0\\
+    1&-1&1
+  \end{array}\right)
+\end{align*}
+
+Finálně vypočtěme samotnou matici $A$:
+
+\[
+  A = [f_A]^K_K = \left[id\right]^B_K\ [f_A]^B_B \ \left[id\right]^K_B
+  = \left(\begin{array}{ccc}
+    1 & -1 & 1 \\
+    1 & 0 & 1 \\
+    0 & 1 & 1
+  \end{array}\right) \cdot \left(\begin{array}{ccc}
+    2 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3
+  \end{array}\right) \cdot \left(\begin{array}{ccc}
+    -1&2&-1\\
+    -1&1&0\\
+    1&-1&1
+  \end{array}\right) = \underline{\underline{\left(\begin{array}{ccc}
+    3 & -1 & 1 \\ 1 & 1 & 1 \\ 1 & -1 & 3
+  \end{array}\right)}}
+\]
+
+
+\end{document}

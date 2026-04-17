@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 6.2}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+
+\bigskip
+
+Zvolme bázi $B=\left((2,1,0,1)^T, (1,0,1,2)^T\right) =: \left(\vec{b}_1,\vec{b}_2\right)$ prostoru \textbf{V}.
+Platí: $\quad f(\vec{b}_1) = \vec{b}_1 + 2\vec{b}_2,\ f(\vec{b}_2) = 2\vec{b}_1 - 2\vec{b}_2$.
+Z toho můžeme určit $[f]^B_B$:
+
+\[
+[f]^B_B = \left(\begin{array}{cc}
+  1 & 2 \\
+  2 & -2
+\end{array}\right)
+\]
+
+Určeme charakteristický polynom $[f]^B_B$: $\quad (1-\lambda)(-2-\lambda) - 4 = \lambda^2 + \lambda - 6 = (\lambda+3)(\lambda-2)$.
+Tedy operátor $f$ má dvě vlastní čísla, a to $-3,2$. Chceme nalézt vlastní vektory k vlastním číslům. Vypočítejme
+proto tyto dvě jádra:
+
+\begin{align*}
+Ker(A - 2 I_2) &= Ker\left(\begin{array}{cc}
+  1-2 & 2 \\
+  2 & -2-2
+\end{array}\right) = Ker\left(\begin{array}{cc}
+  -1 & 2 \\
+  2 & -4
+\end{array}\right) = Span\left\{\left(\begin{array}{c}2\\1\end{array}\right)\right\} \\
+Ker(A - (-3) I_2) &= Ker\left(\begin{array}{cc}
+  1+3 & 2 \\
+  2 & -2+3
+\end{array}\right) = Ker\left(\begin{array}{cc}
+  4 & 2 \\
+  2 & 1
+\end{array}\right) = Span\left\{\left(\begin{array}{c}1\\-2\end{array}\right)\right\}
+\end{align*}
+
+Vektory $(2,1)^T, (1,-2)^T$ tvoří nezávislou posloupnost, díky tomu zvolme novou bázi $C$ takovou, že $[id]^C_B = \left(\begin{array}{cc}
+  2 & 1 \\ 1 & -2
+\end{array}\right)$. Vypočítáním inverzu dostaneme:
+
+\[
+  [id]^B_C = \left(\begin{array}{cc}
+    \frac{2}{5} & \frac{1}{5} \\[.5em] \frac{1}{5} & \frac{-2}{5}
+  \end{array}\right)
+\]
+
+Očekávajíc, že $(2,1)^T$ resp. $(1,-2)^T$ jsou vlastní vektory příslušné k $2$ resp. $-3$, vynásobme
+tyto matice:
+
+\[
+  [id]^C_B \left(\begin{array}{cc}
+    2 & 0 \\ 0 & -3
+  \end{array}\right) [id]^B_C = \left(\begin{array}{cc}
+    2 & 1 \\ 1 & -2
+  \end{array}\right)\left(\begin{array}{cc}
+    2 & 0 \\ 0 & -3
+  \end{array}\right) \left(\begin{array}{cc}
+    \frac{2}{5} & \frac{1}{5} \\[.5em] \frac{1}{5} & \frac{-2}{5}
+  \end{array}\right) = \left(\begin{array}{cc}
+    1 & 2 \\
+    2 & -2
+  \end{array}\right) = [f]^B_B
+\]
+
+Tím jsme zjistili:
+
+\[
+  [f]^C_C = \left(\begin{array}{cc}
+    2 & 0 \\ 0 & -3
+  \end{array}\right)
+\]
+
+Dále počítejme:
+
+\begin{align*}
+  \left([f]^B_B\right)^n &= \left([id]^C_B[f]^B_B[id]^B_C\right)^n\ \overset{skripta}{=}\
+  [id]^C_B\left([f]^B_B\right)^n[id]^B_C = [id]^C_B\ diag\left(2,-3\right)^n\ [id]^B_C
+  = [id]^C_B\ diag\left(2^n,(-3)^n\right)\ [id]^B_C \\
+  &= \left(\begin{array}{cc}
+    2 & 1 \\ 1 & -2
+  \end{array}\right)\left(\begin{array}{cc}
+    2^n & 0 \\ 0 & (-3)^n
+  \end{array}\right) \left(\begin{array}{cc}
+    \frac{2}{5} & \frac{1}{5} \\[.5em] \frac{1}{5} & \frac{-2}{5}
+  \end{array}\right)
+  = \frac{1}{5} \left(\begin{array}{cc}
+    (-3)^n+2^{n+2} & -2((-3)^n-2^n) \\ -2((-3)^n - 2^n) & 4(-3)^n+2^n
+  \end{array}\right) \\
+  [id]^B_K \left([f]^B_B\right)^n &= \left(\begin{array}{cc}
+    2 & 1 \\ 1 & 0 \\ 0 & 1 \\ 1 & 2
+  \end{array}\right) \left(\frac{1}{5} \left(\begin{array}{cc}
+    (-3)^n+2^{n+2} & -2((-3)^n-2^n) \\ -2((-3)^n - 2^n) & 4(-3)^n+2^n
+  \end{array}\right)\right) = \frac{1}{5} \left(\begin{array}{cc}
+    5\cdot2^{n+1} & 5\cdot2^n \\
+    (-3)^n + 2^{n+2} & -2((-3)^n-2^n) \\
+    -2((-3)^n-2^n) & 4(-3)^n + 2^n \\
+    2^{n+3} -(-1)^n3^{n+1} & 2(2^{n+1} + (-1)^n3^{n+1})
+  \end{array}\right)
+\end{align*}
+
+Využijme úvahy ze skript: $[f^n(\vec{x})]_B = \left([f]^B_B\right)^n[\vec{x}]_B \quad (*)$
+
+\begin{align*}
+  f^n\left(\left(\begin{array}{c}
+    5\\1\\3\\7
+  \end{array}\right)\right) = [id]^B_K \left[f^n\left(\left(\begin{array}{c}
+    5\\1\\3\\7
+  \end{array}\right)\right)\right]_B \overset{(*)}{=}
+  [id]^B_K \left(\left([f]^B_B\right)^n\left[\left(\begin{array}{c}
+    5\\1\\3\\7
+  \end{array}\right)\right]_B \right)
+  =
+  [id]^B_K
+  \left(\left([f]^B_B\right)^n \left(\begin{array}{c}
+    1\\3
+  \end{array}\right) \right)
+  =
+  \underline{\underline{\frac{1}{5} \left(\begin{array}{c}
+    25\cdot2^n \\
+    (-3)^n + 5\cdot2^{n+1} -2(-1)^n3^{n+1} \\
+    -2(-3)^n + 5 \cdot 2^n + 4(-1)^n3^{n+1} \\
+    5\cdot2^{n+2} +5(-1)^n3^{n+1}
+  \end{array}\right)}}
+\end{align*}
+  
+\end{document}

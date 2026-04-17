@@ -1,0 +1,170 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\geometry{a4paper, total={170mm,257mm}, left=20mm, top=20mm}
+
+\begin{document}
+
+\noindent
+\textbf{Křestní jméno:} \underline{\hspace{4cm}} \hfill \textbf{Příjmení:} \underline{\hspace{4cm}}
+
+\vspace{5mm}
+
+\noindent
+\textbf{Cvičící:} \underline{\hspace{4cm}}
+
+\vspace{10mm}
+
+\begin{center}
+    {\Large \textbf{NMAG 111 Lineární algebra 1, zimní semestr}} \\[3mm]
+    {\large \textbf{1. písemná práce -- VZOROVÉ ZADÁNÍ}} \\[2mm]
+    {\large (Kapitoly 2--5)}
+\end{center}
+
+\vspace{5mm}
+
+\noindent
+\textbf{Doba řešení:} 90 minut \\
+\textbf{Instrukce:}
+\begin{itemize}
+    \item Neotvírejte dříve, než jste k tomu vyzváni dozorem!
+    \item Všechny odpovědi musí být řádně zdůvodněné, není-li řečeno jinak.
+    \item Žádné elektronické pomůcky včetně kalkulačky nejsou dovoleny.
+    \item U úloh 1--4 pište řešení přímo do zadání, u úloh 5--7 využijte volné listy.
+\end{itemize}
+
+\vspace{5mm}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Příklad} & \textbf{Body} \\ \hline
+1 [6] & \\ \hline
+2 [6] & \\ \hline
+3 [6] & \\ \hline
+4 [6] & \\ \hline
+5 [8] & \\ \hline
+6 [8] & \\ \hline
+7 [10] & \\ \hline
+\textbf{Celkem [50]} & \\ \hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+% --- PŘÍKLAD 1 ---
+\noindent
+\textbf{(1) [6 bodů]} Zakroužkujte správnou odpověď, nezdůvodňujte. K získání bodů za každou podúlohu je potřeba odpovědět správně na všechny tři otázky v ní. \\
+\textbf{ANO} = za daných předpokladů vždy pravda, \textbf{NE} = jinak.
+
+\vspace{3mm}
+
+\noindent
+(a) Uvažujme soustavu lineárních rovnic $Ax=b$ o $n$ neznámých nad tělesem $\mathbb{R}$, kde $A$ je čtvercová matice řádu $n$.
+\begin{itemize}
+    \item[\textbf{ANO / NE}] Pokud má soustava jediné řešení, pak je matice $A$ regulární.
+    \item[\textbf{ANO / NE}] Pokud je $b$ nulový vektor (homogenní soustava), má soustava vždy alespoň jedno řešení.
+    \item[\textbf{ANO / NE}] Pokud $rank(A) < n$, pak soustava nemá žádné řešení.
+\end{itemize}
+
+\vspace{3mm}
+
+\noindent
+(b) Nechť $V$ je vektorový prostor dimenze 3 nad tělesem $\mathbb{Z}_5$ a $u, v, w \in V$ jsou libovolné vektory.
+\begin{itemize}
+    \item[\textbf{ANO / NE}] Pokud jsou vektory $u, v, w$ lineárně nezávislé, pak tvoří bázi prostoru $V$.
+    \item[\textbf{ANO / NE}] Vektory $u, 2u, w$ jsou vždy lineárně závislé.
+    \item[\textbf{ANO / NE}] Pokud $span\{u, v\} = span\{u, w\}$, pak nutně $v = w$.
+\end{itemize}
+
+\vspace{1cm}
+
+% --- PŘÍKLAD 2 ---
+\noindent
+\textbf{(2) [6 bodů]} Najděte všechna řešení soustavy lineárních rovnic nad tělesem $\mathbb{Z}_5$. Výsledek zapište ve tvaru afinního podprostoru (partikulární řešení + jádro).
+
+$$
+\left( \begin{matrix}
+1 & 2 & 3 & 4 \\
+2 & 4 & 1 & 3 \\
+3 & 1 & 4 & 2
+\end{matrix} \right)
+\cdot
+\left( \begin{matrix}
+x_1 \\ x_2 \\ x_3 \\ x_4
+\end{matrix} \right)
+=
+\left( \begin{matrix}
+1 \\ 2 \\ 3
+\end{matrix} \right)
+$$
+
+\vspace{6cm}
+
+% --- PŘÍKLAD 3 ---
+\noindent
+\textbf{(3) [6 bodů]} Uvažujme matice $A$ a $B$ nad $\mathbb{R}$:
+$$ A = \left( \begin{matrix} 1 & 2 \\ 3 & 6 \end{matrix} \right), \quad B = \left( \begin{matrix} 2 & 4 \\ 6 & 12 \end{matrix} \right) $$
+Rozhodněte, zda existuje matice $X$ typu $2 \times 2$ taková, že $AX = B$. Pokud ano, najděte všechna taková $X$. Pokud ne, zdůvodněte proč.
+
+\newpage
+
+% --- PŘÍKLAD 4 ---
+\noindent
+\textbf{(4) [6 bodů]} V této úloze je třeba předvést podrobný výpočet se stručným komentářem zdůvodňujícím správnost postupu. \\
+Najděte nad $\mathbb{Z}_7$ nějakou matici inverzní zleva k matici $A$, nebo dokažte, že taková matice neexistuje.
+$$ A = \left( \begin{matrix} 1 & 5 \\ 2 & 3 \\ 4 & 1 \end{matrix} \right) $$
+
+\vspace{8cm}
+
+% --- PŘÍKLAD 5 ---
+\noindent
+\textbf{(5) [8 bodů]} Uvažujme podprostor $W$ vektorového prostoru $\mathbb{R}^4$ generovaný vektory:
+$$ v_1 = (1, 1, -1, 2)^T, \quad v_2 = (2, 0, 1, 3)^T, \quad v_3 = (0, 2, -3, 1)^T $$
+(a) Určete dimenzi podprostoru $W$. \\
+(b) Rozhodněte, zda vektor $u = (3, 1, 0, 5)^T$ leží ve $W$. \\
+(c) Doplňte (pokud je to nutné) množinu $\{v_1, v_2\}$ na bázi celého prostoru $\mathbb{R}^4$.
+
+\newpage
+
+% --- PŘÍKLAD 6 ---
+\noindent
+\textbf{(6) [8 bodů]} V této úloze máte dokázat jednodušší tvrzení ze skript. Důkaz pište pečlivě, krok za krokem. Využívejte pouze definice a základní vlastnosti operací (axiomy), případně tvrzení dokázaná v předchozích kapitolách (ta ale explicitně citujte).
+
+\vspace{3mm}
+
+\noindent
+(a) Nechť $V$ je vektorový prostor nad tělesem $T$. Dokažte, že pro každý vektor $v \in V$ platí:
+$$ (-1) \cdot v = -v $$
+(kde $-v$ značí opačný vektor k vektoru $v$).
+
+\vspace{5cm}
+
+\noindent
+(b) Nechť $A$ a $B$ jsou regulární čtvercové matice řádu $n$ nad tělesem $T$. Dokažte, že jejich součin $AB$ je také regulární matice a že platí:
+$$ (AB)^{-1} = B^{-1}A^{-1} $$
+
+\vspace{6cm}
+
+% --- PŘÍKLAD 7 ---
+\noindent
+\textbf{(7) [10 bodů]} Odpovědi v následujících úlohách zdůvodněte (tj. dokažte nebo uveďte protipříklad).
+
+\vspace{3mm}
+
+\noindent
+(a) Nechť $A$ je matice typu $m \times n$ nad $\mathbb{R}$ a $rank(A) = m$. Platí nutně, že soustava $Ax=b$ má řešení pro každou pravou stranu $b \in \mathbb{R}^m$?
+
+\vspace{4cm}
+
+\noindent
+(b) Uvažujme vektorový prostor $V$ všech reálných polynomů stupně nejvýše 2. Tvoří množina $M = \{ p(x) \in V \mid p(0) = 1 \}$ podprostor prostoru $V$?
+
+\vspace{4cm}
+
+\noindent
+(c) Nechť $u, v, w$ jsou lineárně nezávislé vektory ve vektorovém prostoru $V$. Jsou i vektory $u+v, v+w, u+w$ lineárně nezávislé?
+
+\end{document}

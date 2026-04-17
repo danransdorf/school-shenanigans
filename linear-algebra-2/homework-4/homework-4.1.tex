@@ -1,0 +1,135 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 4.1}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+
+\bigskip
+
+Jako první ukažme, že se jedná o klasickou úlohu metody nejmenších čtverců.
+
+Požadavek minimálního součtu v zadání se dá přepsat tak, že hledáme,
+jaké parametry má takovýto vektor s nejnižší normou (vzhledem k std. sk. s.):
+
+\[
+  \vec{v}_{min} = \left(\begin{array}{c}
+    z_1 - (ax_1 + by_1 + c) \\
+    z_2 - (ax_2 + by_2 + c) \\
+    z_3 - (ax_3 + by_3 + c) \\
+    ...
+  \end{array}\right)
+\]
+
+Algebraicky upravme výraz:
+
+\[
+  \vec{v}_{min} = \left(\begin{array}{c}
+    z_1\\
+    z_2\\
+    z_3\\
+    ...
+  \end{array}\right) - \left(\begin{array}{c}
+    ax_1 + by_1 + c \\
+    ax_2 + by_2 + c \\
+    ax_3 + by_3 + c \\
+    ...
+  \end{array}\right)
+  =
+  \underbrace{\left(\begin{array}{c}
+    z_1\\
+    z_2\\
+    z_3\\
+    ...
+  \end{array}\right)}_{=:\ \vec{z}} - \underbrace{\left(\begin{array}{ccc}
+    x_1 & y_1 & 1 \\
+    x_2 & y_2 & 1 \\
+    x_3 & y_3 & 1 \\
+    &...&
+  \end{array}\right)}_{=:\ A} \underbrace{\left(\begin{array}{c}
+    a \\ b \\ c
+  \end{array}\right)}_{=:\ \vec{x}}
+\]
+
+Dostáváme, že $\vec{v}_min$ je rozdílový vektor mezi takovými dvěma vektory.
+Tedy hledáme $\vec{x}$ takový, který minimalizuje eukleidovskou normu $||\vec{z} - A\vec{x}||$,
+což je z definice přibližné řešení S.L.R. $A\vec{x}=\vec{z}$ metodou nejmenších čtverců.
+
+Jak víme z přednášky, cílem je najít kolmou projekci $\vec{z}$ do $Im(A)$, což se řeší
+soustavou rovnic s Gramovou maticí, kterou zkonstruujeme takto:
+
+\[
+  A^*A\vec{x} = A^*\vec{z}
+\]
+
+Zmaterializujme nutné:
+\begin{align*}
+  A = \left(\begin{array}{ccc}
+    0 & 0 & 1 \\
+    1 & 0 & 1 \\
+    0 & 1 & 1 \\
+    1 & 1 & 1 \\
+    1 & -1 & 1 \\
+    -1 & 1 & 1
+  \end{array}\right), \quad z = \left(\begin{array}{c}
+    1\\1\\1\\2\\0\\1
+  \end{array}\right),\quad A^*A = \left(\begin{array}{ccc}
+    4 & -1 & 2 \\
+    -1 & 4 & 2 \\
+    2 & 2 & 6
+  \end{array}\right), \quad A^*z = \left(\begin{array}{c}
+    2 \\ 4 \\ 6
+  \end{array}\right)
+\end{align*}
+
+Řešme zkonstruovanou rovnici:
+
+\begin{align*}
+  \left(\begin{array}{ccc|c}
+    4 & -1 & 2 & 2\\
+    -1 & 4 & 2 & 4\\
+    2 & 2 & 6 & 6
+  \end{array}\right) \sim ... \sim \left(\begin{array}{ccc|c}
+    1&0&0&\frac{2}{5} \\[.5em]
+    0&1&0&\frac{4}{5} \\[.5em]
+    0&0&1&\frac{3}{5}
+  \end{array}\right)
+  \quad \Longrightarrow \quad \begin{array}{c}
+    a=\frac{2}{5} \\[.5em]
+    b=\frac{4}{5} \\[.5em]
+    c=\frac{3}{5}
+  \end{array}
+\end{align*}
+
+Výsledkem je tedy rovina $\quad \underline{\underline{z = \dfrac{2}{5}x + \dfrac{4}{5}y + \dfrac{3}{5}}} \quad$ v $\mathbb{R}^3$.
+
+\bigskip
+\textbf{Základní zkouška:} Metoda nejmenších čtverců má vlastnost, že výsledné rovině musí náležet bod, který vznikne průměrem souřadnic zadaných bodů.
+
+\begin{align*}
+  \left(\begin{array}{c}
+    \bar{x} \\ \bar{y} \\ \bar{z}
+  \end{array}\right) = \frac{1}{6} \left(\begin{array}{c}
+    0+1+0+1+1-1 \\
+    0+0+1+1-1+1 \\
+    1+1+1+2+0+1 \\
+  \end{array}\right) = \left(\begin{array}{c}
+    \frac{1}{3} \\[.5em]
+    \frac{1}{3} \\[.5em]
+    1
+  \end{array}\right)
+  \\
+  \bar{z} = \frac{2}{5}\bar{x} + \frac{4}{5}\bar{y} + \frac{3}{5}
+  \quad\Rightarrow \quad \begin{cases}
+    \bar{z} = 1 \\[1em]
+    \frac{2}{5}\bar{x} + \frac{4}{5}\bar{y} + \frac{3}{5} = \frac{2}{15} + \frac{4}{15} + \frac{9}{15} = 1
+  \end{cases}
+\end{align*}
+
+Bod dle očekávání náleží rovině, zkouška splněna.
+
+\end{document}

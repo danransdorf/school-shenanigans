@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 10.2}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \item Víme, že pro použití $[f]^B_B$ v předpisu $f$ musíme nejprve vektory
+    převést do báze $B$, pak aplikovat matici $[f]^B_B$, pak převést zpět do kanonické báze.
+    Pak platí:
+
+    \begin{align*}
+      A &= [id]^B_K \cdot [f]^B_B \cdot [id]^K_B \quad (*) \\
+      A \cdot [id]^B_K  &= [id]^B_K \cdot [f]^B_B \cdot [id]^K_B \cdot [id]^B_K  \\
+      A \cdot [id]^B_K  &= [id]^B_K \cdot [f]^B_B \\
+      [id]^B_K = \left(\begin{array}{cc}
+        a&b\\c&d
+      \end{array}\right) \quad \Longrightarrow \quad
+      \left(\begin{array}{cc}
+        1&1\\1&0
+      \end{array}\right) \left(\begin{array}{cc}
+        a&b\\c&d
+      \end{array}\right) &= \left(\begin{array}{cc}
+        a&b\\c&d
+      \end{array}\right) \left(\begin{array}{cc}
+        3&0\\3&3
+      \end{array}\right) \\
+      \left(\begin{array}{cc}
+        a+c & b+d \\
+        a & b
+      \end{array}\right) &= \left(\begin{array}{cc}
+        3a+3b & 3b \\
+        3c+3d & 3d
+      \end{array}\right) \\
+      \left(\begin{array}{cc}
+        3a+2b+c & 3b+d \\
+        a+2c+2d & b+2d
+      \end{array}\right) &= \left(\begin{array}{cc}
+        0&0\\0&0
+      \end{array}\right) \\
+      \left(\begin{array}{c}
+        3a+2b+c \\ 3b+d \\
+        a+2c+2d \\ b+2d
+      \end{array}\right) &= \left(\begin{array}{c}
+        0\\0\\0\\0
+      \end{array}\right) \\
+      \left(\begin{array}{cccc}
+        3 & 2 & 1 & 0 \\
+        0 & 3 & 0 & 1 \\
+        1 & 0 & 2 & 2 \\
+        0 & 1 & 0 & 2
+      \end{array}\right) \left(\begin{array}{c}
+        a\\b\\c\\d
+      \end{array}\right) &= \left(\begin{array}{c}
+        0\\0\\0\\0
+      \end{array}\right) \\
+      \left(\begin{array}{cccc|c}
+        3 & 2 & 1 & 0 & 0 \\
+        0 & 3 & 0 & 1 & 0 \\
+        1 & 0 & 2 & 2 & 0 \\
+        0 & 1 & 0 & 2 & 0
+      \end{array}\right)
+      \sim
+      \left(\begin{array}{cccc|c}
+        0 & 2 & 0 & 4 & 0 \\
+        0 & 3 & 0 & 1 & 0 \\
+        1 & 0 & 2 & 2 & 0 \\
+        0 & 1 & 0 & 2 & 0
+      \end{array}\right)
+      \sim
+      \left(\begin{array}{cccc|c}
+        1 & 0 & 2 & 2 & 0 \\
+        0 & 1 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+      \end{array}\right)
+      &\sim
+      \left(\begin{array}{cccc|c}
+        1 & 0 & 2 & 2 & 0 \\
+        0 & 1 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 1 & 0 & s \\
+        0 & 0 & 0 & 1 & t
+      \end{array}\right)
+      \sim
+      \left(\begin{array}{cccc|c}
+        1 & 0 & 0 & 0 & 3s+3t \\
+        0 & 1 & 0 & 0 & 3t \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\ \hline
+        0 & 0 & 1 & 0 & s \\
+        0 & 0 & 0 & 1 & t
+      \end{array}\right) \\
+      [id]^B_K = \left(\begin{array}{cc}
+        a&b\\c&d
+      \end{array}\right) &= \left(\begin{array}{cc}
+        3s+3t & 3t \\ s & t
+      \end{array}\right) \\
+      [id]^B_K &= s\left(\begin{array}{cc}
+        3 & 0 \\ 1 & 0
+      \end{array}\right) + t\left(\begin{array}{cc}
+        3 & 3 \\ 0 & 1
+      \end{array}\right) \\
+      [id]^B_K \text{ musí být regulární, zvolme}&\text{ tedy }s=0,t=1 \\
+      [id]^B_K &= \left(\begin{array}{cc}
+        3&3 \\ 0&1
+      \end{array}\right)
+    \end{align*} 
+
+    Z matice přechodu do kanonické báze se dá báze ``přečíst" ... nalezli jsme bázi \underline{\underline{$B=\left((3,0)^T,(3,1)^T\right)$}} prostoru $\mathbb{Z}^2_5$, která splňuje zadání.
+
+    \bigskip
+
+    \footnotesize
+    \textbf{Kontrola}: Nalezněme inverz k $[id]^B_K$ a ověřme (*)
+
+    \[
+      [id]^K_B = \left(\begin{array}{cc}
+        3&3 \\ 0&1
+      \end{array}\right)^{-1} = \left(\begin{array}{cc}
+        2&4 \\ 0&1
+      \end{array}\right)
+    \]
+    \[
+      \left(\begin{array}{cc}
+        1&1 \\ 1&0
+      \end{array}\right) \overset{(*)}{=} \left(\begin{array}{cc}
+        3&3 \\ 0&1
+      \end{array}\right) \left(\begin{array}{cc}
+        3&0 \\ 3&3
+      \end{array}\right) \left(\begin{array}{cc}
+        2&4 \\ 0&1
+      \end{array}\right) =
+      \left(\begin{array}{cc}
+        3&3 \\ 0&1
+      \end{array}\right) \left(\begin{array}{cc}
+        1&2 \\ 1&0
+      \end{array}\right) = \left(\begin{array}{cc}
+        1&1 \\ 1&0
+      \end{array}\right) \quad \checkmark
+    \]
+
+    
+
+\end{enumerate}
+
+\end{document}

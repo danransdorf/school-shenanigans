@@ -1,0 +1,189 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+\Large
+\textbf{NMAG~111 -- Lineární algebra I}\\
+\vspace{2mm}
+\textbf{Vzorový midterm (kapitoly 2--5)}
+\normalsize
+
+\vspace{2mm}
+Doba řešení: 90 minut \\
+Celkový počet bodů: 50
+\end{center}
+
+\vspace{4mm}
+
+\textbf{Instrukce.}
+\begin{itemize}
+  \item Odpovědi pečlivě zdůvodňujte, není-li řečeno jinak.
+  \item Nejsou povoleny žádné elektronické pomůcky ani kalkulačka.
+  \item Pište čitelně a strukturovaně.
+\end{itemize}
+
+\vspace{4mm}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Příklad & Body \\
+\hline
+1 & 6 \\
+2 & 6 \\
+3 & 6 \\
+4 & 6 \\
+5 & 8 \\
+6 & 8 \\
+7 & 10 \\
+\hline
+Celkem & 50 \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\textbf{(1) [6 bodů]} Zakroužkujte správnou odpověď, nezdůvodňujte.
+Pro získání bodů je nutné odpovědět správně \emph{všechny tři} podotázky.
+
+\medskip
+\textbf{ANO / NE}
+
+\begin{enumerate}
+\item Nechť $V$ je vektorový prostor nad tělesem $\mathbb{R}$ a $v_1,v_2\in V$.
+\begin{enumerate}
+  \item Je-li množina $\{v_1,v_2\}$ lineárně závislá, pak aspoň jeden z vektorů $v_1,v_2$ je nulový.
+  \item Je-li $v_1\neq 0$ a $v_2 = 3v_1$, pak $\{v_1,v_2\}$ je báze lineárního obalu $\{v_1,v_2\}$.
+  \item Každé dva různé vektory ve $V$ tvoří lineárně nezávislou množinu.
+\end{enumerate}
+
+\item Nechť $A$ je matice typu $5\times 3$ nad $\mathbb{R}$ hodnosti $3$.
+\begin{enumerate}
+  \item Jádro lineárního zobrazení určeného maticí $A$ je triviální.
+  \item Sloupce matice $A$ tvoří bázi $\mathbb{R}^5$.
+  \item Existuje matice $B$ typu $3\times 5$ taková, že $BA=I_3$.
+\end{enumerate}
+
+\item Nechť $f\colon V\to W$ je lineární zobrazení.
+\begin{enumerate}
+  \item Platí $f(0_V)=0_W$.
+  \item Je-li $f$ prosté, pak $\ker f=\{0\}$.
+  \item Je-li $f$ surjektivní, pak je prosté.
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\textbf{(2) [6 bodů]} Uveďte definice následujících pojmů.
+Pište celými větami, nikoliv pouze schematicky.
+
+\begin{enumerate}
+  \item Vektorový prostor nad tělesem.
+  \item Lineární kombinace vektorů.
+  \item Jádro lineárního zobrazení.
+\end{enumerate}
+
+\newpage
+
+\textbf{(3) [6 bodů]} V této úloze není třeba řešení zdůvodňovat, stačí správný výsledek.
+
+\begin{enumerate}
+\item Najděte dimenzi a jednu bázi lineárního obalu množiny
+\[
+\{(1,2,1),(2,4,2),(1,0,1)\}\subset \mathbb{R}^3.
+\]
+
+\item Najděte všechna řešení homogenní soustavy lineárních rovnic
+\[
+\begin{aligned}
+x_1 + x_2 - x_3 &= 0,\\
+2x_1 + 2x_2 - 2x_3 &= 0.
+\end{aligned}
+\]
+
+\item Určete hodnost matice
+\[
+A=
+\begin{pmatrix}
+1 & 2 & 3\\
+2 & 4 & 6\\
+1 & 1 & 1
+\end{pmatrix}.
+\]
+\end{enumerate}
+
+\newpage
+
+\textbf{(4) [6 bodů]} Proveďte podrobný výpočet se stručným komentářem.
+
+Najděte bázi jádra a bázi obrazu lineárního zobrazení
+$f\colon \mathbb{R}^4\to\mathbb{R}^3$
+určeného maticí
+\[
+A=
+\begin{pmatrix}
+1 & 0 & 1 & 2\\
+0 & 1 & -1 & 1\\
+1 & 1 & 0 & 3
+\end{pmatrix}.
+\]
+
+\newpage
+
+\textbf{(5) [8 bodů]} Následující tvrzení pouze přesně formulujte, \emph{nedokazujte}.
+Uveďte všechny předpoklady a vysvětlete použitá označení.
+
+\begin{enumerate}
+  \item Tvrzení o vztahu dimenze jádra, dimenze obrazu a dimenze definičního oboru lineárního zobrazení.
+  \item Tvrzení o tom, kdy jsou sloupce matice lineárně nezávislé.
+\end{enumerate}
+
+\newpage
+
+\textbf{(6) [8 bodů]} Dokažte následující tvrzení. V důkazu se opírejte pouze
+o definice a dříve dokázaná základní tvrzení.
+
+\begin{enumerate}
+\item Nechť $V$ je vektorový prostor a $v_1,\dots,v_n\in V$.
+Dokažte, že pokud je tato množina lineárně nezávislá, pak každý vektor
+$v\in \mathrm{span}(v_1,\dots,v_n)$ má právě jednu reprezentaci jako jejich
+lineární kombinace.
+
+\item Nechť $f\colon V\to W$ je lineární zobrazení mezi konečně rozměrnými
+vektorovými prostory stejné dimenze. Dokažte, že je-li $f$ prosté, pak je
+surjektivní.
+\end{enumerate}
+
+\newpage
+
+\textbf{(7) [10 bodů]} Odpovědi pečlivě zdůvodněte.
+
+\begin{enumerate}
+\item Existuje lineární zobrazení $f\colon \mathbb{R}^4\to\mathbb{R}^3$, které je
+\begin{enumerate}
+  \item surjektivní?
+  \item prosté?
+\end{enumerate}
+V obou případech svou odpověď zdůvodněte.
+
+\item Najděte všechny matice $A$ typu $2\times 2$ nad $\mathbb{R}$, které splňují
+\[
+A^2 = A.
+\]
+(Určete všechny možnosti a dokažte, že žádné jiné neexistují.)
+\end{enumerate}
+
+\vfill
+\begin{center}
+\textit{Konec zadání}
+\end{center}
+
+\end{document}

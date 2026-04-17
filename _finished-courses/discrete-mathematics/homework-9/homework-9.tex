@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, xcolor}
+
+\begin{document}
+
+\section*{Domácí úkol 9}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \setcounter{enumi}{1}
+  \item První vyřešme úlohu č.2, protože tvrzení využijeme v první úloze.
+
+    Tvrzením je: Necht' $T$ je strom a $\mathcal{T} = \{T_1, T_2, \dots, T_n\}$ je konečná množina jeho podstromů. Jestliže mají podstromy po dvou neprázdný průnik ($\forall i,j \in \{1,...,n\} \;:\; V(T_i) \cap V(T_j) \neq \emptyset$), pak mají neprázdný společný průnik:
+    $$ \bigcap_{i=1}^n V(T_i) \neq \emptyset $$
+
+    Proved'me důkaz indukcí podle počtu podstromů $n$:
+
+    \begin{enumerate}
+      \item $n=1, n=2$:
+
+      Pro $n=1$ a $n=2$ je tvrzení triviální, plyne přímo z předpokladů věty.
+
+      \item \textbf{Indukční krok ($n \to n+1$):}
+
+      Předpokládejme, že tvrzení platí pro $n$ podstromů. Necht' $P$ je průnik prvních $n$ podstromů:
+      $$ P = \bigcap_{i=1}^n T_i $$
+      Dle indukčního předpokladu je $P \neq \emptyset$. Protože průnik podstromů ve stromu je souvislý, je i $P$ podstromem.
+
+      Nyní přidáme $(n+1)$-ní podstrom $T_{n+1}$. Chceme dokázat, že $P \cap T_{n+1} \neq \emptyset$.
+      Postupujme sporem. Předpokládejme, že $P$ a $T_{n+1}$ jsou disjunktní ($P \cap T_{n+1} = \emptyset$).
+
+      \begin{itemize}
+          \item Jelikož $P$ a $T_{n+1}$ jsou disjunktní podstromy, existuje ve stromu $T$ cesta, která je spojuje. 
+            Označme $u \in P$ a $v \in T_{n+1}$ jako koncové body této cesty. Vrchol $v$ je tak ,,vstupní bránou`` do $T_{n+1}$.
+
+          \item Uvažujme nyní libovolný podstrom $T_i$ z původní množiny ($i \in \{1, \dots, n\}$).
+          \begin{enumerate}
+              \item Platí $u \in T_i$, protože $u \in P \subseteq T_i$.
+              \item Dle zadání se $T_i$ a $T_{n+1}$ protínají, tedy $\exists w \in T_i \cap T_{n+1}$.
+          \end{enumerate}
+          
+          \item Podstrom $T_i$ je souvislý, musí tedy obsahovat cestu z vrcholu $u$ do vrcholu $w$. Protože tato cesta vede z "vnějšku" do $T_{n+1}$, musí nutně procházet přes vstupní vrchol $v$.
+          
+          \item Z toho plyne, že $v \in T_i$.
+      \end{itemize}
+
+      Protože předchozí úvaha platí pro všechna $i = 1, \dots, n$, musí vrchol $v$ ležet v průniku všech těchto podstromů, tedy $v \in P$.
+
+      Zároveň však z konstrukce víme, že $v \in T_{n+1}$. Tedy $v$ je společným bodem $P$ a $T_{n+1}$, což je spor s předpokladem, že jsou množiny disjunktní. $\quad\square$
+    \end{enumerate}
+
+  \setcounter{enumi}{0}
+  \item Každý automorfismus $f$ konečného stromu $T$ fixuje alespoň jeden vrchol nebo jednu hranu.
+
+  Nechť $d$ je délka nejdelší cesty ve stromu $T$ (tzv. průměr stromu). Označme $\mathcal{C}$ množinu všech cest v $T$, které mají délku $d$.
+
+  \begin{enumerate}
+      \item \textbf{Průnik nejdelších cest je neprázdný:}
+      Předpokládejme pro spor, že existují dvě nejdelší cesty $A, B \in \mathcal{C}$, které jsou vrcholově disjunktní ($V(A) \cap V(B) = \emptyset$).
+      Protože $T$ je souvislý, existuje unikátní cesta $S$ spojující nejbližší vrchol $u \in A$ s vrcholem $v \in B$.
+      Cesta $A$ je vrcholem $u$ rozdělena na dvě části, z nichž alespoň jedna má délku $\ge \frac{d}{2}$. Totéž platí pro cestu $B$ a vrchol $v$.
+      Složením těchto dvou částí a spojovací cesty $S$ (která má délku $\ge 1$) získáme cestu o délce $> \frac{d}{2} + 1 + \frac{d}{2} > d$. To je spor s maximalitou $d$.
+      Tedy každé dvě nejdelší cesty se protínají. Z první úlohy plyne, že i společný průnik všech cest z $\mathcal{C}$ je neprázdný.
+
+      \item \textbf{Struktura průniku:}
+      Označme tento průnik $K = \bigcap_{P \in \mathcal{C}} P$.
+      Jelikož $K$ je průnikem souvislých podgrafů ve stromu, je $K$ souvislý (strom). Zároveň je $K$ podgrafem cesty, takže $K$ je také cesta.
+
+      \item \textbf{Průnik zůstává na místě:}
+      Automorfismus $f$ zachovává vzdálenosti, proto musí cestu délky $d$ zobrazit opět na cestu délky $d$. To znamená, že $f$ permutuje množinu $\mathcal{C}$ ($f(\mathcal{C}) = \mathcal{C}$).
+      Protože se množina $\mathcal{C}$ zobrazí na sebe, musí se i její průnik $K$ zobrazit na sebe. Platí $f(K) = K$.
+
+      \item \textbf{Finále:}
+      Omezíme-li $f$ na podgraf $K$, zkoumáme pouze automorfismus cesty. Cesta má jediné automorfismy sama sebe a "překlopení".
+      \begin{itemize}
+          \item $K$ má lichý počet vrcholů, pak se střední vrchol zobrazí na sebe --- je fixován
+          \item $K$ má sudý počet vrcholů, pak se střední hrana zobrazí na sebe --- je fixována
+      \end{itemize}
+      $\quad\quad\quad\square$
+  \end{enumerate}
+
+\end{enumerate}
+
+\end{document}

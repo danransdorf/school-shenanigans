@@ -1,0 +1,169 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 8.1}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \item Obecnou matici, která splňuje podmínku jádra ze zadání, označme $A$. Označme si
+    její sloupce $A = \left(\vec{a} \;\middle|\; \vec{b} \;\middle|\; \vec{c}\right)$.
+    Nalezněme všechny matice $A$.
+    Z definice jádra víme, že musí platit tento vztah:
+
+    \begin{align*}
+      &A \cdot \left(\begin{array}{c}
+        1\\2\\3
+      \end{array}\right) = \left(\begin{array}{c}
+        0\\0\\0
+      \end{array}\right) \\
+      \Longleftrightarrow \quad
+      &\vec{a} + 2\vec{b} + 3\vec{c} = \left(\begin{array}{c}
+        0\\0\\0
+      \end{array}\right) \\
+      \Longleftrightarrow \quad
+      &\vec{a} = -2\vec{b} - 3\vec{c} \\
+      \Longleftrightarrow \quad
+      &\left(\begin{array}{c}
+        a_1 \\ a_2 \\ a_3
+      \end{array}\right) = -2\left(\begin{array}{c}
+        b_1 \\ b_2 \\ b_3
+      \end{array}\right) - 3\left(\begin{array}{c}
+        c_1 \\ c_2 \\ c_3
+      \end{array}\right) \\
+      \Longleftrightarrow \quad
+      &\begin{cases}
+        a_1 = -2b_1-3c_1 \\
+        a_2 = -2b_2-3c_2 \\
+        a_3 = -2b_3-3c_3 \\
+      \end{cases} \quad | \;b_1, b_2, b_3, c_1, c_2, c_3 \in \mathbb{R}
+    \end{align*}
+
+    Dosaďme tedy parametricky vyjádřené hodnoty do matice $A$:
+    
+    \renewcommand{\arraystretch}{1.4}
+    \begin{align*}
+      A = \left(\vec{a} \;\middle|\; \vec{b} \;\middle|\; \vec{c}\right)
+        = \left(\begin{array}{ccc}
+          a_1 & b_1 & c_1 \\
+          a_2 & b_2 & c_2 \\
+          a_3 & b_3 & c_3
+        \end{array}\right)
+        = \left(\begin{array}{ccc}
+          -2b_1-3c_1 & b_1 & c_1 \\
+          -2b_2-3c_2 & b_2 & c_2 \\
+          -2b_3-3c_3 & b_3 & c_3
+        \end{array}\right) \quad | \;b_1, b_2, b_3, c_1, c_2, c_3 \in \mathbb{R}
+    \end{align*}
+
+    Rozložme matici na lineární kombinaci matic a tím získejme bázi:
+
+    \begin{align*}
+      A &= \left(\begin{array}{ccc}
+          -2b_1-3c_1 & b_1 & c_1 \\
+          -2b_2-3c_2 & b_2 & c_2 \\
+          -2b_3-3c_3 & b_3 & c_3
+        \end{array}\right) 
+    \end{align*}
+    \renewcommand{\arraystretch}{0.8}
+    \small
+    \begin{align*}
+        &= \left(\begin{array}{ccc}
+          -3c_1 & 0 & c_1 \\
+          0 & 0 & 0 \\
+          0 & 0 & 0
+        \end{array}\right) + \left(\begin{array}{ccc}
+          -2b_1 & b_1 & 0 \\
+          0 & 0 & 0 \\
+          0 & 0 & 0
+        \end{array}\right) + \left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          -3c_2 & 0 & c_2 \\
+          0 & 0 & 0
+        \end{array}\right) + \left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          -2b_2 & b_2 & 0 \\
+          0 & 0 & 0
+        \end{array}\right) + \left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          0 & 0 & 0 \\
+          -3c_3 & 0 & c_3 
+        \end{array}\right) + \left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          0 & 0 & 0 \\
+          -2b_3 & b_3 & 0 
+        \end{array}\right) \\
+        &= c_1\left(\begin{array}{ccc}
+          -3 & 0 & 1 \\
+          0 & 0 & 0 \\
+          0 & 0 & 0
+        \end{array}\right) + b_1\left(\begin{array}{ccc}
+          -2 & 1 & 0 \\
+          0 & 0 & 0 \\
+          0 & 0 & 0
+        \end{array}\right) + c_2\left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          -3 & 0 & 1 \\
+          0 & 0 & 0
+        \end{array}\right) + b_2\left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          -2& 1& 0 \\
+          0 & 0 & 0
+        \end{array}\right) + c_3\left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          0 & 0 & 0 \\
+          -3 & 0 &  1
+        \end{array}\right) + b_3\left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          0 & 0 & 0 \\
+          -2 & 1 & 0 
+        \end{array}\right) \quad | \;b_1, b_2, b_3, c_1, c_2, c_3 \in \mathbb{R}
+    \end{align*}
+
+    \normalsize
+
+    Obecnou matice $A$ jsme rozložili na lineární kombinaci zjevně lineárně nezávislých maticí
+    (každá obsahuje $1$ na místě, kde mají ostatní $0$, tím se žádná nedá vyjádřit LK ostatních).
+    Tyto matice jsou také generátory, protože jimi dokážeme pomocí LK
+    vyjádřit všechny matice splňující podmínku ze zadání.
+    A tedy vytvořením posloupnosti z těchto matic zísáme bázi prostoru \textbf{W}.
+
+    \[
+      W = 
+        Span \left(
+          \left(\begin{array}{ccc}
+          -3 & 0 & 1 \\
+          0 & 0 & 0 \\
+          0 & 0 & 0
+        \end{array}\right) , \left(\begin{array}{ccc}
+          -2 & 1 & 0 \\
+          0 & 0 & 0 \\
+          0 & 0 & 0
+        \end{array}\right) , \left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          -3 & 0 & 1 \\
+          0 & 0 & 0
+        \end{array}\right) , \left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          -2& 1& 0 \\
+          0 & 0 & 0
+        \end{array}\right) , \left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          0 & 0 & 0 \\
+          -3 & 0 &  1
+        \end{array}\right) , \left(\begin{array}{ccc}
+          0 & 0 & 0 \\
+          0 & 0 & 0 \\
+          -2 & 1 & 0 
+        \end{array}\right)
+        \right)
+    \]
+    
+
+\end{enumerate}
+
+\end{document}

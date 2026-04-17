@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 7.1}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \item Úloha je opravdu podobná poslední úloze z midtermu. 
+    
+    Kolik je v $\mathbb{Z}_7^3$ různých vektorů?
+      Mám tři pozice, do kterých vybírám ze 7 prvků --- $7^3 = 343$
+      
+    Posloupnost nesmí obsahovat nulový vektor, jinak by byla závislá.
+    Když máme nenulový vektor $\vec{x}$, tak díky prostosti násobení v tělesech máme
+      v $\mathbb{Z}_7^3$ dalších 6 násobku toho vektoru.
+    Když máme dva nezávislé vektory $\vec{x}_1,\vec{x}_2$ v $\mathbb{Z}_7^3$, pak jejich lineární obal
+      (množina všech vektorů závislých na $\vec{x}_1,\vec{x}_2$) má velikost
+      $|Z_7^2| = |Z_7|^2 = 49$, protože oba vektory určují jiný ``směr".
+
+    Začněme postupně volit vektory v posloupnosti:
+
+    \begin{enumerate}
+      \item $\vec{v}_1$: Zatím máme jen omezení, že nesmíme zvolit nulový vektor.
+        Tedy máme $343-1=342$ možností.
+      \item $\vec{v}_2$: Nesmíme zvolit vektor závislý na $\vec{v}_1$,
+        tedy nesmíme zvolit jeho násobek (-7). Tedy máme $343-7=336$ možností.
+      \item $\vec{v}_3$: Nesmíme zvolit vektor závislý na $\vec{v}_1,\vec{v}_2$ (-49).
+        Tedy máme $343-49=294$ možností.
+    \end{enumerate}
+
+    Postupnou volbou dostáváme,
+      že máme $342*336*294 = \underline{\underline{33784128}}$ možných posloupností.
+    
+
+\end{enumerate}
+
+\end{document}

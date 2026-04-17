@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol VII}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item Označme jev $A_4$ "kód neobsahuje číslici 4", označme jev $A_7$
+    "kód neobsahuje číslici 7". Elementárními jevy budou jednotlivé kódy,
+    množinu všech elementárních jevů označme $X, |X|=10000$.
+    Vypočítejme, kolik je kódů, které neobsahují
+    alespoň jednu z těchto číslic pomocí principu inkluze/exkluze:
+
+    \[
+      |A_4\cup A_7| = |A_4| + |A_7| - |A_4\cap A_7|
+        = 9^4 + 9^4 - 8^4 = 9026
+    \]
+
+    Zbytek kódů kritérium splňují. Vypočtěme tedy
+    pravděpodobnost, že kódu chybí alespoň jedna z číslic:
+
+    \[
+      P(A_4\cup A_7) = \frac{|A_4\cup A_7|}{|X|} = \frac{9026}{10000}
+    \]
+
+    Dopočtěme pravděpodobnost, že se $A_4\cup A_7$ nestane, tedy že kód
+    obsahuje číslici $4$ i číslici $7$:
+
+    \[
+      P(\neg (A_4\cup A_7)) = 1-P(A_4\cup A_7) = \frac{10000-9026}{10000}
+      = \frac{974}{10000} = \underline{\underline{9.74\%}}
+    \]
+
+  \item Střední hodnota, kolik správných písemek odevzdá jednomu studentovi
+    je $E[1] = \frac{1}{n}$, protože jen jedna z $n$ písemek studentovi patří.
+    Pak pomocí linearity střední hodnoty získáme,
+    že pro $n$ studentů je střední hodnota $E[n] = n\cdot E[1] = \underline{\underline{\;1\;}}$.
+
+\end{enumerate}
+
+\end{document}

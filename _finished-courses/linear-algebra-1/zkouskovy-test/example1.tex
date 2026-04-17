@@ -1,0 +1,161 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumerate}
+
+\title{\textbf{Velká písemná práce z Lineární algebry 1}}
+\author{Zimní semestr -- Soustavy až Determinanty}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent \textbf{Instrukce:}
+\begin{itemize}
+    \item Celkový počet bodů: 100.
+    \item Pro zisk zápočtu je třeba alespoň 60 bodů.
+    \item \textbf{Sekce I (Ano/Ne):} K získání bodů za otázku je třeba odpovědět správně na všechny tři její podčásti.
+\end{itemize}
+
+\hrule
+\vspace{0.5cm}
+
+\section*{Část I: Ano/Ne (8 bodů)}
+\textit{Rozhodněte, zda platí následující tvrzení. Není třeba zdůvodňovat. (2 body za každou správně zodpovězenou trojici)}
+
+\begin{enumerate}[(a)]
+    \item \textbf{Soustavy rovnic:} Uvažme soustavu lineárních rovnic $Ax=b$ nad $\mathbb{R}$ o $m$ rovnicích a $n$ neznámých, kde $m < n$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Soustava má vždy alespoň jedno řešení.
+        \item[\textbf{ANO / NE}] Pokud má soustava alespoň jedno řešení, pak jich má nekonečně mnoho.
+        \item[\textbf{ANO / NE}] Množina všech řešení této soustavy tvoří podprostor vektorového prostoru $\mathbb{R}^n$ právě tehdy, když $b$ je nulový vektor.
+    \end{itemize}
+
+    \item \textbf{Lineární závislost:} Nechť $u, v, w$ jsou lineárně nezávislé vektory ve vektorovém prostoru $V$ nad tělesem $T$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Vektory $u, v$ jsou lineárně nezávislé.
+        \item[\textbf{ANO / NE}] Vektory $u+v, v+w, w+u$ jsou lineárně nezávislé (předpokládejme $\text{char}(T) \neq 2$).
+        \item[\textbf{ANO / NE}] Pokud $z \in \text{span}\{u, v, w\}$, pak je množina $\{u, v, w, z\}$ lineárně nezávislá.
+    \end{itemize}
+
+    \item \textbf{Matice a zobrazení:} Nechť $A$ je čtvercová matice řádu $n$ nad $\mathbb{R}$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pokud $A^2 = I$ (jednotková matice), pak je $A$ regulární.
+        \item[\textbf{ANO / NE}] Pokud je rovnice $Ax=0$ řešitelná pouze triviálně (tj. $x=0$), pak je zobrazení $f(x) = Ax$ na (surjektivní).
+        \item[\textbf{ANO / NE}] Hodnost matice $A$ se může změnit, pokud k jednomu řádku přičteme násobek jiného řádku.
+    \end{itemize}
+
+    \item \textbf{Determinanty:} Nechť $A, B$ jsou čtvercové matice řádu $n$ nad $\mathbb{R}$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pro libovolné matice platí $\det(A+B) = \det(A) + \det(B)$.
+        \item[\textbf{ANO / NE}] Platí $\det(AB) = \det(BA)$.
+        \item[\textbf{ANO / NE}] Pokud je matice $A$ singulární, pak $\det(A^T) = 0$.
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část II: Definice (12 bodů)}
+\textit{Uveďte přesnou definici následujících pojmů (včetně předpokladů). (3 body za každou definici)}
+
+\begin{enumerate}
+    \item Lineární obal množiny vektorů $M$ ve vektorovém prostoru $V$.
+    \item Báze vektorového prostoru.
+    \item Matice přechodu od báze $B$ k bázi $C$.
+    \item Determinant čtvercové matice (pomocí permutací nebo rozvoje).
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část III: Jednoduché příklady (15 bodů)}
+\textit{Vypočtěte nebo určete. Stačí uvést správný výsledek. (3 body za každý příklad)}
+
+\begin{enumerate}
+    \item Určete hodnost matice $A = \begin{pmatrix} 1 & 2 & 1 \\ 2 & 4 & 2 \\ -1 & -2 & 0 \end{pmatrix}$ nad tělesem $\mathbb{R}$.
+    \item Najděte souřadnice vektoru $v = (3, 1)^T$ v bázi $B = \{ (1, 1)^T, (0, 1)^T \}$.
+    \item Vypočtěte součin permutací $\pi \circ \sigma$ v $S_5$, kde $\pi = (1, 3, 4)$ a $\sigma = (1, 2, 5)$. Zapište výsledek pomocí nezávislých cyklů.
+    \item Pro jaké $a \in \mathbb{R}$ je matice $\begin{pmatrix} 1 & a \\ a & 1 \end{pmatrix}$ singulární?
+    \item Jak se změní determinant matice $A$ typu $3 \times 3$, pokud vynásobíme její první řádek číslem 3 a druhý řádek číslem 2?
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část IV: Formulace tvrzení (12 bodů)}
+\textit{Zformulujte přesně následující věty/tvrzení (není třeba dokazovat). (3 body za každé tvrzení)}
+
+\begin{enumerate}
+    \item Frobeniova věta (o řešitelnosti soustav lineárních rovnic).
+    \item Steinitzova věta o výměně.
+    \item Věta o dimenzi jádra a obrazu lineárního zobrazení.
+    \item Cauchyova-Binetova věta (o determinantu součinu matic).
+\end{enumerate}
+
+\newpage
+
+\section*{Část V: Početní příklady s postupem (15 bodů)}
+\textit{Vyřešte následující úlohy. Uveďte podrobný postup řešení. (5 bodů za každý příklad)}
+
+\begin{enumerate}
+    \item Najděte množinu všech řešení soustavy lineárních rovnic nad $\mathbb{R}$ zadanou rozšířenou maticí:
+    $$
+    \left( \begin{array}{ccc|c}
+    1 & 2 & 3 & 4 \\
+    2 & 5 & 8 & 9 \\
+    3 & 6 & 10 & 10
+    \end{array} \right)
+    $$
+    
+    \item K dané matici $A$ nad tělesem $\mathbb{Z}_5$ nalezněte matici inverzní, nebo ukažte, že neexistuje:
+    $$
+    A = \begin{pmatrix} 1 & 2 & 4 \\ 2 & 0 & 1 \\ 3 & 1 & 2 \end{pmatrix}
+    $$
+    
+    \item Vypočítejte determinant matice $4 \times 4$ nad $\mathbb{R}$ převodem na odstupňovaný tvar nebo rozvojem:
+    $$
+    D = \det \begin{pmatrix} 
+    2 & 1 & 0 & 0 \\
+    1 & 2 & 1 & 0 \\
+    0 & 1 & 2 & 1 \\
+    0 & 0 & 1 & 2 
+    \end{pmatrix}
+    $$
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část VI: Důkazy jednodušších tvrzení (20 bodů)}
+\textit{Dokažte následující tvrzení. (5 bodů za každý důkaz)}
+
+\begin{enumerate}
+    \item Nechť $A, B$ jsou čtvercové regulární matice stejného řádu. Dokažte, že $(AB)^{-1} = B^{-1}A^{-1}$.
+    \item Dokažte, že průnik dvou podprostorů $U, V$ vektorového prostoru $W$ je opět podprostor $W$.
+    \item Nechť $f: U \to V$ je lineární zobrazení. Dokažte: Zobrazení $f$ je prosté (injektivní) právě tehdy, když $\ker(f) = \{o\}$.
+    \item Dokažte, že pro libovolnou matici $A$ platí, že elementární řádkové úpravy nemění lineární obal řádků matice $A$.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část VII: Úlohy na zamyšlení (18 bodů)}
+\textit{Vyřešte nebo dokažte následující náročnější úlohy. (6 bodů za každou úlohu)}
+
+\begin{enumerate}
+    \item \textbf{Důkaz hodnosti:} Nechť $A$ je matice typu $m \times n$ a $B$ je matice typu $n \times p$. Dokažte, že hodnost součinu $AB$ není větší než hodnost matice $A$, tj. $rank(AB) \leq rank(A)$.
+    
+    \item \textbf{Prostor polynomů:} Uvažujme vektorový prostor $P_2$ všech polynomů stupně nejvýše 2 nad $\mathbb{R}$. Rozhodněte (a dokažte), zda jsou polynomy $p_1(x) = x^2 - x + 1$, $p_2(x) = x^2 + 2x$ a $p_3(x) = 3x - 1$ lineárně nezávislé. Tvoří bázi $P_2$?
+    
+    \item \textbf{Vandermondův determinant:}
+    Nechť $x_1, x_2, x_3 \in \mathbb{R}$. Dokažte výpočtem determinantu, že matice
+    $$
+    V = \begin{pmatrix}
+    1 & x_1 & x_1^2 \\
+    1 & x_2 & x_2^2 \\
+    1 & x_3 & x_3^2
+    \end{pmatrix}
+    $$
+    je regulární právě tehdy, když jsou čísla $x_1, x_2, x_3$ navzájem různá.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,119 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 4.2}
+
+Vypracovali: Daniel \textit{``Localhost"} Ransdorf, Jan \textit{``kokeshh"} Kodeš \hfill Podpis: \rule{4cm}{0.4pt}
+
+
+\bigskip
+
+Hledáme soubor koeficientů, který splňuje několik rovností polynomu.
+Rozepišme požadované rovnosti polynomů s dosazením parametru $x$:
+
+\begin{align*}
+  a_4\cdot0 + a_3\cdot0 + a_2\cdot0 + a_1\cdot0 + a_0 &= 1 \\
+  a_4\cdot1 + a_3\cdot1 + a_2\cdot1 + a_1\cdot1 + a_0 &= 2 \\
+  a_4\cdot16 + a_3\cdot8 + a_2\cdot4 + a_1\cdot2 + a_0 &= -3 \\
+\end{align*}
+
+Vznikl soubor rovností, zapišme vektorově:
+
+\begin{align*}
+  \left(\begin{array}{c}
+    a_4\cdot0 + a_3\cdot0 + a_2\cdot0 + a_1\cdot0 + a_0 \\
+    a_4\cdot1 + a_3\cdot1 + a_2\cdot1 + a_1\cdot1 + a_0 \\
+    a_4\cdot16 + a_3\cdot8 + a_2\cdot4 + a_1\cdot2 + a_0
+  \end{array}\right)
+  &= \left(\begin{array}{c}
+    1 \\
+    2 \\
+    -3
+  \end{array}\right) \\
+  \underbrace{\left(\begin{array}{ccccc}
+    0&0&0&0&1 \\
+    1&1&1&1&1 \\
+    16&8&4&2&1
+  \end{array}\right)}_{=:\ A} \underbrace{\left(\begin{array}{c}
+    a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0
+  \end{array}\right)}_{=:\ \vec{a}}
+  &= \left(\begin{array}{c}
+    1 \\
+    2 \\
+    -3
+  \end{array}\right)
+\end{align*}
+
+Hodnota, kterou chceme minimalizovat je shodou okolností čtverec normy řešení ($\vec{a}$).
+Norma je nezáporná, tedy její čtverec je minimální právě tehdy, když je samotná norma minimální.
+Minimalizujme tedy samotnou normu:
+
+\[
+ ||\vec{a}|| = \sqrt{a_4^2 + a_3^2 + a_2^2 + a_1^2 + a_0^2}
+\]
+
+Dle přednášky řešení s nejmenší normou zjistíme nálezem řešení, které
+je zároveň ``kolmé" na afinní prostor všech řešení, tedy kolmé
+na $Ker(A)$. Tím víme, že je libovolné řešení, které ortogonální naprojektujeme
+do $(Ker(A))^\perp$ \quad ($= Im(A^*)$).
+
+Nalezneme-li libovolné řešení $\vec{x}$, ortogonální projekci do $Im(A^*)$ nalezneme
+řešením soustavy rovnic s Gramovou maticí, tu získáme takto:
+
+\begin{align*}
+  AA^*[\vec{a}] &= A\vec{x} \quad (*)\\
+  \text{Kde samotá projekce je rovna }A^*[\vec{a}]
+\end{align*}
+
+Řešení $\vec{x}$ netřeba počítat, protože nás zajímá $A\vec{x}$, což víme, jak má vyjít.
+Zmaterializujme tedy potřebné a řešme $(*)$:
+
+\begin{align*}
+  AA^* &= \left(\begin{array}{ccc}
+    1 & 1 & 1 \\
+    1 & 5 & 31 \\
+    1 & 31 & 341
+  \end{array}\right), \quad
+  A\vec{x} = \left(\begin{array}{c}
+    1 \\ 2 \\ -3
+  \end{array}\right) \\[2em]
+  \left(\begin{array}{ccc|c}
+    1 & 1 & 1 & 1 \\
+    1 & 5 & 31 & 2 \\
+    1 & 31 & 341 & -3
+  \end{array}\right) &\sim ... \sim \left(\begin{array}{ccc|c}
+    1&0&0&\frac{1}{10} \\[.5em]
+    0&1&0&1 \\[.5em]
+    0&0&1&\frac{-1}{10}
+  \end{array}\right) \quad \Longrightarrow \quad [\vec{a}] = \left(\begin{array}{c}
+    \frac{1}{10} \\[.5em] 1 \\[.5em] \frac{-1}{10}
+  \end{array}\right) = \frac{1}{10}\left(\begin{array}{c}
+    1\\10\\-1
+  \end{array}\right) \\[2em]
+  \Longrightarrow \quad
+  \left(\begin{array}{c}
+    a_4 \\ a_3 \\ a_2 \\ a_1 \\ a_0
+  \end{array}\right) &= \vec{a} = A^*[\vec{a}] = \frac{1}{10}\left(\begin{array}{c}
+    -6 \\ 2 \\ 6 \\ 8 \\ 10
+  \end{array}\right)
+\end{align*}
+
+Tím máme splňující sadu koeficientů s minimální normou, dosad'me do polynomu a ověřme rovnosti:
+
+\begin{align*}
+  p(x)\ :=\ \underline{\underline{\frac{1}{10} \left(-6x^4+2x^3+6x^2+8x+10\right)}} \\[1em]
+  \textbf{Kontrola:}\ \begin{cases}
+    p(0) = \frac{1}{10}(10) = 1 & \checkmark \\
+    p(1) = \frac{1}{10}(20) = 2 & \checkmark \\
+    p(2) = \frac{1}{10}(-30) = -3 & \checkmark \\
+  \end{cases}
+\end{align*}
+
+
+
+
+
+\end{document}

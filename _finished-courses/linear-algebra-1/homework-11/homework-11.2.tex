@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 11.2}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+
+  \item Neplatí, protipříkladem je nulové zobrazení $f: \mathbb{R}^2 \to \mathbb{R}^2$, $f_{(0)_{2\times2}}$, pak platí:
+      \[
+        \forall i \in \{1,...,k\} :\ f(v_i) = o
+      \]
+    Libovolně dlouhá neprázdná posloupnost nulových vektorů je lineárně závislá.
+  
+  \item Platí, dokažme sporem. Předpokládejme, že existuje sada koeficientů $t_1,...,t_k \in \textbf{T}$,
+    kde je alespoň jeden nenulový, taková, že platí:
+
+    \[
+      t_1v_1 + ... + t_kv_k = o
+    \]
+
+    Aplikujme funkci $f$:
+
+    \begin{align*}
+      f(t_1v_1 + ... + t_kv_k) &= f(o) \\
+      f(t_1v_1) + ... + f(t_kv_k) &= o \\
+      t_1f(v_1) + ... + t_kf(v_k) &= o \\
+    \end{align*}
+    Poslední řádek je spor s předpokladem, že je posloupnost $\left(f(v_1),...,f(v_k)\right)$ nezávislá
+    (neexistuje netriviální lineární kombinace rovna nulovému vektoru).
+  
+    \item Platí, dokažme vlastnosti prostoru.
+    
+    \begin{itemize}
+      \item \textbf{Nulový prvek}: Je-li U podprostorem $V$, existuje nulový prvek $o\in U$. Jelikož $f(o) = o$, platí $o \in f(U)$.
+      \item \textbf{Uzavřenost sčítání}: Nechť $w_1,w_2 \in f(U)$, z definice $f(U)$ existují vektory $v_1,v_2 \in V$ splňující
+        $f(v_1) = w_1,\ f(v_2) = w_2$.
+
+        Ukažme, že součet $w_1+w_2$ náleží $f(U)$.
+
+        \begin{align*}
+          w_1 + w_2 = f(v_1) + f(v_2) = f(v_1+v_2) \\
+          \text{U je prostor, pak} \quad v_1+v_2\ \in U\\
+          \Longrightarrow f(v_1+v_2) \in f(U) \\
+          \Longrightarrow w_1 + w_2 \in f(U)
+        \end{align*}
+      \item \textbf{Uzavřenost násobení}: Nechť $w\in f(U)$, $t\in T$. Z definice $f(U)$ existuje $v\in V$ vzor $w$.
+        Ukažme, že $tw \in f(U)$:
+        
+        \begin{align*}
+          tw = tf(v) = f(tv) \\
+          \text{U je prostor také nad T, pak} \quad tv \in U\\
+          \Longrightarrow f(tv) \in f(U) \\
+          \Longrightarrow tw \in f(U) \\
+        \end{align*}
+      \end{itemize}
+  
+      \item Neplatí, ukažme protipříklad. Mějme V prostor autíček nad $\mathbb{Z}_2$. Mějme lineární zobrazení $f$,
+      které všem prvkům přiřadí nulový vektor z prostoru W. Zvolme $U=\{Motorka\}$ (motorka není nulový vektor V),
+      pak U není prostor, ale f(U) ano (triviální nulový podprostor W).
+
+\end{enumerate}
+
+\end{document}

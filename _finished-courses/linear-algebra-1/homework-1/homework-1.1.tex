@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol I}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item \textbf{Řešení}:
+    Zobrazení bude dle definice "na", když:
+    \[
+      \forall (c,d) \in \mathbb{R}^2 \exists x,y \quad : \quad f_a(x,y) = (c,d)
+    \]
+    neboli soustava rovnic níže musí mít řešení pro libovolné $c,d \in \mathbb{R}$
+    
+    \[
+    \begin{cases}
+    (a+2)x + ay = c,\\
+    ax + y = d.
+    \end{cases}
+    \]
+
+    Z druhé rovnice: $y = d - ax$
+    \begin{align*}
+    \Rightarrow (a+2)x + a(d - ax) &= c \\
+    (a+2)x + ad - a^2x &= c \\
+    x(a+2 - a^2) &= c - ad
+    \end{align*}
+    \[
+    x = \dfrac{c - ad}{a+2 - a^2} = \dfrac{ad - c}{a^2 - a - 2}
+    \]
+
+    \[
+    y = d - a\left(\dfrac{ad - c}{a^2 - a - 2}\right)
+    \]
+    Podmínka pro existenci řešení pro všechny $c,d \in \mathbb{R}$:
+    \begin{align*}
+    a^2 - a - 2 &\ne 0 \\
+    \Rightarrow (a-2)(a+1) &\ne 0 \\
+    \Rightarrow a \ne 2 \land a \ne -1
+    \end{align*}
+
+    Řešení pro libovolné $c,d \in \mathbb{R}$ existuje pro $a \in \mathbb{R} \setminus \{-1,2\}$.
+    Z toho plyne, že \underline{$f_a$ je "na", právě když $a \in \mathbb{R} \setminus \{-1,2\}$.}
+    
+    Ověření vyloučených možností:
+    \[
+      a=-1: \quad
+      \begin{cases}
+      x - y = c,\\
+      -x + y = d.
+      \end{cases}
+      \Rightarrow c + d = 0
+    \]
+    \[
+      a=2: \quad
+      \begin{cases}
+      4x + 2y = c,\\
+      2x + y = d.
+      \end{cases}
+      \Rightarrow c - 2d = 0
+    \]
+
+    U obou možností existuje $c,d$ takové, že soustava nemá řešení (např. $c=0,d=1$). Tedy existuje $c,d$ takové, že pro všechna $x,y$ platí $f_a(x,y) \ne (c,d)$.
+\end{enumerate}
+
+\end{document}

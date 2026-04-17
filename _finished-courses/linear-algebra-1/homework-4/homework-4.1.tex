@@ -1,0 +1,212 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 4.1}
+
+Vypracoval: Daniel \textit{"Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  \item \textbf{Řešení}:
+    Rozeberme dva vztahy ze zadání
+    \begin{enumerate}
+    \item
+    První vztah ze zadání určuje jádro matice A. Plyne:
+    \[
+      \forall s,t \in \mathbb{Z}_7 \,: \quad
+      A
+      \left(
+      s\left(\begin{array}{c}
+      3 \\ 0 \\ 1
+      \end{array}\right) +
+      t\left(\begin{array}{c}
+      0 \\ 4 \\ 1
+      \end{array}\right)
+      \right)
+      = 
+      \left(\begin{array}{c}
+      0 \\ 0
+      \end{array}\right)
+    \]
+    \[
+      \Longrightarrow
+      A
+      \left(\begin{array}{c}
+      3s \\ 4t \\ s + t
+      \end{array}\right)
+      = 
+      \left(\begin{array}{c}
+      0 \\ 0
+      \end{array}\right)
+    \]
+
+    Matice A tedy reprezentuje všechny soustavy rovnic s parametrickým řešením výše.
+    Jelikož je řešením soustavy dvourozměrný prostor a matice A je třísloupcová,
+    musel při řešení Gaussovou eliminací zbýt jen jeden bázový řádek.
+    Řekněme, že za pevnou proměnnou byla zvolená proměnná třetího sloupce a první dvě proměnné tedy musely
+    být pomocně vyjádřeny parametry. Zapišme, jak vypadá vyřešená Gauss-Jordan eliminovaná matice.
+    Úpravami převeďme jen do Gaussovy eliminace,
+    tvar poznáme tak, že na pravé straně získáme nuly (pravá strana původně řešené SLR).
+
+    \[
+      \left(\begin{array}{ccc|c}
+      0 & 0 & 1 & s+t \\
+      0 & 0 & 0 & 0 \\ \hline
+      1 & 0 & 0 & 3s \\
+      0 & 1 & 0 & 4t \\
+      \end{array}\right)
+      \overset{\text{3.ř} \cdot 2}{\;\sim\;}
+      \left(\begin{array}{ccc|c}
+      0 & 0 & 1 & s+t \\
+      0 & 0 & 0 & 0 \\ \hline
+      2 & 0 & 0 & 6s \\
+      0 & 1 & 0 & 4t \\
+      \end{array}\right)
+      \overset{\text{4.ř} \cdot 5}{\;\sim\;}
+      \left(\begin{array}{ccc|c}
+      0 & 0 & 1 & s+t \\
+      0 & 0 & 0 & 0 \\ \hline
+      2 & 0 & 0 & 6s \\
+      0 & 5 & 0 & 6t \\
+      \end{array}\right)
+      \overset{\text{1.ř } + \text{3.ř}}{\;\sim\;}
+      \left(\begin{array}{ccc|c}
+      2 & 0 & 1 & t \\
+      0 & 0 & 0 & 0 \\ \hline
+      2 & 0 & 0 & 6s \\
+      0 & 5 & 0 & 6t \\
+      \end{array}\right)
+      \overset{\text{1.ř } + \text{4.ř}}{\;\sim\;}
+      \left(\begin{array}{ccc|c}
+      2 & 5 & 1 & 0 \\
+      0 & 0 & 0 & 0 \\ \hline
+      2 & 0 & 0 & 6s \\
+      0 & 5 & 0 & 6t \\
+      \end{array}\right)
+    \]
+
+    Gaussova eliminace převádí libovolnou matici A na matici E posloupností elementárních úprav.
+    Každá taková úprava je lineární kombinace řádkových vektorů.
+    Tím se zachovává prostor, takže výsledné řádky jsou vyjádřitelné pomocí původních a naopak.
+    Když jsme zjistili, že jeden výsledek Gaussovy eliminace je zůstatek jediného nenulového řádku,
+    znamená to, že i všechny původní řádky museli být jen násobky tohoto řádku,
+    jinak by zbylo řádků po eliminaci více. Jediné, co je třeba pohlídat je, že nejsou
+    všechny řádky nulové.
+    
+    Označme si tedy řádkový vektor $\vec{v} = \left(\begin{array}{ccc} 2 & 5 & 1 \end{array}\right)$
+
+    Určeme si první omezující podmínku pro matici A:
+
+    \[
+      A \in \left\{
+        \left(\begin{array}{c} k_1 \cdot \vec{v} \\ \hline k_2 \cdot \vec{v} \end{array}\right)
+        \quad \middle| \quad (k_1, k_2) \in \mathbb{Z}_7^2 \setminus \left\{\left(0,0\right)\right\}
+      \right\}
+    \]
+
+
+    \item
+    Druhý vztah ze zadání určuje obraz matice A. Plyne:
+
+    \[
+      \forall a,b,c \in \mathbb{Z}_7 \,\exists ! t \in \mathbb{Z}_7 \,: \quad A \left( \begin{array}{c}
+        a \\ b \\ c
+      \end{array} \right) = t \left( \begin{array}{c}
+        3 \\ 4
+      \end{array} \right) = \left( \begin{array}{c}
+        3t \\ 4t
+      \end{array} \right)
+    \]
+
+    Z bodu 1.a víme, že matice A se musí dát zapsat pomocí řádkových vektorů $\vec{v}$.
+    Vyřešme tedy, které $(k_1, k_2) \in \mathbb{Z}_7^2 \setminus \left\{\left(0,0\right)\right\}$
+    vyhovují i druhému vztahu ze zadání:
+
+
+    \begin{align*}
+      \forall a,b,c \in \mathbb{Z}_7 \,\exists ! t \in \mathbb{Z}_7 \,: \quad 
+      \left(\begin{array}{c} k_1 \cdot \vec{v} \\ \hline k_2 \cdot \vec{v} \end{array}\right)
+      \left( \begin{array}{c}
+        a \\ b \\ c
+      \end{array} \right) &= \left( \begin{array}{c}
+        3t \\ 4t
+      \end{array} \right) \\
+      \Longrightarrow 
+      \left(\begin{array}{c} k_1 \cdot \vec{v} \cdot 
+        \left( \begin{array}{ccc} a & b & c \end{array} \right) \\ \hline k_2 \cdot \vec{v} \cdot 
+        \left( \begin{array}{ccc} a & b & c \end{array} \right) \end{array}\right)
+      &= \left( \begin{array}{c}
+        3t \\ 4t
+      \end{array} \right) \\
+      \text{Označme součin } z = \vec{v} \cdot \left( \begin{array}{ccc} a & b & c \end{array} \right) \\
+      \Longrightarrow \left(\begin{array}{c} k_1 \cdot z \\ \hline k_2 \cdot z \end{array}\right)
+      &= \left( \begin{array}{c}
+        3t \\ 4t
+      \end{array} \right)
+    \end{align*}
+
+    Získáváme:
+    \begin{align*}
+      \forall z \in \mathbb{Z}_7 \,\exists ! t \in \mathbb{Z}_7 \,: \quad k_1 \cdot z &= 3t \land k_2 \cdot z = 4t \\
+      \Longrightarrow 5k_1 \cdot z &= t \land 2k_2 \cdot z = t \\
+      \Longrightarrow 5k_1 \cdot z &= 2k_2 \cdot z \\
+      \text{Pro } z=0 \text{ jsou zjevně řešením libovolné } k_1, k_2 &\text{ vyšetřeme proto více omezující rovnici, kde } z \neq 0 \\
+      \overset{\cdot z^{-1}}{\;\Longrightarrow\;} 5k_1 = 2k_2 \\
+      \Longrightarrow k_1 = 6k_2 \\
+      \text{Z 1.a víme, že oba parametry $k_1,k_2$ nesmí být zároveň rovny 0. Zvolme tedy parametr } &\alpha \in \mathbb{Z}_7 \setminus \{0\}
+      \text{ a položme } k_2 = \alpha: \\
+      \Longrightarrow k_1 = 6\alpha
+    \end{align*}
+
+    \end{enumerate}
+
+    Poskládejme řešení dohromady:
+
+    \[
+      A = \left(\begin{array}{c} k_1 \cdot \vec{v} \\ \hline k_2 \cdot \vec{v} \end{array}\right)
+      = \left(\begin{array}{c} 6\alpha \cdot \left(\begin{array}{ccc} 2 & 5 & 1 \end{array}\right)
+         \\ \hline \alpha \cdot \left(\begin{array}{ccc} 2 & 5 & 1 \end{array}\right) \end{array}
+      \right)
+      = \underline{\underline{\alpha \left(\begin{array}{ccc}
+          5 & 2 & 6 \\
+          2 & 5 & 1
+      \end{array}\right)}} \quad , \alpha \in \mathbb{Z}_7 \setminus \{0\}
+    \]
+
+    Rozepsaná řešení:
+
+    \[
+    A \in \left\{
+      \left(\begin{array}{ccc}
+          5 & 2 & 6 \\
+          2 & 5 & 1
+      \end{array}\right),
+      \left(\begin{array}{ccc}
+          3 & 4 & 5 \\
+          4 & 3 & 2
+      \end{array}\right),
+      \left(\begin{array}{ccc}
+          1 & 6 & 4 \\
+          6 & 1 & 3
+      \end{array}\right),
+      \left(\begin{array}{ccc}
+          6 & 1 & 3 \\
+          1 & 6 & 4
+      \end{array}\right),
+      \left(\begin{array}{ccc}
+          4 & 3 & 2 \\
+          3 & 4 & 5
+      \end{array}\right),
+      \left(\begin{array}{ccc}
+          2 & 5 & 1 \\
+          5 & 2 & 6
+      \end{array}\right)
+    \right\}
+    \]
+
+
+\end{enumerate}
+
+\end{document}

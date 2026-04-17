@@ -1,0 +1,155 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumerate}
+
+\title{\textbf{Sada pokročilých úloh z Lineární algebry 1}}
+\author{Extra cvičení: Ano/Ne a Důkazy}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent \textbf{Popis:} Tato sada obsahuje 10 úloh typu Ano/Ne (kde každá úloha vyžaduje správné posouzení tří tvrzení) a 10 náročnějších důkazových úloh určených k hlubšímu procvičení látky (kapitoly 2--7: Soustavy, Matice, Vektorové prostory, Lineární zobrazení, Determinanty).
+
+\hrule
+\vspace{0.5cm}
+
+\section*{Část I: Rozšířené Ano/Ne (10 úloh)}
+\textit{V každé úloze rozhodněte o platnosti všech tří tvrzení. (ANO = vždy pravda za daných předpokladů, NE = existuje protipříklad).}
+
+\begin{enumerate}
+    % Úloha 1
+    \item \textbf{Soustavy lineárních rovnic:} Uvažujme soustavu $Ax=b$ nad $\mathbb{R}$.
+    \begin{itemize}
+        \item[\textbf{A / N}] Pokud má soustava jediné řešení, pak musí být matice $A$ čtvercová.
+        \item[\textbf{A / N}] Pokud je $b$ nulový vektor a sloupce matice $A$ jsou lineárně nezávislé, má soustava pouze triviální řešení.
+        \item[\textbf{A / N}] Množina řešení soustavy $Ax=b$ je vektorovým podprostorem právě tehdy, když $b=0$.
+    \end{itemize}
+
+    % Úloha 2
+    \item \textbf{Operace s maticemi:} Nechť $A, B$ jsou čtvercové matice řádu $n$ nad $\mathbb{R}$.
+    \begin{itemize}
+        \item[\textbf{A / N}] Pokud $AB = 0$ (nulová matice), pak musí být buď $A=0$ nebo $B=0$.
+        \item[\textbf{A / N}] Platí $(A+B)^2 = A^2 + 2AB + B^2$ právě tehdy, když $A$ a $B$ komutují.
+        \item[\textbf{A / N}] Hodnost matice $A$ je stejná jako hodnost matice $A^T A$.
+    \end{itemize}
+
+    % Úloha 3
+    \item \textbf{Vektorové prostory a podprostory:} Nechť $V$ je vektorový prostor a $U, W$ jeho podprostory.
+    \begin{itemize}
+        \item[\textbf{A / N}] Sjednocení $U \cup W$ je vždy podprostorem $V$.
+        \item[\textbf{A / N}] Pokud $\dim U = \dim W$, pak $U = W$.
+        \item[\textbf{A / N}] Průnik $U \cap W$ nikdy nemůže být prázdná množina (vždy musí obsahovat alespoň nulový vektor).
+    \end{itemize}
+
+    % Úloha 4
+    \item \textbf{Lineární nezávislost:} Mějme vektory $v_1, \dots, v_k$ ve vektorovém prostoru $V$.
+    \begin{itemize}
+        \item[\textbf{A / N}] Pokud je $v_k$ lineární kombinací ostatních vektorů, pak je množina lineárně závislá.
+        \item[\textbf{A / N}] Pokud k lineárně nezávislé množině přidáme vektor, který v ní není, nová množina bude stále lineárně nezávislá.
+        \item[\textbf{A / N}] Pokud jsou vektory lineárně závislé, pak lze \textit{každý} z nich vyjádřit jako lineární kombinaci ostatních.
+    \end{itemize}
+
+    % Úloha 5
+    \item \textbf{Báze a dimenze:} Nechť $V$ je prostor dimenze $n$.
+    \begin{itemize}
+        \item[\textbf{A / N}] Každá množina $n$ vektorů, která generuje $V$, je bází $V$.
+        \item[\textbf{A / N}] Libovolných $n+1$ vektorů ve $V$ musí být lineárně závislých.
+        \item[\textbf{A / N}] Podprostor dimenze $n-1$ se nazývá nadrovina a lze ho vždy vyjádřit jako jádro nenulové lineární formy.
+    \end{itemize}
+
+    % Úloha 6
+    \item \textbf{Lineární zobrazení:} Nechť $f: U \to V$ je lineární zobrazení konečnědimenzionálních prostorů.
+    \begin{itemize}
+        \item[\textbf{A / N}] Pokud je $\dim U = \dim V$, pak je $f$ prosté právě tehdy, když je na.
+        \item[\textbf{A / N}] Obraz nulového vektoru $f(o_U)$ je vždy nulový vektor $o_V$.
+        \item[\textbf{A / N}] Pokud je $f$ na, pak musí platit $\dim U \le \dim V$.
+    \end{itemize}
+
+    % Úloha 7
+    \item \textbf{Inverzní matice:} Nechť $A$ je regulární matice řádu $n$.
+    \begin{itemize}
+        \item[\textbf{A / N}] Inverzní matice k $2A$ je $2A^{-1}$.
+        \item[\textbf{A / N}] $(A^T)^{-1} = (A^{-1})^T$.
+        \item[\textbf{A / N}] Pokud má matice $A$ celočíselné prvky, pak má i $A^{-1}$ vždy celočíselné prvky.
+    \end{itemize}
+
+    % Úloha 8
+    \item \textbf{Determinanty - výpočet:} Nechť $A$ je matice řádu $3$ a $\det(A) = 5$.
+    \begin{itemize}
+        \item[\textbf{A / N}] $\det(2A) = 10$.
+        \item[\textbf{A / N}] $\det(A^2) = 25$.
+        \item[\textbf{A / N}] Pokud vyměníme 1. a 3. sloupec matice $A$, determinant bude $-5$.
+    \end{itemize}
+
+    % Úloha 9
+    \item \textbf{Matice zobrazení a přechodu:} 
+    \begin{itemize}
+        \item[\textbf{A / N}] Matice přechodu od báze $B$ k bázi $B$ je vždy jednotková matice.
+        \item[\textbf{A / N}] Matice lineárního zobrazení závisí na volbě bází, ale její hodnost na volbě bází nezávisí.
+        \item[\textbf{A / N}] Pokud je matice zobrazení $f$ vůči kanonickým bázím singulární, pak $f$ není bijekce.
+    \end{itemize}
+
+    % Úloha 10
+    \item \textbf{Tělesa a permutace:} 
+    \begin{itemize}
+        \item[\textbf{A / N}] Nad tělesem $\mathbb{Z}_2$ platí pro každé $x$: $x + x = 0$.
+        \item[\textbf{A / N}] Znaménko permutace, která vznikne složením dvou lichých permutací, je liché.
+        \item[\textbf{A / N}] V grupě permutací $S_n$ (pro $n \ge 3$) platí komutativní zákon.
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+
+\section*{Část II: Těžké důkazy (10 úloh)}
+\textit{Následující úlohy vyžadují formální a úplný důkaz. Jsou určeny pro hlubší pochopení látky.}
+
+\begin{enumerate}
+    \item \textbf{Grassmannova formule:}
+    Nechť $U$ a $W$ jsou podprostory konečnědimenzionálního vektorového prostoru $V$. Dokažte větu o dimenzi spojení a průniku:
+    $$ \dim(U + W) + \dim(U \cap W) = \dim U + \dim W $$
+    \textit{(Nápověda: Začněte volbou báze průniku $U \cap W$ a doplňte ji na báze $U$ a $W$.)}
+
+    \item \textbf{Hodnost součinu matic:}
+    Nechť $A$ je matice typu $m \times n$ a $B$ je matice typu $n \times p$. Dokažte tzv. Sylvesterovu nerovnost (v jednodušší formě):
+    $$ \text{rank}(A) + \text{rank}(B) - n \le \text{rank}(AB) $$
+    Případně dokažte alespoň jednodušší tvrzení: $\text{rank}(AB) \le \min(\text{rank}(A), \text{rank}(B))$.
+
+    \item \textbf{Jádro a obraz matice transponované:}
+    Pro reálnou matici $A$ typu $m \times n$ dokažte, že jádro matice $A$ je kolmé na řádkový prostor matice $A$ (tj. na obraz matice $A^T$). Formálně: $\text{Ker}(A) = (\text{Im}(A^T))^\perp$ ve standardním skalárním součinu.
+    Dále dokažte, že $\text{Ker}(A^T A) = \text{Ker}(A)$.
+
+    \item \textbf{Unikátnost inverze zprava a zleva:}
+    Nechť $A$ je čtvercová matice. Dokažte: Pokud existuje matice $B$ taková, že $AB=I$, a matice $C$ taková, že $CA=I$, pak nutně $B=C$. (Tím dokážete, že pokud má čtvercová matice oboustrannou inverzi, je určena jednoznačně).
+
+    \item \textbf{Adjungovaná matice:}
+    Definujme adjungovanou matici $\text{adj}(A)$ jako matici algebraických doplňků (transponovanou). Dokažte z definice determinantu (Laplaceova rozvoje), že pro libovolnou čtvercovou matici $A$ platí:
+    $$ A \cdot \text{adj}(A) = \det(A) \cdot I $$
+    (Ukažte, proč jsou prvky na diagonále rovny determinantu a prvky mimo diagonálu nule).
+
+    \item \textbf{Lineární nezávislost funkcí:}
+    Nechť $V$ je vektorový prostor všech reálných funkcí reálné proměnné. Dokažte, že funkce $f(x) = \sin(x)$, $g(x) = \sin(2x)$ a $h(x) = \sin(3x)$ jsou lineárně nezávislé.
+
+    \item \textbf{Výměnná věta (Steinitz):}
+    Zformulujte a dokažte lemma, které se používá v důkazu Steinitzovy věty o výměně:
+    \textit{Nechť $v_1, \dots, v_n$ generují prostor $V$ a $u$ je vektor z $V$. Pokud $u$ vyjádříme jako lineární kombinaci $\sum a_i v_i$ a koeficient $a_k \neq 0$, pak vektory $v_1, \dots, v_{k-1}, u, v_{k+1}, \dots, v_n$ také generují $V$.}
+
+    \item \textbf{Determinant blokové matice:}
+    Nechť $M$ je bloková matice tvaru $M = \begin{pmatrix} A & B \\ 0 & D \end{pmatrix}$, kde $A$ a $D$ jsou čtvercové matice (nemusí být stejného řádu). Dokažte, že $\det(M) = \det(A) \cdot \det(D)$.
+
+    \item \textbf{Věta o dimenzi jádra a obrazu pro zobrazení:}
+    Nechť $f: V \to W$ je lineární zobrazení a $\dim V$ je konečná. Dokažte, že:
+    $$ \dim V = \dim(\text{Ker } f) + \dim(\text{Im } f) $$
+    (Tento důkaz by měl být konstruktivní – pomocí volby báze jádra a jejího doplnění).
+
+    \item \textbf{Polynomická interpolace (Vandermonde):}
+    Dokažte, že pro libovolných $n+1$ bodů $(x_0, y_0), \dots, (x_n, y_n)$, kde všechna $x_i$ jsou navzájem různá, existuje právě jeden polynom stupně nejvýše $n$, který těmito body prochází.
+    (Převeďte problém na řešení soustavy lineárních rovnic a využijte vlastnosti Vandermondova determinantu, o kterém víte, že je nenulový pro různá $x_i$).
+
+\end{enumerate}
+
+\end{document}

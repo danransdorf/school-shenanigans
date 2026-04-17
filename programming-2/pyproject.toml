@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "programovani-2"
+description = "Programování 2"
+version="0.1.0"
+dynamic = ["readme"]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+homework = "main:homework"
+hw = "main:homework"
+junk = "main:junk"
+
+[tool.uv]
+package = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+readme = { file = ["README.md"] }
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+line-length = 120
+target-version = "py314"
+indent-width = 2
+exclude = [
+    "build",
+    "docs",
+    ".eggs",
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".venv",
+    ".env",
+    "__pypackages__",
+    "_build",
+    "build",
+    "dist",
+    "venv",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle - Error
+    "W",   # pycodestyle - Warning
+    "F",   # PyFlakes
+    "C4",  # flake8 - Comprehensions
+    "B",   # flake8 - Bugbear
+    "I",   # Import sort
+    "N",   # pep8 - Naming
+    "PTH", # use pathlib
+    "UP",  # PyUpgrade (new syntax)
+]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.mypy]
+packages = ["homework", "junk"]
+exclude = [
+    "venv",
+    ".venv",
+    "build",
+    ".env"
+]
+ignore_missing_imports = true
+show_error_codes = true
+warn_unused_ignores = true
+warn_unused_configs = true
+namespace_packages = true
+explicit_package_bases = true
+show_column_numbers = true
+check_untyped_defs = true
+disallow_untyped_defs = false

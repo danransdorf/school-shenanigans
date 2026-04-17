@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem}
+
+\begin{document}
+
+\section*{Domácí úkol 7.2}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+
+  \setcounter{enumi}{1}
+  
+  \item Chceme zjistit, zda se dá nulový vektor netrivialně zapsat jako lineární kombinace
+    vektorů z posloupnosti. Zkontrolujme tedy existenci nenulové trojice koeficientů $a,b,c\in\mathbb{R}$.
+
+    \begin{align*}
+      a(4\vec{u}+3\vec{v}+2\vec{w}+\vec{z}) + b(\vec{u}-\vec{v}-\vec{w}+\vec{z}) + c(\vec{u}+\vec{v}+\vec{w}+\vec{z}) &= \vec{0} \\
+      \left(\begin{array}{ccc}
+        4\vec{u}+3\vec{v}+2\vec{w}+\vec{z} & \vec{u}-\vec{v}-\vec{w}+\vec{z} & \vec{u}+\vec{v}+\vec{w}+\vec{z}
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        a\\b\\c
+      \end{array}\right) &= \vec{0} \\
+      \overset{\text{řádkový pohled}}{\Longrightarrow}
+      \left(\begin{array}{cccc}
+        \vec{u} & \vec{v} & \vec{w} & \vec{z}
+      \end{array}\right) \cdot \left(\begin{array}{ccc}
+        4 & 1 & 1 \\ 3 & -1 & 1 \\ 2 & -1 & 1 \\ 1 & 1 & 1
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        a\\b\\c
+      \end{array}\right) &= \vec{0} \\
+      \text{Položme } \vec{\alpha} = \left(\begin{array}{ccc}
+        4 & 1 & 1 \\ 3 & -1 & 1 \\ 2 & -1 & 1 \\ 1 & 1 & 1
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        a\\b\\c
+      \end{array}\right)
+    \end{align*}
+    Z lineární nezávislosti víme, že nulový vektor z posloupnosti ($\vec{u},\vec{v},\vec{w},\vec{z}$) nemůžeme vyrobit
+    lineární kombinací jinak, než součtem 0-násobků daných vektorů. Tedy aritmetický vektor $\vec{\alpha} = \vec{0}$ je jediné řešení rovnice:
+    \begin{align*}
+      \left(\begin{array}{cccc}
+        \vec{u} & \vec{v} & \vec{w} & \vec{z}
+      \end{array}\right) \cdot \vec{\alpha} = \vec{0} \\
+    \end{align*}
+    Díky tomu můžeme problém redukovat na rovnici $\vec{\alpha} = \vec{0}$:
+    \begin{align*}
+      &\left(\begin{array}{ccc}
+        4 & 1 & 1 \\ 3 & -1 & 1 \\ 2 & -1 & 1 \\ 1 & 1 & 1
+      \end{array}\right) \cdot \left(\begin{array}{c}
+        a\\b\\c
+      \end{array}\right) = \vec{0} \\
+      &\left(\begin{array}{ccc|c}
+        4 & 1 & 1 & 0 \\ 3 & -1 & 1 & 0 \\ 2 & -1 & 1 & 0 \\ 1 & 1 & 1 & 0
+      \end{array}\right)
+      \overset{\text{Gauss--Jordan eliminace}}{\sim}
+      \left(\begin{array}{ccc|c}
+        1&0&0&0 \\ 0&1&0&0 \\ 0&0&1&0 \\ 0&0&0&0
+      \end{array}\right) \\
+      \Longrightarrow
+      &\left(\begin{array}{c}
+        a\\b\\c
+      \end{array}\right) = \left(\begin{array}{c}
+        0\\0\\0
+      \end{array}\right)
+    \end{align*}
+
+    Vyřešili jsme jediné možné koeficienty $a,b,c$ a všechny jsou rovny $0$. To znamená,
+    že \textbf{jediný} způsob, jak ze zadané posloupnosti vytvořit lineární kombinací nulový vektor je triviálně nastavit koeficienty rovny $0$.
+    Tím pádem je posloupnost \underline{lineárně nezávislá} ve \textbf{V}.
+    
+
+\end{enumerate}
+
+\end{document}

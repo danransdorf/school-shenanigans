@@ -1,0 +1,331 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 9.1}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \item Nejprve určíme dimenzi $Im\,A_{a,b}$, což už víme, že je hodnost matice. V závislosti na parametrech, poté dle teorie určíme zbytek.
+    Hledejme tedy nejprve hodnost matice $A_{a,b}$. Upravujme matici elementárními řádkovými a sloupcovými úpravami, o kterých víme, že nemění hodnost matice:
+
+    \[
+      \left( \begin{array}{cccc}
+        a+2 & b & 1 & 2 \\
+        2a+1 & 2b & a+3 & 1 \\
+        3a+b+3 & 3b & a+4 & b+3
+      \end{array} \right)
+      \overset{\text{1.s } + (4\cdot)\text{4.s}}{\sim}
+      \left( \begin{array}{cccc}
+        a & b & 1 & 2 \\
+        2a & 2b & a+3 & 1 \\
+        3a & 3b & a+4 & b+3
+      \end{array} \right)
+    \]
+
+    Vidím, že první a druhý sloupec jsou na sobě závislé. Nemůžeme ale jakýkoli škrtnout, protože bychom mohli ztratit
+    údaje, kdyby ten druhý neškrtnutý byl nulový. Vyšetřeme proto tři případy $a\neq0, b\neq0, a=b=0$:
+    \begin{enumerate}
+      \item $a\neq0$: Když je $a$ nenulové, pak má inverz, a tedy druhý sloupec lze napsat jako násobek prvního.
+        Vynulujme ten druhý sloupec přičtením $-a^{-1}b$ násobku prvního sloupce.
+
+        \[
+          \sim
+          \left( \begin{array}{cccc}
+            a & 0 & 1 & 2 \\
+            2a & 0 & a+3 & 1 \\
+            3a & 0 & a+4 & b+3
+          \end{array} \right)
+          \overset{\text{1.s } \cdot a^{-1}}{\sim}
+          \left( \begin{array}{cccc}
+            1 & 0 & 1 & 2 \\
+            2 & 0 & a+3 & 1 \\
+            3 & 0 & a+4 & b+3
+          \end{array} \right)
+          \overset{\text{3.s } - \text{1.s}}{\sim}
+          \left( \begin{array}{cccc}
+            1 & 0 & 0 & 2 \\
+            2 & 0 & a+1 & 1 \\
+            3 & 0 & a+1 & b+3
+          \end{array} \right)
+          \overset{\text{4.s } + (3\cdot) \text{1.s}}{\sim}
+          \left( \begin{array}{cccc}
+            1 & 0 & 0 & 0 \\
+            2 & 0 & a+1 & 2 \\
+            3 & 0 & a+1 & b+2
+          \end{array} \right)
+        \]
+        \[
+          \overset{\text{3.ř } -\text{2.ř}}{\sim}
+          \left( \begin{array}{cccc}
+            1 & 0 & 0 & 0 \\
+            2 & 0 & a+1 & 2 \\
+            1 & 0 & 0 & b
+          \end{array} \right)
+          \overset{\text{2.ř } +(3\cdot)\text{1.ř}}{\sim}
+          \left( \begin{array}{cccc}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & a+1 & 2 \\
+            1 & 0 & 0 & b
+          \end{array} \right)
+          \overset{\text{3.ř } +(4\cdot)\text{1.ř}}{\sim}
+          \left( \begin{array}{cccc}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & a+1 & 2 \\
+            0 & 0 & 0 & b
+          \end{array} \right)
+        \]
+        
+        Kdybychom na tuto matici chtěli použít Gaussovu eliminaci, tak první řádek už je finální,
+        ani nám jakkoli nepomůže (má pivot a zbytek hodnot 0).
+        Rozdělme tedy všechny případy:
+        \begin{enumerate}
+          \item $b=0$: Matice je odstupňovaná a má dva nenulové řádky, hodnost je tedy \underline{2 pro $a\neq0, b=0$}
+            \[
+              \left( \begin{array}{cccc}
+                1 & 0 & 0 & 0 \\
+                0 & 0 & a+1 & 2 \\
+                0 & 0 & 0 & 0
+              \end{array} \right)
+            \]
+          \item $a+1=0$: Pak třetí řádek zeliminujeme přičtením $-2^{-1}b$ násobku druhého. Tím pádem je hodnost matice
+            \underline{2 pro $a\neq0,a=4$}
+            \[
+              \left( \begin{array}{cccc}
+                1 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 2 \\
+                0 & 0 & 0 & b
+              \end{array} \right) \sim \left( \begin{array}{cccc}
+                1 & 0 & 0 & 0 \\
+                0 & 0 & 0 & 2 \\
+                0 & 0 & 0 & 0
+              \end{array} \right)
+            \]
+          \item $b\neq0,a+1\neq0$: Pak $b$ i $a+1$ mají inverz, tedy můžeme pivot $b$ převést na $1$ a ve druhém řádku můžeme vynulovat čtvrtý sloupec pomocí
+            přičtením $3$ násobku třetího řádku. Pak vynásobením druhého řádku inverzem $a+1$ získáme odstupňovanou Gauss--Jordanovsky eliminovanou matici se třemi nenulovými řádky,
+            hodnost je tedy \underline{3 pro $a\neq0, a\neq4, b\neq0$}.
+
+            \[
+              \left( \begin{array}{cccc}
+                1 & 0 & 0 & 0 \\
+                0 & 0 & a+1 & 2 \\
+                0 & 0 & 0 & b
+              \end{array} \right)
+              \sim
+              \left( \begin{array}{cccc}
+                1 & 0 & 0 & 0 \\
+                0 & 0 & a+1 & 2 \\
+                0 & 0 & 0 & 1
+              \end{array} \right)
+              \sim
+              \left( \begin{array}{cccc}
+                1 & 0 & 0 & 0 \\
+                0 & 0 & a+1 & 0 \\
+                0 & 0 & 0 & 1
+              \end{array} \right)
+              \sim
+              \left( \begin{array}{cccc}
+                1 & 0 & 0 & 0 \\
+                0 & 0 & 1 & 0 \\
+                0 & 0 & 0 & 1
+              \end{array} \right)
+            \]
+        \end{enumerate}
+      
+      \item $b\neq0$: Když je $b$ nenulové, pak má inverz, a tedy první sloupec lze napsat jako násobek druhého.
+        Vynulujme ten první sloupec přičtením $-b^{-1}a$ násobku druhého sloupce.
+
+        \[
+          \left( \begin{array}{cccc}
+            a & b & 1 & 2 \\
+            2a & 2b & a+3 & 1 \\
+            3a & 3b & a+4 & b+3
+          \end{array} \right)
+          \sim
+          \left( \begin{array}{cccc}
+            0 & b & 1 & 2 \\
+            0 & 2b & a+3 & 1 \\
+            0 & 3b & a+4 & b+3
+          \end{array} \right)
+          \overset{\text{2.s } \cdot b^{-1}}{\sim}
+          \left( \begin{array}{cccc}
+            0 & 1 & 1 & 2 \\
+            0 & 2 & a+3 & 1 \\
+            0 & 3 & a+4 & b+3
+          \end{array} \right)
+          \overset{\text{1.s } \leftrightarrow \text{ 2.s}}{\sim}
+          \left( \begin{array}{cccc}
+            1 & 0 & 1 & 2 \\
+            2 & 0 & a+3 & 1 \\
+            3 & 0 & a+4 & b+3
+          \end{array} \right)
+        \]
+
+        Tento tvar jsme už jednou viděli a víme, že ho můžeme elementárními úpravami převést do následujícího tvaru
+        nezávisle na $a$ (nepoužili jsme nikde $a^{-1}$):
+
+        \[
+          \left( \begin{array}{cccc}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & a+1 & 2 \\
+            0 & 0 & 0 & b
+          \end{array} \right)
+        \]
+
+        $b$ je nenulové, pak tedy můžeme prvek čtvrtého sloupce druhého řádku vynulovat jako v 1.a.iii.:
+
+        \[
+          \left( \begin{array}{cccc}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & a+1 & 0 \\
+            0 & 0 & 0 & 1
+          \end{array} \right)
+        \]
+
+        Pak je zjevně hodnost \underline{2 pro $b\neq0, a=4$}, \underline{3 pro $b\neq0, a\neq4$} -- což nám zesiluje tvrzení z 1.a.iii.,
+        protože pro hodnost 3 je přípustné $a=0$.
+      
+      \item $a=b=0$: Dosaďme nuly a zeliminujme matici:
+          \[
+            \left( \begin{array}{cccc}
+              a & b & 1 & 2 \\
+              2a & 2b & a+3 & 1 \\
+              3a & 3b & a+4 & b+3
+            \end{array} \right)
+            \sim
+            \left( \begin{array}{cccc}
+              0 & 0 & 1 & 2 \\
+              0 & 0 & 3 & 1 \\
+              0 & 0 & 4 & 3
+            \end{array} \right)
+            \sim 
+            \left( \begin{array}{cccc}
+              0 & 0 & 1 & 2 \\
+              0 & 0 & 0 & 0 \\
+              0 & 0 & 0 & 0
+            \end{array} \right)
+          \]
+
+        Hodnost je tedy \underline{1 pro $a=b=0$}.
+ 
+    \end{enumerate}
+ 
+        Dejme k sobě podmínky pro jednotlivé hodnoty hodnosti a zjednodušme je:
+
+        \[Rank(A_{a,b}) = \begin{cases}
+          1: \quad &\underline{a=0 \land b=0 }\\
+          2: \quad &(a\neq0 \land b=0) \;\lor\; (a\neq0 \land a=4) \;\lor\; (b\neq0 \land a=4) \\
+                  &\Leftrightarrow \; (a\neq0 \land b=0) \;\lor\; a=4 \;\lor\; (b\neq0 \land a=4) \\
+                  &\Leftrightarrow \; \underline{(a\neq0 \land b=0) \;\lor\; a=4 }\\
+          3: \quad &(a\neq0 \land a\neq4 \land b\neq0) \;\lor\; (b\neq0 \land a\neq4) \\
+                  &\Leftrightarrow \; \underline{b\neq0 \land a\neq4}
+        \end{cases}\]
+
+        Z teorie víme, $Rank(A)=Rank(A^T)$. Jelikož $dim(Im(A))=Rank(A)$, pak $dim(Im(A^T))=Rank(A^T)=Rank(A)=dim(Im(A))$.
+        Z toho plyne:
+        \[dim(Im(A_{a,b}^T)) = dim(Im(A_{a,b})).\]
+        
+        Dále víme, že $dim(Im(A))$ je rovna počtu bázových sloupců (lineárně nezávislých).
+        Také víme, že $dim(Ker(A))$ je rovna počtu volných proměnných (nebázových sloupců -- lineárně závislých).
+        V matici $A_{a,b}$ máme 4 sloupce, tedy platí $dim(Im(A_{a,b})) + dim(Ker(A_{a,b})) = 4$.
+        V matici $A_{a,b}^T$ jsou 3 sloupce, stejnou úvahou dostaneme $dim(Im(A_{a,b}^T)) + dim(Ker(A_{a,b}^T)) = 3$.
+        Odečtením dimenzí obrazu dostáváme:
+
+        \begin{align*}
+           dim(Ker(A_{a,b})) = 4 - dim(Im(A_{a,b})) \\
+           dim(Ker(A_{a,b}^T)) = 3 - dim(Im(A_{a,b}^T))
+        \end{align*}
+
+        Ted' jednoduchými počty tyto hodnoty získáme a vytvoříme výslednou tabulku:
+
+
+        \begin{table}[h]
+          \centering
+          \begin{tabular}{lccc}
+            \toprule
+            & $a=0 \land b=0$ & \;\;$(a\neq0 \land b=0) \lor a=4$\;\; & $b\neq0 \land a\neq4$ \\ 
+            \midrule
+            $dim(Im(A_{a,b}))$ & 1 & 2 & 3 \\
+            $dim(Im(A_{a,b}^T))$ & 1 & 2 & 3 \\
+            $dim(Ker(A_{a,b}))$ & 3 & 2 & 1 \\
+            $dim(Ker(A_{a,b}^T))$ & 2 & 1 & 0 \\
+            \bottomrule
+          \end{tabular}
+        \end{table}
+      
+      Ještě na závěr pro jistotu ověřme, že každá dvojice $a,b\in\mathbb{Z}_5$ by měla spadnout do právě jedné z kategorií.
+      Kategorie jsou na první pohled bez průniku, myšleno každá dvojice čísel zapadá nejvýše do jedné kategorie. 
+      Ještě zbývá ukázat, že jsme žádné dvojice čísel nevynechali --- každá dvojice zapadá minimálně do jedné kategorie.
+      Tato výroková formule by měla být pravdivá:
+      
+      \[
+        \begin{aligned}
+        & (a = 0 \land b = 0)
+          \;\lor\;
+          ((a \neq 0 \land b = 0) \lor a = 4)
+          \;\lor\;
+          (b \neq 0 \land a \neq 4)
+        \\
+        \Longleftrightarrow\quad &
+          (a = 0 \land b = 0)
+          \;\lor\;
+          (a \neq 0 \land b = 0)
+          \;\lor\;
+          (a = 4)
+          \;\lor\;
+          (b \neq 0 \land a \neq 4)
+        \\
+        \Longleftrightarrow\quad &
+          \left((a = 0 \land b = 0)
+          \;\lor\;
+          (a \neq 0 \land b = 0)\right)
+          \;\lor\;
+          (a = 4)
+          \;\lor\;
+          (b \neq 0 \land a \neq 4)
+        \\
+        \Longleftrightarrow\quad &
+          \bigl(\underbrace{(a = 0 \lor a \neq 0)}_{\text{vždy pravda}} \;\land\; b = 0\bigr)
+          \;\lor\;
+          (a = 4)
+          \;\lor\;
+          (b \neq 0 \land a \neq 4)
+        \\
+        \Longleftrightarrow\quad &
+          (b = 0)
+          \;\lor\;
+          (a = 4)
+        \;\lor\;
+        (b \neq 0 \land a \neq 4)
+        \\
+        \Longleftrightarrow\quad &
+          (b = 0)
+          \;\lor\;
+          \left((a = 4) \lor (b \neq 0 \land a \neq 4)\right)
+        \\
+        \Longleftrightarrow\quad &
+          (b = 0)
+          \;\lor\;
+          \left((a = 4) \lor b \neq 0\right)
+        \\
+        \Longleftrightarrow\quad &
+          \underbrace{(b = 0)
+          \;\lor\;
+          (b \neq 0)}_{\text{vždy pravda}}
+          \;\lor\;
+          (a = 4)
+        \\
+        \Longleftrightarrow\quad &
+        \text{pravda} \quad \checkmark
+        \end{aligned}
+      \]
+
+
+
+\end{enumerate}
+
+\end{document}

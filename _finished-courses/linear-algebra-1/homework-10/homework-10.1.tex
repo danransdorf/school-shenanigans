@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Domácí úkol 10.1}
+
+Vypracoval: Daniel \textit{``Randál"} Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+\begin{enumerate}
+  
+  \item Zkoumejme vlastnost funkce $f\circ f=f$. Tato vlastnost znamená,
+  že druhá aplikace funkce nemění obraz, tedy $\forall \vec{x} \in Im(f):\ f(\vec{x}) = \vec{x}$.
+  Snadné pozorování je, že vektor se přes $f$ zobrazí sám na sebe právě tehdy, když je prvkem obrazu.
+
+  \[
+    \forall \vec{x} \in \mathbb{R}^2 : \quad \vec{x}=f(\vec{x}) \;\Longleftrightarrow\; \vec{x} \in Im(f) \quad (*)
+  \]
+
+  \begin{quote}
+    \small
+    Důkaz: 
+    \begin{itemize}
+      \item ``$\Leftarrow$": Implikace je vysvětlena už nahoře v textu --- $\forall \vec{x} \in Im(f):\ f(\vec{x}) = \vec{x}$
+      \item ``$\Rightarrow$": $f(\vec{x}) \in Im(f) \;\land\; \vec{x}=f(\vec{x}) \quad \Longrightarrow \quad \vec{x} \in Im(f) \quad\quad\quad \square$
+    \end{itemize} 
+  \end{quote}
+
+
+  Podle (*) lze ze zadání zpozorovat, že $f\left( (-1,1)^T \right) = (-1,1)^T$.
+  Nyní známe obrazy dvou vektorů, jejichž posloupnost o velikosti 2 je lineárně nezávislá,
+  a tudíž množina z těch dvou vektorů generuje vstupní prostor $\mathbb{R}^2$. Jejich posloupnost pak je bází $\mathbb{R}^2$.
+
+  Mějme tedy bázi $B = \left((-1,1)^T, (1,3)^T \right)$ prostoru $\mathbb{R}^2$. Vyjádřeme matici zobrazení $f$ z báze B do B
+  pomocí znalosti, že oba vektory báze se zobrazí na $(-1,1)^T$, což je $(1,0)^T$ v bázi B.
+  Vyjádřeme i matice přechodu a určeme samotný předpis $f$:
+
+  \begin{align*}
+    [f]^B_B &= \left(\begin{array}{cc}
+        1 & 1 \\
+        0 & 0
+      \end{array}\right) \\
+    [id]^B_K &= \left(\begin{array}{cc}
+        -1 & 1 \\
+        1 & 3
+      \end{array}\right) \\
+    \text{sloupcovým pohledem najdu inverz} \quad [id]^K_B &= \left(\begin{array}{cc}
+        -3/4 & 1/4 \\
+        1/4 & 1/4
+      \end{array}\right) \\
+  \end{align*}
+
+  Ted' vyjádřeme předpis zobrazení pro $(x,y)^T$:
+  \begin{align*}
+    f\left( \left(\begin{array}{c} x\\y \end{array}\right) \right) 
+      &= [id]^B_K \cdot [f]^B_B \cdot [id]^K_B \cdot \left(\begin{array}{c} x\\y \end{array}\right) \\
+      &= \left(\begin{array}{cc}
+        1/2 & -1/2 \\
+        -1/2 & 1/2
+      \end{array}\right) \cdot \left(\begin{array}{c} x\\y \end{array}\right) \\
+      &= \left( \frac{x-y}{2},\frac{y-x}{2} \right)^T
+  \end{align*}
+
+  Obraz vektoru $(x,y)^T$ při zobrazení $f$ je \underline{\underline{$\left( \frac{x-y}{2},\frac{y-x}{2} \right)^T$}}.
+
+
+\end{enumerate}
+
+\end{document}
