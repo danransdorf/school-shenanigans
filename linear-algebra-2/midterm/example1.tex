@@ -1,0 +1,147 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumerate}
+
+\title{\textbf{Velká písemná práce z Lineární algebry 2}}
+\author{Letní semestr -- Skalární součiny a Vlastní čísla}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent \textbf{Instrukce:}
+\begin{itemize}
+    \item Celkový počet bodů: 100.
+    \item Pro zisk zápočtu/složení zkoušky je třeba alespoň 60 bodů.
+    \item \textbf{Sekce I (Ano/Ne):} K získání bodů za otázku je třeba odpovědět správně na všechny tři její podčásti.
+\end{itemize}
+
+\hrule
+\vspace{0.5cm}
+
+\section*{Část I: Ano/Ne (8 bodů)}
+\textit{Rozhodněte, zda platí následující tvrzení. Není třeba zdůvodňovat. (2 body za každou správně zodpovězenou trojici)}
+
+\begin{enumerate}[(a)]
+    \item \textbf{Skalární součin a normy:} Nechť $V$ je vektorový prostor se skalárním součinem nad tělesem $\mathbb{C}$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pro každý vektor $v \in V$ a skalár $c \in \mathbb{C}$ platí $\|c v\| = c \|v\|$.
+        \item[\textbf{ANO / NE}] Pro každé $u, v \in V$ platí $\langle u, v \rangle = \langle v, u \rangle$.
+        \item[\textbf{ANO / NE}] Zobrazení definované jako $\langle u, v \rangle = u^T A v$ je skalárním součinem na $\mathbb{R}^n$ právě tehdy, když $A$ je symetrická pozitivně definitní matice.
+    \end{itemize}
+
+    \item \textbf{Ortogonalita:} Nechť $W$ je podprostor konečněrozměrného prostoru $V$ se skalárním součinem.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pro libovolný vektor $x \in V$ existuje jednoznačný rozklad $x = w + w^\perp$, kde $w \in W$ a $w^\perp \in W^\perp$.
+        \item[\textbf{ANO / NE}] Platí, že dimenze $W$ a dimenze jeho ortogonálního doplňku $W^\perp$ jsou vždy stejné.
+        \item[\textbf{ANO / NE}] Ortogonální projekce na podprostor $W$ je lineární zobrazení $P: V \to V$, pro které platí $P^2 = P$.
+    \end{itemize}
+
+    \item \textbf{Vlastní čísla a vektory:} Nechť $A$ je čtvercová matice řádu $n$ nad $\mathbb{R}$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pokud $v$ je vlastní vektor matice $A$ příslušný vlastnímu číslu $\lambda$, pak $2v$ je rovněž vlastní vektor matice $A$ příslušný stejnému vlastnímu číslu.
+        \item[\textbf{ANO / NE}] Každá matice nad $\mathbb{R}$ má alespoň jedno reálné vlastní číslo.
+        \item[\textbf{ANO / NE}] Nula je vlastním číslem matice $A$ právě tehdy, když je matice $A$ singulární.
+    \end{itemize}
+
+    \item \textbf{Diagonalizace a podobnost:} Nechť $A, B$ jsou čtvercové matice řádu $n$ nad $\mathbb{C}$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pokud jsou matice $A$ a $B$ podobné, mají stejný charakteristický polynom.
+        \item[\textbf{ANO / NE}] Geometrická násobnost vlastního čísla může být ostře větší než jeho algebraická násobnost.
+        \item[\textbf{ANO / NE}] Pokud má matice řádu $n$ navzájem $n$ různých vlastních čísel, pak je diagonalizovatelná.
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část II: Definice (12 bodů)}
+\textit{Uveďte přesnou definici následujících pojmů (včetně všech předpokladů na prostory a zobrazení). (3 body za každou definici)}
+
+\begin{enumerate}
+    \item Obecný skalární součin na vektorovém prostoru $V$ nad komplexními čísly $\mathbb{C}$.
+    \item Ortogonální doplněk množiny $M \subseteq V$.
+    \item Vlastní číslo a vlastní vektor lineárního operátoru $f: V \to V$.
+    \item Podobnost matic $A$ a $B$ a diagonalizovatelná matice.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část III: Jednoduché příklady (15 bodů)}
+\textit{Vypočtěte nebo určete. Stačí uvést správný výsledek. (3 body za každý příklad)}
+
+\begin{enumerate}
+    \item V prostoru $\mathbb{R}^3$ se standardním skalárním součinem určete kosinus úhlu mezi vektory $u = (1, 2, 2)^T$ a $v = (-2, 1, 2)^T$.
+    \item Nechť matice $A$ typu $3 \times 3$ má vlastní čísla $2, -1, 3$. Určete determinant matice $A^3$.
+    \item Najděte ortogonální projekci vektoru $v = (1, 1, 0)^T$ na jednodimenzionální podprostor $W = \text{span}\{(1, -1, 1)^T\}$ v $\mathbb{R}^3$.
+    \item Napište charakteristický polynom matice $A = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ a najděte její vlastní čísla nad $\mathbb{C}$.
+    \item Nechť $A$ je symetrická matice typu $n \times n$ taková, že $A^2 = 0$. Co platí o matici $A$? (Určete matici $A$).
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část IV: Formulace tvrzení (12 bodů)}
+\textit{Zformulujte přesně následující věty/tvrzení (není třeba dokazovat). Nezapomeňte na předpoklady. (3 body za každé tvrzení)}
+
+\begin{enumerate}
+    \item Cauchy-Schwarzova nerovnost (pro obecný skalární součin).
+    \item Gram-Schmidtův proces ortogonalizace (včetně tvrzení o lineárních obalech).
+    \item Věta o lineární nezávislosti vlastních vektorů příslušných různým vlastním číslům.
+    \item Spektrální věta pro reálné symetrické matice (Věta o ortogonální diagonalizaci).
+\end{enumerate}
+
+\newpage
+
+\section*{Část V: Početní příklady s postupem (15 bodů)}
+\textit{Vyřešte následující úlohy. Uveďte podrobný postup řešení. (5 bodů za každý příklad)}
+
+\begin{enumerate}
+    \item \textbf{Metoda nejmenších čtverců:} Nalezněte přibližné řešení $x \in \mathbb{R}^2$ přeurčené soustavy lineárních rovnic $Ax = b$, kde:
+    $$
+    A = \begin{pmatrix} 1 & 1 \\ 1 & -1 \\ 1 & 1 \end{pmatrix}, \quad b = \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix}
+    $$
+
+    \item \textbf{Gram-Schmidtova ortogonalizace:} V prostoru $\mathbb{R}^4$ se standardním skalárním součinem je dán podprostor $W = \text{span}\{v_1, v_2, v_3\}$, kde
+    $$ v_1 = (1, 1, 1, 1)^T, \quad v_2 = (1, 1, -1, -1)^T, \quad v_3 = (1, -1, 0, 0)^T. $$
+    Najděte ortogonální bázi podprostoru $W$. Následně najděte souřadnice vektoru $u = (3, 1, 2, -2)^T$ vzhledem k této nalezené ortogonální bázi (předpokládejte, že $u \in W$).
+
+    \item \textbf{Diagonalizace:} Pro zadanou matici $A$ nad $\mathbb{R}$ nalezněte regulární matici $P$ a diagonální matici $D$ takové, že $A = PDP^{-1}$.
+    $$
+    A = \begin{pmatrix}
+    4 & 0 & -2 \\
+    2 & 5 & -4 \\
+    0 & 0 &  5
+    \end{pmatrix}
+    $$
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část VI: Důkazy jednodušších tvrzení (20 bodů)}
+\textit{Dokažte následující tvrzení. (5 bodů za každý důkaz)}
+
+\begin{enumerate}
+    \item Pomocí vlastností skalárního součinu a definice normy dokažte Pythagorovu větu: Jsou-li $u, v \in V$ ortogonální, pak $\|u + v\|^2 = \|u\|^2 + \|v\|^2$. Rozhodněte, zda platí i opačná implikace pro prostory nad $\mathbb{R}$.
+    \item Dokažte, že pokud je $A$ reálná symetrická matice, pak vlastní vektory příslušné dvěma různým vlastním číslům $\lambda_1 \neq \lambda_2$ jsou na sebe kolmé (vzhledem ke standardnímu skalárnímu součinu).
+    \item Nechť $A$ je libovolná reálná matice typu $m \times n$. Dokažte, že $\ker(A^T A) = \ker(A)$. (Nápověda: uvažujte zkoumání $\|Ax\|^2 = x^T A^T A x$).
+    \item Dokažte, že jsou-li matice $A$ a $B$ podobné a matice $A$ je regulární, pak je regulární i matice $B$.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část VII: Úlohy na zamyšlení (18 bodů)}
+\textit{Vyřešte nebo dokažte následující náročnější úlohy. (6 bodů za každou úlohu)}
+
+\begin{enumerate}
+    \item \textbf{Mocniny a spektrální rozklad:} Matice $A$ typu $2 \times 2$ má vlastní vektory $v_1 = (1, 1)^T$ a $v_2 = (1, -1)^T$ příslušné vlastním číslům $\lambda_1 = 2$ a $\lambda_2 = \frac{1}{2}$. Vypočítejte $A^{10} \begin{pmatrix} 3 \\ 1 \end{pmatrix}$. Lze limitně určit, k čemu se blíží hodnota $A^k x$ pro $k \to \infty$ pro libovolný vektor $x$?
+
+    \item \textbf{Vlastnosti ortogonálních matic:} Nechť $Q$ je reálná ortogonální matice řádu $n$ (tj. platí $Q^T Q = I$).
+    Dokažte, že pokud je $\lambda$ (obecně komplexní) vlastní číslo matice $Q$, pak jeho absolutní hodnota $|\lambda| = 1$. Dále ukažte, že $|\det Q| = 1$.
+
+    \item \textbf{Jordanův tvar a nilpotence:} Nechť $N$ je nenulová čtvercová matice řádu $3$ nad $\mathbb{R}$ taková, že $N^3 = 0$ (nulová matice), ale $N^2 \neq 0$. Jaké jediné vlastní číslo matice $N$ má? Jaký musí být její Jordanův kanonický tvar? Své závěry detailně zdůvodněte.
+\end{enumerate}
+
+\end{document}

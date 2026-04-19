@@ -1,0 +1,158 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumerate}
+
+\title{\textbf{Velká písemná práce z Lineární algebry 2}}
+\author{Letní semestr -- Vlastní čísla a Skalární součin}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent \textbf{Instrukce:}
+\begin{itemize}
+    \item Celkový počet bodů: 100.
+    \item Pro zisk zápočtu je třeba alespoň 60 bodů.
+    \item \textbf{Sekce I (Ano/Ne):} K získání bodů za otázku je třeba odpovědět správně na všechny tři její podčásti.
+    \item Všude, kde není řečeno jinak, značí $\langle \cdot, \cdot \rangle$ standardní skalární součin na $\mathbb{R}^n$, resp.\ $\mathbb{C}^n$.
+\end{itemize}
+
+\hrule
+\vspace{0.5cm}
+
+\section*{Část I: Ano/Ne (8 bodů)}
+\textit{Rozhodněte, zda platí následující tvrzení. Není třeba zdůvodňovat. (2 body za každou správně zodpovězenou trojici)}
+
+\begin{enumerate}[(a)]
+    \item \textbf{Vlastní čísla:} Nechť $A$ je čtvercová matice řádu $n$ nad $\mathbb{R}$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pokud $\lambda$ je vlastní číslo matice $A$ s vlastním vektorem $v$, pak $\lambda^k$ je vlastní číslo matice $A^k$ se stejným vlastním vektorem $v$ pro každé $k \in \mathbb{N}$.
+        \item[\textbf{ANO / NE}] Každá matice nad $\mathbb{R}$ má alespoň jedno reálné vlastní číslo.
+        \item[\textbf{ANO / NE}] Matice $A$ a $A^T$ mají stejný charakteristický polynom.
+    \end{itemize}
+
+    \item \textbf{Diagonalizovatelnost:} Nechť $A$ je čtvercová matice řádu $n$ nad $\mathbb{C}$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pokud má $A$ právě $n$ různých vlastních čísel, pak je $A$ diagonalizovatelná.
+        \item[\textbf{ANO / NE}] Pokud $A^2 = A$, pak je $A$ diagonalizovatelná.
+        \item[\textbf{ANO / NE}] Pokud je algebraická násobnost každého vlastního čísla rovna jeho geometrické násobnosti, pak je $A$ diagonalizovatelná.
+    \end{itemize}
+
+    \item \textbf{Skalární součin:} Nechť $V$ je reálný vektorový prostor se skalárním součinem $\langle \cdot, \cdot \rangle$ a indukovanou normou $\|\cdot\|$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Pro libovolné $u, v \in V$ platí $|\langle u, v \rangle| \leq \|u\| \cdot \|v\|$, přičemž rovnost nastává právě tehdy, když jsou $u, v$ lineárně závislé.
+        \item[\textbf{ANO / NE}] Předpis $\langle u, v \rangle := u_1 v_1 - u_2 v_2$ je skalární součin na $\mathbb{R}^2$.
+        \item[\textbf{ANO / NE}] Pokud $\|u+v\|^2 = \|u\|^2 + \|v\|^2$, pak jsou vektory $u, v$ ortogonální.
+    \end{itemize}
+
+    \item \textbf{Ortogonalita a ortogonální matice:} Nechť $U \leq \mathbb{R}^n$ je podprostor a $Q \in \mathbb{R}^{n \times n}$.
+    \begin{itemize}
+        \item[\textbf{ANO / NE}] Platí $\dim(U) + \dim(U^\perp) = n$ a $(U^\perp)^\perp = U$.
+        \item[\textbf{ANO / NE}] Matice $Q$ je ortogonální právě tehdy, když její sloupce tvoří ortonormální bázi $\mathbb{R}^n$.
+        \item[\textbf{ANO / NE}] Pokud je $Q$ ortogonální, pak všechna její reálná vlastní čísla jsou rovna $\pm 1$.
+    \end{itemize}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část II: Definice (12 bodů)}
+\textit{Uveďte přesnou definici následujících pojmů (včetně předpokladů). (3 body za každou definici)}
+
+\begin{enumerate}
+    \item Vlastní číslo a vlastní vektor čtvercové matice $A$ nad tělesem $T$.
+    \item Charakteristický polynom čtvercové matice. Uveďte též definici algebraické a geometrické násobnosti vlastního čísla.
+    \item Skalární součin na vektorovém prostoru $V$ nad $\mathbb{R}$ (resp.\ $\mathbb{C}$).
+    \item Ortogonální doplněk $U^\perp$ podmnožiny $U$ prostoru $V$ se skalárním součinem.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část III: Jednoduché příklady (15 bodů)}
+\textit{Vypočtěte nebo určete. Stačí uvést správný výsledek. (3 body za každý příklad)}
+
+\begin{enumerate}
+    \item Najděte všechna (i komplexní) vlastní čísla matice 
+    $$A = \begin{pmatrix} 2 & -1 \\ 5 & -2 \end{pmatrix} \text{ nad } \mathbb{R}.$$
+    
+    \item Rozhodněte, zda je matice $\begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$ diagonalizovatelná nad $\mathbb{R}$. Odpověď stručně zdůvodněte.
+    
+    \item V prostoru $\mathbb{R}^4$ se standardním skalárním součinem vypočtěte kosinus úhlu mezi vektory $u = (1, 2, 2, 0)^T$ a $v = (0, 1, 1, 1)^T$.
+    
+    \item Gram--Schmidtovým ortogonalizačním procesem ortogonalizujte dvojici vektorů $v_1 = (1, 1, 0)^T$, $v_2 = (1, 0, 1)^T$ v $\mathbb{R}^3$ se standardním skalárním součinem.
+    
+    \item Najděte ortogonální doplněk podprostoru $U = \mathrm{span}\{(1,2,1,0)^T, (0,1,1,1)^T\}$ v $\mathbb{R}^4$.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část IV: Formulace tvrzení (12 bodů)}
+\textit{Zformulujte přesně následující věty/tvrzení (není třeba dokazovat). (3 body za každé tvrzení)}
+
+\begin{enumerate}
+    \item Cayleyova--Hamiltonova věta.
+    \item Věta o nutné a postačující podmínce diagonalizovatelnosti matice (pomocí násobností vlastních čísel).
+    \item Cauchyova--Schwarzova nerovnost (včetně podmínky pro rovnost).
+    \item Věta o existenci ortonormální báze v konečněrozměrném prostoru se skalárním součinem (Gram--Schmidtova věta).
+\end{enumerate}
+
+\newpage
+
+\section*{Část V: Početní příklady s postupem (15 bodů)}
+\textit{Vyřešte následující úlohy. Uveďte podrobný postup řešení. (5 bodů za každý příklad)}
+
+\begin{enumerate}
+    \item Najděte všechna vlastní čísla a odpovídající vlastní vektory matice 
+    $$A = \begin{pmatrix} 1 & 2 & 2 \\ 2 & 1 & 2 \\ 2 & 2 & 1 \end{pmatrix}$$
+    nad $\mathbb{R}$. Rozhodněte, zda je $A$ diagonalizovatelná, a pokud ano, najděte regulární matici $P$ a diagonální matici $D$ takové, že $P^{-1} A P = D$.
+    
+    \item V prostoru $\mathbb{R}^4$ se standardním skalárním součinem proveďte Gram--Schmidtovu ortonormalizaci vektorů 
+    $$v_1 = (1, 1, 0, 0)^T, \quad v_2 = (1, 0, 1, 0)^T, \quad v_3 = (1, 0, 0, 1)^T.$$
+    
+    \item Nechť $U \leq \mathbb{R}^4$ je podprostor s bází $\{(1, 1, 0, 0)^T, (0, 0, 1, 1)^T\}$ (se standardním skalárním součinem). Najděte ortogonální projekci vektoru $v = (1, 2, 3, 4)^T$ do podprostoru $U$ a spočtěte vzdálenost vektoru $v$ od podprostoru $U$.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část VI: Důkazy jednodušších tvrzení (20 bodů)}
+\textit{Dokažte následující tvrzení. (5 bodů za každý důkaz)}
+
+\begin{enumerate}
+    \item Nechť $A$ je čtvercová matice nad tělesem $T$ a $\lambda_1, \ldots, \lambda_k$ jsou navzájem různá vlastní čísla $A$ s odpovídajícími vlastními vektory $v_1, \ldots, v_k$. Dokažte, že vektory $v_1, \ldots, v_k$ jsou lineárně nezávislé.
+    
+    \item Dokažte Cauchyovu--Schwarzovu nerovnost: pro libovolné vektory $u, v$ v reálném prostoru se skalárním součinem platí $|\langle u, v \rangle| \leq \|u\| \cdot \|v\|$.
+    
+    \item Nechť $U$ je konečněrozměrný podprostor prostoru $V$ se skalárním součinem. Dokažte, že $V = U \oplus U^\perp$ (tj.\ že $U \cap U^\perp = \{o\}$ a $V = U + U^\perp$).
+    
+    \item Dokažte, že pro každou ortogonální matici $Q \in \mathbb{R}^{n \times n}$ platí $|\det(Q)| = 1$. Ukažte též, že podobné matice mají stejný charakteristický polynom.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\section*{Část VII: Úlohy na zamyšlení (18 bodů)}
+\textit{Vyřešte nebo dokažte následující náročnější úlohy. (6 bodů za každou úlohu)}
+
+\begin{enumerate}
+    \item \textbf{Vlastní čísla symetrických matic:} Nechť $A \in \mathbb{R}^{n \times n}$ je symetrická matice (tj.\ $A^T = A$). Dokažte, že:
+    \begin{enumerate}[(a)]
+        \item všechna vlastní čísla matice $A$ jsou reálná,
+        \item vlastní vektory odpovídající různým vlastním číslům jsou na sebe kolmé (vzhledem ke standardnímu skalárnímu součinu).
+    \end{enumerate}
+    
+    \item \textbf{Besselova nerovnost:} Nechť $V$ je prostor se skalárním součinem a $\{e_1, e_2, \ldots, e_k\}$ je ortonormální systém vektorů ve $V$. Dokažte, že pro každý vektor $v \in V$ platí
+    $$
+    \sum_{i=1}^{k} |\langle v, e_i \rangle|^2 \leq \|v\|^2.
+    $$
+    Určete, kdy nastává rovnost.
+    
+    \item \textbf{Stopa a vlastní čísla:} Nechť $A \in \mathbb{C}^{n \times n}$ a $\lambda_1, \ldots, \lambda_n$ jsou vlastní čísla matice $A$ (počítaná s algebraickými násobnostmi). Dokažte, že
+    $$
+    \mathrm{tr}(A) = \sum_{i=1}^{n} \lambda_i \quad \text{a} \quad \det(A) = \prod_{i=1}^{n} \lambda_i.
+    $$
+    \textit{Nápověda: použijte vztah charakteristického polynomu a jeho koeficientů.}
+\end{enumerate}
+
+\end{document}
