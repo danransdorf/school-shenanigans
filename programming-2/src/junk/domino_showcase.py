@@ -8,6 +8,7 @@ Algoritmické optimalizace:
 """
 
 import sys
+from functools import lru_cache
 
 #####
 # Input
@@ -21,6 +22,7 @@ dominos: list[tuple[int, int]] = [(next(numbers), next(numbers)) for _ in range(
 #####
 # Hledání
 #####
+@lru_cache
 def find_longest(free: frozenset[int], tail: int | None) -> int:
   maximum = 0
   for idx in list(free):
