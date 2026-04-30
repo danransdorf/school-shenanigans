@@ -19,24 +19,27 @@ dominos: list[tuple[int, int]] = [(next(numbers), next(numbers)) for _ in range(
 
 
 #####
-# BFS
+# Hledání
 #####
 def find_longest(free: frozenset[int], tail: int | None) -> int:
   maximum = 0
   for idx in list(free):
     left, right = dominos[idx]
     if tail is None:
+      # řada domin ještě nezačala, zkusme obě orientace domina
       maximum = max(
         maximum,
         1 + find_longest(free=free - {idx}, tail=left),
         1 + find_longest(free=free - {idx}, tail=right),
       )
     elif tail == left:
+      # konec řady se shoduje s hodnotou vlevo, položme domino a řada bude končit hodnotou vpravo
       maximum = max(
         maximum,
         1 + find_longest(free=free - {idx}, tail=right),
       )
     elif tail == right:
+      # konec řady se shoduje s hodnotou vpravo, položme domino a řada bude končit hodnotou vlevo
       maximum = max(
         maximum,
         1 + find_longest(free=free - {idx}, tail=left),
