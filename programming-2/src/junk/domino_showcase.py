@@ -2,9 +2,8 @@
 Idea: Průchod všemi stavy. Aktuální stav je množina volných dílků a číslo, kterým končí naše aktuální řada domin.
 
 Algoritmické optimalizace:
-  1. Memoizace navštívených stavů
-  2. Před průchodem sestavit "seznam sousedů" (adjacency list), pak nebude třeba iterovat přes všechny volné dílky.
-  3. Zbavit se symetrie, neprocházet identické řady akorát v otočeném pořadí
+  1. Před průchodem sestavit "seznam sousedů" (adjacency list), pak nebude třeba iterovat přes všechny volné dílky.
+  2. Zbavit se symetrie, neprocházet identické řady akorát v otočeném pořadí
 """
 
 import sys
