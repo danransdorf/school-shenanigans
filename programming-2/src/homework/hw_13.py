@@ -12,6 +12,7 @@ class Zvire:
 
     return f"{self.nazev}: {self.dalsi.nazev} ma ode me kousanec"
 
+
 # zkus načíst první
 first_phrase = input().strip()
 if first_phrase == "konec":

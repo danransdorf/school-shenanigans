@@ -10,6 +10,8 @@ Disclaimer: The code was provided by the instructor as-is (intentionally cryptic
 
 """
 
+# ruff: noqa # template
+
 
 class Graf:
   """

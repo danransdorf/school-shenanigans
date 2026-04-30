@@ -5,7 +5,7 @@ Note: This homework was completed using assigned template, hence the unstandard 
 """
 
 
-# ruff: noqa: N802 # template
+# ruff: noqa # template
 
 
 class Prvek:
