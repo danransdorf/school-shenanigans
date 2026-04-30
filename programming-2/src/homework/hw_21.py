@@ -1,8 +1,8 @@
 """
-Idea: Průchod grafem (možnostmi) do šířky, v procesu udržujeme jen jaké dílky jsou nepoužité
+Idea: Průchod grafem (možnostmi), v procesu udržujeme jen jaké dílky jsou nepoužité
   a jakým číslem končí náš aktuálně sestavený řetěz domin.
 
-Technické rozhodnutí:
+Technická rozhodnutí:
   1. Pro udržování volných polí se nabízí set nebo list,
     ty bohůžel nejdou cachovat (hashovat), je třeba zvolit frozenset.
     Ten je ale pomalý v operacích, vždy se musí naklonovat v O(n). Tedy udržujme
