@@ -1,0 +1,69 @@
+\documentclass[12pt]{article}
+\usepackage[a3paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm, ulem, booktabs}
+
+\begin{document}
+
+\section*{Cvičení 7. 5. 2026}
+
+Vypracoval: Daniel Ransdorf \hfill Podpis: \rule{4cm}{0.4pt}
+
+
+\bigskip
+
+\section{Problém}
+Dva hráči na ploše 3x3 střídavě zapisují své značky - O nebo X (písmeno "O" nebo písmeno "X"). Pokud se některému hráči podaří umísit tři své značky v řadě - vodorovně, svisle nebo úhlopříčně, vyhrál. Známe počáteční stav, chceme vyhodnotit, zda hráč na tahu může vynutit výhru, remízu, nebo jestli nuceně prohrává.
+\section{Návrh}
+Po celý návrh ignorujme neplatné stavy, kde mají výherní trojici oba hráči (v programování toto vyrazíme validací).
+Pozorujme:
+\begin{enumerate}
+  \item mezi stavama piškvorek neexistují cykly (každý nový stav má o volné pole méně)
+  \item každý stav vede do konečného stavu maximálně v 9 krocích (ze stejného důvodu)
+\end{enumerate}
+
+\subsection{Základní definice}
+
+Označme aktuální stav $S$, BÚNO zvolme X ("křížky") jako hráče na tahu. Označme $S_1,S_2,...,S_n$ herní stavy, po zahrání tahu ve stavu $S$.
+Označme funkci $f_X$, která vyhodnocuje, zda je stav z pohledu X nucená výhra/remíza/prohra. Definujme hodnoty výhra=1,remíza=0,prohra=-1,
+s ideou, abychom měli uspořádání stavů (výhra>remíza>prohra).
+Předpokládáme, že X hraje nejlepší možné tahy, čili výsledkem aktuálního stavu je výsledek nejlepšího tahu. Definujme:
+
+\[
+  f_X(S) := max\left\{ f_X(S_1),...,f_X(S_n) \right\}
+\]
+
+Aby byla definice kompletní, mějme stav $A$, kde je na tahu hráč O, označme následné stavy $A_1,...,A_n$.
+Hráč O hraje taky nejlepší tahy, čili z našeho pohledu je výsledek "nejhorší možný, co O může zahrát".
+Definujme tedy:
+
+\[
+  f_X(A) := min\left\{ f_X(A_1),...,f_X(A_n) \right\}
+\]
+
+Ještě triviálně zadefinujeme všechny konečné stavy, aby rekurze někde skončila. Z pozorování víme,
+že rekurze někdy skončí, také, že se nemá, jak zacyklit.
+
+(obdobně zavedeme $f_O$)
+
+\subsection{Zjednodušení pro implementaci}
+
+Nechceme rozlišovat, ze kterého pohledu výsledky hodnotíme. Zaveďme jen jednu funkci $eval$, která stav hodnotí
+z pohledu hráče na tahu. Když bude na tahu druhý hráč (ne ten z našeho pohledu), stačí otočit znaménko.
+Definice funkce pak bude vypadat podobnou úvahou takto:
+
+\[
+  f(S) := max\left\{ -f(S_1),...,-f(S_n) \right\}
+\]
+
+Zjednodušme na:
+
+\[
+  f(S) := -min\left\{ f(S_1),...,f(S_n) \right\}
+\]
+
+\subsection{Technikálie}
+
+Výsledek stavů bychom mohli memoizovat. Jakmile nám v rekurzi nějaká funkce zvýší výsledek na $1$, můžeme ihned vracet,
+není nic lepšího, co hledat.
+
+\end{document}
